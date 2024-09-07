@@ -23,20 +23,31 @@ class ProjectResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->required()
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('icon')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\FileUpload::make('image')
-                    ->image(),
+                Forms\Components\Section::make('Project Information')
+                    ->description('This is the information about the project.')
+                    ->schema([
+                        Forms\Components\TextInput::make('name')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('slug')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('icon')
+                            ->maxLength(255)
+                            ->default(null),
+                    ])
+                    ->columns(3),
+                Forms\Components\Section::make('Project Details')
+                    ->description('This is the details about the project.')
+                    ->schema([
+                        Forms\Components\Textarea::make('description')
+                            ->required()
+                            ->columnSpanFull(),
+                        Forms\Components\FileUpload::make('image')
+                            ->image()
+                            ->columnSpanFull(),
+                    ])
+                    ->columns(3),
                 Forms\Components\Toggle::make('active')
                     ->required(),
             ]);

@@ -23,24 +23,34 @@ class ServiceResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->required()
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('price')
-                    ->required()
-                    ->numeric()
-                    ->prefix('$'),
-                Forms\Components\TextInput::make('icon')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\FileUpload::make('image')
-                    ->image(),
+                Forms\Components\Section::make('Service Information')
+                    ->description('This is the information about the your service.')
+                    ->schema([
+                        Forms\Components\TextInput::make('name')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('slug')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('icon')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('price')
+                            ->required()
+                            ->numeric()
+                            ->prefix('$'),
+                    ])->columns(2),
+
+                Forms\Components\Section::make('Service Details')
+                    ->description('This is the details about the your service.')
+                    ->schema([
+                        Forms\Components\Textarea::make('description')
+                            ->required()
+                            ->columnSpanFull(),
+                        Forms\Components\FileUpload::make('image')
+                            ->image()
+                            ->columnSpanFull(),
+                    ])->columns(2),
                 Forms\Components\Toggle::make('active')
                     ->required(),
             ]);
