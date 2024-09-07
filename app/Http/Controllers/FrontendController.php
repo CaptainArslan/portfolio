@@ -12,6 +12,11 @@ class FrontendController extends Controller
         return view('index');
     }
 
+    public function about(): View
+    {
+        return view('about');
+    }
+
     public function privacy(): View
     {
         return view('privacy');
@@ -31,4 +36,15 @@ class FrontendController extends Controller
     {
         return view('project');
     }
+
+    public function contact(): View
+    {
+        return view('contact');
+    }
+
+    public function services(): View
+    {
+        return view('services');
+    }
+
 }

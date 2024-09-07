@@ -18,10 +18,10 @@
                         <a class="nav-link page-scroll" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#about">About</a>
+                        <a class="nav-link page-scroll" href="{{ route('about') }}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#services">Services</a>
+                        <a class="nav-link page-scroll" href="{{ route('services') }}">Services</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
@@ -35,7 +35,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#contact">Contact</a>
+                        <a class="nav-link page-scroll" href="{{ route('contact') }}">Contact</a>
                     </li>
                 </ul>
                 <span class="nav-item social-icons">
