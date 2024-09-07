@@ -15,7 +15,7 @@
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#header">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link page-scroll" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="#about">About</a>
@@ -25,13 +25,13 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Drop</a>
+                            aria-haspopup="true" aria-expanded="false">More</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <a class="dropdown-item page-scroll" href="{{ route('project') }}">Project Details</a>
+                            <a class="dropdown-item page-scroll" href="{{ route('projects') }}">All Projects</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item page-scroll" href="{{ route('term') }}">Terms Conditions</a>
+                            <a class="dropdown-item page-scroll" href="{{ route('terms') }}">Terms & Conditions</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item page-scroll" href="{{ route('privacy') }}">Privacy Policy</a>
+                            <a class="dropdown-item page-scroll" href="{{ route('policies') }}">Privacy Policy</a>
                         </div>
                     </li>
                     <li class="nav-item">
