@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', [FrontendController::class, 'index']);
+Route::get('home', [FrontendController::class, 'index'])->name('home');
 
 Route::get('/privacy', function () {
     return view('privacy');
