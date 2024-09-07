@@ -34,7 +34,7 @@ class FrontendController extends Controller
 
     public function projects(): View
     {
-        return view('project');
+        return view('projects');
     }
 
     public function contact(): View
@@ -47,4 +47,8 @@ class FrontendController extends Controller
         return view('services');
     }
 
+    public function projectsDetails(): View
+    {
+        return view('project-details');
+    }
 }

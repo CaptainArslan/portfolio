@@ -32,6 +32,52 @@
 
     <!-- Favicon  -->
     <link rel="icon" href="images/favicon.png">
+    <style>
+        .pagination .page-link {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            padding: 0;
+            margin: 0 5px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            color: #007bff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .pagination .page-link:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .pagination .page-item a{
+            color: #007bff;
+            text-decoration: none
+        }
+
+        .pagination .page-link:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+
+        .pagination .page-item.disabled .page-link {
+            background-color: #e9ecef;
+            color: #6c757d;
+        }
+
+        .pagination .page-link[aria-label="Previous"],
+        .pagination .page-link[aria-label="Next"] {
+            font-size: 1.25rem;
+        }
+    </style>
     @yield('styles')
 </head>
 

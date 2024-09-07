@@ -10,5 +10,5 @@ Route::get('contact', [FrontendController::class, 'contact'])->name('contact');
 Route::get('policies', [FrontendController::class, 'privacy'])->name('policies');
 Route::get('terms', [FrontendController::class, 'terms'])->name('terms');
 Route::get('projects', [FrontendController::class, 'projects'])->name('projects');
-Route::get('projects/details', [FrontendController::class, 'projects'])->name('projects.details');
+Route::get('projects/details', [FrontendController::class, 'projectsDetails'])->name('projects.details');
 Route::get('services', [FrontendController::class, 'services'])->name('services');
