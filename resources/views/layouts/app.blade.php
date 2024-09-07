@@ -6,17 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Your description">
-    <meta name="author" content="Your name">
+    <meta name="description"
+        content="M Arslan - Experienced PHP Laravel Developer with expertise in PHP, Laravel, MySQL, HTML, CSS, Bootstrap, APIs, AJAX, jQuery, and JavaScript. Building dynamic web applications with modern technologies.">
+    <meta name="author" content="M Arslan">
 
     <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
-    <meta property="og:site_name" content="" /> <!-- website name -->
-    <meta property="og:site" content="" /> <!-- website link -->
-    <meta property="og:title" content="" /> <!-- title shown in the actual shared post -->
-    <meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
-    <meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
-    <meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+    <meta property="og:site_name" content="{{ env('APP_NAME') }} - PHP Laravel Developer" /> <!-- website name -->
+    <meta property="og:site" content="{{ config('app.url') }}" /> <!-- website link -->
+    <meta property="og:title" content="{{ env('APP_NAME') }} - Expert PHP Laravel Developer" />
+    <!-- title shown in the actual shared post -->
+    <meta property="og:description"
+        content="Explore the portfolio of {{ env('APP_NAME') }}, a seasoned PHP Laravel developer with expertise in PHP, Laravel, MySQL, HTML, CSS, Bootstrap, APIs, AJAX, and JavaScript." />
+    <!-- description shown in the actual shared post -->
+    <meta property="og:image" content="{{ config('app.url') }}/images/portfolio-preview.jpg" />
+    <!-- image link, make sure it's jpg -->
+    <meta property="og:url" content="{{ config('app.url') }}" /> <!-- where do you want your post to link to -->
     <meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
+
+
+
+    <!-- Favicon Meta Tags -->
+    <link rel="icon" href="{{ asset('images/favicons/logo.ico') }}" type="image/x-icon"> <!-- Standard favicon for browsers -->
+    <link rel="shortcut icon" href="{{ asset('images/favicons/logo.ico') }}" type="image/x-icon"> <!-- Legacy support for old browsers -->
+
+    <!-- Apple Touch Icons (for iPhone/iPad) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicons/favicon-180x180.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('images/favicons/favicon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('images/favicons/favicon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('images/favicons/favicon-76x76.png') }}">
+
+    <!-- Android and Windows Tiles -->
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('images/favicons/favicon-192x192.png') }}"> <!-- Android -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicons/favicon-32x32.png') }}">
+    <!-- Standard icon size for most browsers -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicons/favicon-16x16.png') }}">
+    <!-- Smaller size favicon -->
+
+    <!-- Microsoft Tile for Windows -->
+    <meta name="msapplication-TileColor" content="#ffffff"> <!-- Tile color for Windows -->
+    <meta name="msapplication-TileImage" content="{{ asset('images/favicons/favicon-144x144.png') }}">
 
     <!-- Webpage Title -->
     <title>@yield('title', env('APP_NAME')) | {{ config('app.name') }}</title>
@@ -52,7 +80,7 @@
             color: #fff;
         }
 
-        .pagination .page-item a{
+        .pagination .page-item a {
             color: #007bff;
             text-decoration: none
         }

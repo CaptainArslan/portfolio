@@ -13,7 +13,7 @@ Table Of Contents:
 - Testimonials
 - Questions
 - Contact
-- Footer 
+- Footer
 - Copyright
 - Back To Top Button
 - Extra Pages
@@ -40,7 +40,7 @@ html {
 }
 
 body, p {
-	color: #4d5055; 
+	color: #4d5055;
 	font: 400 1rem/1.625rem "Open Sans", sans-serif;
 }
 
@@ -384,9 +384,13 @@ input[type='checkbox'] {
 	padding-bottom: 0.125rem;
 }
 
-.navbar .logo-image img {
+/* .navbar .logo-image img {
     width: 118px;
 	height: 36px;
+} */
+
+.navbar .logo-image img {
+    width: 70px;
 }
 
 .navbar .logo-text {
@@ -686,7 +690,7 @@ input[type='checkbox'] {
 	-moz-transform: scale(1.1);
 	-webkit-transform: scale(1.1);
 	transform: scale(1.1);
-} 
+}
 /* end of hover animation */
 
 
@@ -721,7 +725,7 @@ input[type='checkbox'] {
 	-moz-transform: scale(1.15);
 	-webkit-transform: scale(1.15);
 	transform: scale(1.15);
-} 
+}
 /* end of hover animation */
 
 
@@ -824,7 +828,7 @@ input[type='checkbox'] {
 	-webkit-transform: rotate(180deg);
 	-moz-transform: rotate(180deg);
 	transform: rotate(180deg);
-} 
+}
 
 .accordion-1 .card-body {
 	padding: 0.75rem 1.5rem 0.5rem 1.5rem;
@@ -991,7 +995,7 @@ a:hover.back-to-top {
 
 /*************************/
 /*     Media Queries     */
-/*************************/	
+/*************************/
 /* Min-width 768px */
 @media (min-width: 768px) {
 
@@ -1022,7 +1026,7 @@ a:hover.back-to-top {
 
 /* Min-width 992px */
 @media (min-width: 992px) {
-	
+
 	/* General Styles */
 	.h2-heading {
 		width: 35.25rem;
@@ -1075,7 +1079,7 @@ a:hover.back-to-top {
 		margin-top: 0;
 		margin-bottom: 0;
 	}
-	
+
 	.navbar .nav-item .nav-link {
 		padding-right: 0.625rem;
 		padding-left: 0.625rem;
@@ -1093,7 +1097,7 @@ a:hover.back-to-top {
 	.navbar .social-icons {
 		margin-left: 0.5rem;
 	}
-	
+
 	.navbar .fa-stack {
 		margin-right: 0;
 		margin-left: 0.25rem;
@@ -1114,13 +1118,13 @@ a:hover.back-to-top {
 	.split {
 		height: 760px;
 	}
-	
+
 	.split .area-1 {
 		height: 100%;
 		width: 50%;
 		display: inline-block;
 	}
-	
+
 	.split .area-2 {
 		height: 100%;
 		width: 50%;
@@ -1155,11 +1159,11 @@ a:hover.back-to-top {
 		display: flex;
 		align-items: flex-start;
 	}
-	
+
 	.cards-1 .details .text {
 		flex-direction: column;
 	}
-	
+
 	.cards-1 .details img {
 		margin-right: 1.125rem;
 	}
@@ -1258,13 +1262,13 @@ a:hover.back-to-top {
 	.cards-1 .card {
 		width: 338px;
 	}
-	
+
 	.cards-1 .card:nth-of-type(3n+2) {
 		margin-right: 2.625rem;
 		margin-left: 2.625rem;
 	}
 	/* end of testimonials */
-	
+
 
 	/* Extra Pages */
 	.ex-cards-1 .card {
