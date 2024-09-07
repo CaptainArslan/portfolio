@@ -2,16 +2,17 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ServiceResource\Pages;
-use App\Filament\Resources\ServiceResource\RelationManagers;
-use App\Models\Service;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Service;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use App\Models\ServiceIcon;
+use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\ServiceResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\ServiceResource\RelationManagers;
 
 class ServiceResource extends Resource
 {
@@ -32,9 +33,13 @@ class ServiceResource extends Resource
                         Forms\Components\TextInput::make('slug')
                             ->required()
                             ->maxLength(255),
-                        Forms\Components\TextInput::make('icon')
-                            ->maxLength(255)
-                            ->default(null),
+                        Forms\Components\Select::make('service_icon_id')
+                            ->required()
+                            ->relationship(name: 'serviceIcon', titleAttribute: 'name')
+                            ->searchable(true)
+                            ->preload(true)
+                            ->native(false)
+                            ->multiple(false),
                         Forms\Components\TextInput::make('price')
                             ->required()
                             ->numeric()
@@ -44,11 +49,13 @@ class ServiceResource extends Resource
                 Forms\Components\Section::make('Service Details')
                     ->description('This is the details about the your service.')
                     ->schema([
-                        Forms\Components\Textarea::make('description')
-                            ->required()
-                            ->columnSpanFull(),
                         Forms\Components\FileUpload::make('image')
                             ->image()
+                            ->columnSpanFull()
+                            ->maxFiles(1)
+                            ->acceptedFileTypes(['image/*']),
+                        Forms\Components\Textarea::make('description')
+                            ->required()
                             ->columnSpanFull(),
                     ])->columns(2),
                 Forms\Components\Toggle::make('active')
@@ -66,8 +73,12 @@ class ServiceResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('price')
                     ->money()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('icon')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                // Tables\Columns\TextColumn::make('icon')
+                //     ->searchable()
+                //     ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('service_icon_id')
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\IconColumn::make('active')
