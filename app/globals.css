@@ -1,0 +1,320 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #e2e8f0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2563eb;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1d4ed8;
+  }
+
+  /* Firefox Scrollbar */
+  * {
+    scrollbar-color: #2563eb #e2e8f0;
+    scrollbar-width: thin;
+  }
+
+  /* Selection Color */
+  ::selection {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+  }
+
+  ::-moz-selection {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+  }
+
+  /* Focus Visible */
+  *:focus-visible {
+    outline: none;
+    @apply ring-2 ring-[#2563EB];
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ============================================
+   COMPONENT CLASSES
+   ============================================ */
+@layer components {
+  /* Section Padding */
+  .section-padding {
+    @apply py-20 lg:py-28;
+  }
+
+  /* Container Max Width */
+  .container-max {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Premium Card */
+  .card-premium {
+    @apply bg-white border border-[#E2E8F0] rounded-xl shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover;
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] bg-clip-text text-transparent;
+  }
+
+  /* Eyebrow Text */
+  .eyebrow-text {
+    @apply text-xs font-semibold uppercase tracking-widest text-[#2563EB];
+  }
+
+  /* Section Title */
+  .section-title {
+    @apply text-4xl lg:text-5xl font-bold text-[#0F172A] leading-tight;
+    font-family: var(--font-sora, system-ui, sans-serif);
+  }
+
+  /* Body Text */
+  .body-text {
+    @apply text-base lg:text-lg text-[#475569] leading-relaxed;
+  }
+
+  /* Premium Input */
+  .input-premium {
+    @apply w-full bg-white border border-[#E2E8F0] rounded-lg px-4 py-3 text-[#0F172A] placeholder-[#94A3B8] transition-all duration-200;
+  }
+
+  .input-premium:focus {
+    @apply ring-2 ring-[#2563EB] border-[#2563EB];
+  }
+
+  /* Primary Button */
+  .btn-primary {
+    @apply bg-[#2563EB] text-white rounded-lg px-6 py-3 font-semibold shadow-sm transition-all duration-300 hover:bg-[#1D4ED8];
+  }
+
+  .btn-primary:active {
+    @apply scale-95;
+  }
+
+  /* Secondary Button */
+  .btn-secondary {
+    @apply bg-white border border-[#E2E8F0] text-[#0F172A] rounded-lg px-6 py-3 font-semibold transition-all duration-300 hover:bg-[#DBEAFE] hover:border-[#2563EB] hover:text-[#2563EB];
+  }
+
+  .btn-secondary:active {
+    @apply scale-95;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border;
+  }
+
+  .badge-accent {
+    @apply bg-[#DBEAFE] text-[#2563EB] border-[#2563EB] border-opacity-20;
+  }
+
+  .badge-muted {
+    @apply bg-[#F1F5F9] text-[#94A3B8] border border-[#E2E8F0];
+  }
+
+  /* Prose Content for Blog Posts */
+  .prose-content {
+    @apply max-w-3xl mx-auto;
+  }
+
+  .prose-content h1 {
+    @apply text-4xl md:text-5xl font-bold text-[#0F172A] mt-8 mb-4 first:mt-0;
+  }
+
+  .prose-content h2 {
+    @apply text-3xl md:text-4xl font-bold text-[#0F172A] mt-8 mb-4;
+  }
+
+  .prose-content h3 {
+    @apply text-2xl md:text-3xl font-bold text-[#0F172A] mt-6 mb-3;
+  }
+
+  .prose-content p {
+    @apply text-[#475569] text-lg leading-8 my-4;
+  }
+
+  .prose-content a {
+    @apply text-[#2563EB] hover:text-[#1D4ED8] underline transition-colors;
+  }
+
+  .prose-content ul,
+  .prose-content ol {
+    @apply my-4 ml-6;
+  }
+
+  .prose-content li {
+    @apply text-[#475569] text-lg leading-8 my-2;
+  }
+
+  .prose-content code {
+    @apply bg-[#F1F5F9] text-[#E11D48] px-2 py-1 rounded font-mono text-sm;
+  }
+
+  .prose-content pre {
+    @apply bg-[#0F172A] text-[#E2E8F0] p-4 rounded-lg overflow-x-auto my-4;
+  }
+
+  .prose-content blockquote {
+    @apply border-l-4 border-[#2563EB] pl-4 py-2 my-4 italic text-[#475569] text-lg;
+  }
+
+  .prose-content img {
+    @apply rounded-lg my-6 max-w-full h-auto;
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Float Animation */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Pulse Slow Animation */
+  @keyframes pulse-slow {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Shimmer Animation */
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 1000px 100%;
+  }
+
+  /* Dot Grid Background */
+  .bg-dot-grid {
+    background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* Card Shadows */
+  .shadow-card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  }
+
+  .shadow-card-hover {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(37, 99, 235, 0.06);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.15);
+  }
+}
+
+/* ============================================
+   CSS VARIABLES FOR COLOR SYSTEM
+   ============================================ */
+:root {
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-soft-surface: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94a3b8;
+  --color-accent: #2563eb;
+  --color-hover: #1d4ed8;
+  --color-soft-accent: #dbeafe;
+
+  /* Shadow Values */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 10px 40px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(37, 99, 235, 0.06);
+  --shadow-glow: 0 0 30px rgba(37, 99, 235, 0.15);
+
+  /* Font Families */
+  --font-sora: var(--font-sora, system-ui, sans-serif);
+  --font-inter: var(--font-inter, system-ui, sans-serif);
+}
+
+/* ============================================
+   DARK MODE SUPPORT (Optional Future Enhancement)
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0f172a;
+    --color-surface: #1e293b;
+    --color-soft-surface: #334155;
+    --color-border: #475569;
+    --color-text-primary: #f1f5f9;
+    --color-text-secondary: #cbd5e1;
+    --color-text-muted: #64748b;
+  }
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+/* Ensure proper touch targets on mobile */
+@media (max-width: 768px) {
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
