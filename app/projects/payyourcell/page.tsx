@@ -51,7 +51,7 @@ export default function PayYourCellPage() {
               <Badge variant="default">Enterprise</Badge>
             </div>
 
-            <h1 className="text-5xl lg:text-6xl font-bold text-[#0F172A] mb-6 font-sora leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0F172A] mb-6 font-sora leading-tight">
               PayYourCell
             </h1>
 

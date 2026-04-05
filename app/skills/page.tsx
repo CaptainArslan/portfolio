@@ -381,7 +381,7 @@ export default function SkillsPage() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.2 }}
-                className="sticky top-24 space-y-4"
+                className="lg:sticky lg:top-24 space-y-4"
               >
                 <div>
                   <p className="text-xs font-bold text-[#94A3B8] uppercase tracking-widest mb-1">
@@ -393,16 +393,25 @@ export default function SkillsPage() {
                 </div>
 
                 {/* 3D Scene */}
-                <div
-                  className="bg-white rounded-2xl border border-[#E2E8F0] overflow-hidden shadow-card"
-                  style={{ height: "460px" }}
-                >
-                  <Suspense fallback={null}>
-                    <SkillsScene
-                      activeSkill={activeSkill}
-                      onNodeClick={(skill) => setActiveSkill(skill)}
-                    />
-                  </Suspense>
+                <div className="bg-white rounded-2xl border border-[#E2E8F0] overflow-hidden shadow-card h-[360px] sm:h-[420px] lg:h-[460px]">
+                  <div className="hidden lg:block h-full">
+                    <Suspense fallback={null}>
+                      <SkillsScene
+                        activeSkill={activeSkill}
+                        onNodeClick={(skill) => setActiveSkill(skill)}
+                      />
+                    </Suspense>
+                  </div>
+                  <div className="lg:hidden h-full flex items-center justify-center px-6 text-center">
+                    <div>
+                      <p className="text-sm font-semibold text-[#0F172A] mb-2">
+                        Interact with the full skill map on larger screens.
+                      </p>
+                      <p className="text-xs text-[#64748B] leading-relaxed">
+                        Switch categories and expand skill details above for the same insight on mobile.
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Category legend */}

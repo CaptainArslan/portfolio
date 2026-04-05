@@ -87,7 +87,7 @@ function MetricItem({
       </motion.p>
 
       {/* Description */}
-      <p className="text-xs leading-relaxed max-w-[140px] text-[#475569]">
+      <p className="text-xs leading-relaxed max-w-[160px] sm:max-w-[200px] text-[#475569]">
         {description}
       </p>
     </motion.div>
@@ -117,7 +117,7 @@ export function TrustMetrics() {
 
       {/* Metrics grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-x divide-[#E2E8F0]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 divide-x divide-[#E2E8F0]">
           {trustMetricsData.metrics.map((metric, index) => (
             <MetricItem key={index} {...metric} index={index} />
           ))}

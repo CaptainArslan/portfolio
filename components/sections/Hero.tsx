@@ -104,7 +104,7 @@ export default function Hero() {
 
       {/* Soft accent glow — top right */}
       <div
-        className="absolute top-1/4 right-1/3 w-[500px] h-[500px] pointer-events-none"
+        className="absolute top-10 right-[-120px] sm:right-1/3 w-[280px] h-[280px] sm:w-[500px] sm:h-[500px] pointer-events-none"
         style={{
           background:
             "radial-gradient(ellipse at center, rgba(37,99,235,0.07) 0%, transparent 70%)",
@@ -113,7 +113,7 @@ export default function Hero() {
 
       {/* Soft accent glow — bottom left */}
       <div
-        className="absolute bottom-1/4 left-1/4 w-96 h-96 pointer-events-none"
+        className="absolute bottom-12 left-[-100px] sm:left-1/4 w-[280px] h-[280px] sm:w-96 sm:h-96 pointer-events-none"
         style={{
           background:
             "radial-gradient(ellipse at center, rgba(37,99,235,0.05) 0%, transparent 70%)",
@@ -122,7 +122,7 @@ export default function Hero() {
 
       {/* 3D Background Scene */}
       {mounted && (
-        <div className="absolute inset-0 opacity-40 pointer-events-none">
+        <div className="hidden md:block absolute inset-0 opacity-40 pointer-events-none">
           <BackgroundScene />
         </div>
       )}
@@ -188,7 +188,7 @@ export default function Hero() {
                   <motion.div
                     whileHover={{ y: -2, boxShadow: "0 12px 28px rgba(37,99,235,0.25)" }}
                     whileTap={{ scale: 0.97 }}
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold rounded-xl transition-all duration-200 shadow-lg cursor-pointer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold rounded-xl transition-all duration-200 shadow-lg cursor-pointer"
                   >
                     {heroData.primaryButton.text}
                     <ArrowRight size={16} />
@@ -204,7 +204,7 @@ export default function Hero() {
                   <motion.div
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.97 }}
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white border border-[#E2E8F0] hover:border-[#2563EB] hover:text-[#2563EB] text-[#0F172A] font-semibold rounded-xl transition-all duration-200 shadow-sm cursor-pointer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white border border-[#E2E8F0] hover:border-[#2563EB] hover:text-[#2563EB] text-[#0F172A] font-semibold rounded-xl transition-all duration-200 shadow-sm cursor-pointer"
                   >
                     <Download size={15} />
                     {heroData.secondaryButton.text}

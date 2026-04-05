@@ -157,7 +157,7 @@ export default function About() {
               </motion.p>
 
               <motion.h1
-                className="text-5xl sm:text-6xl font-bold text-[#0F172A] mb-6 leading-tight font-sora"
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0F172A] mb-6 leading-tight font-sora"
                 variants={fadeInUp}
               >
                 Engineered for Backend.<br />Built for Scale.

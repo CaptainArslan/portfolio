@@ -734,7 +734,7 @@ export default function ProjectDetailPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <div className="sticky top-8 space-y-5">
+            <div className="lg:sticky lg:top-8 space-y-5">
 
               {/* Project Info */}
               <div className="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden">
@@ -843,7 +843,7 @@ export default function ProjectDetailPage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="grid grid-cols-3 gap-4 items-center"
+            className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center"
           >
             {/* Previous */}
             <div>

@@ -99,7 +99,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
       <body
-        className={`font-inter text-[#0F172A] bg-[#F8FAFC] antialiased ${inter.variable}`}
+        className={`font-inter text-[#0F172A] bg-[#F8FAFC] antialiased overflow-x-hidden ${inter.variable}`}
       >
         {/* Background Grid Pattern */}
         <div className="fixed inset-0 pointer-events-none opacity-40">
@@ -136,9 +136,9 @@ export default function RootLayout({
         </div>
 
         {/* Main Content */}
-        <div className="relative z-10 flex flex-col min-h-screen">
+        <div className="relative z-10 flex flex-col min-h-screen overflow-x-hidden">
           <Navigation />
-          <main className="flex-grow">{children}</main>
+          <main className="flex-grow overflow-x-hidden">{children}</main>
           <Footer />
         </div>
       </body>

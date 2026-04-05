@@ -21,7 +21,7 @@ export function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <motion.div
-      className={`${centered ? "text-center" : ""} ${className}`}
+      className={`${centered ? "text-center mx-auto max-w-3xl" : ""} ${className}`}
       variants={staggerContainer}
       initial="hidden"
       whileInView="visible"
@@ -43,7 +43,7 @@ export function SectionHeader({
       </motion.h2>
       {subtitle && (
         <motion.p
-          className="text-base sm:text-lg text-[#475569] max-w-2xl"
+          className={`text-base sm:text-lg text-[#475569] max-w-2xl ${centered ? "mx-auto" : ""}`}
           variants={fadeInUp}
         >
           {subtitle}
