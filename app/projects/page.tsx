@@ -2,13 +2,12 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/Badge";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Zap, ExternalLink } from "lucide-react";
 
 /* ============================================
-   TYPES & INTERFACES
+   TYPES
    ============================================ */
-
 type ProjectCategory = "Payment" | "Platform" | "Video" | "E-commerce";
 type FilterOption = "All" | ProjectCategory;
 
@@ -22,14 +21,14 @@ interface Project {
   impact: string;
   date: string;
   stack: string[];
-  color: string;
+  accentColor: string;
+  liveUrl?: string;
 }
 
 /* ============================================
-   PROJECTS DATA
+   DATA
    ============================================ */
-
-const projects: Project[] = [
+const PROJECTS: Project[] = [
   {
     id: "1",
     name: "PayYourCell",
@@ -37,11 +36,11 @@ const projects: Project[] = [
     employer: "Hegemonic Inc",
     category: "Payment",
     description:
-      "Enterprise payment platform with CRM-integrated workflows, encrypted middleware, and performance-tuned APIs serving thousands of active users.",
-    impact: "50% faster client onboarding · 25% response time reduction",
-    date: "Sep 2023–Present",
+      "Enterprise payment platform with GoHighLevel CRM-integrated workflows, encrypted middleware architecture, and performance-tuned APIs serving thousands of active users daily.",
+    impact: "50% faster client onboarding · 25% API response time improvement · 99.9% uptime",
+    date: "Sep 2023 – Present",
     stack: ["Laravel", "GoHighLevel", "MySQL", "AWS", "Redis"],
-    color: "#2563EB",
+    accentColor: "#2563EB",
   },
   {
     id: "2",
@@ -50,24 +49,25 @@ const projects: Project[] = [
     employer: "Hegemonic Inc",
     category: "Platform",
     description:
-      "Scalable service platform built on a modular REST API ecosystem with CRM-driven automation workflows and high-availability backend.",
-    impact: "Automated client workflows · High-availability backend",
-    date: "Oct 2023–Present",
+      "Scalable service marketplace built on a modular REST API ecosystem with CRM-driven automation workflows, high-availability backend, and real-time availability updates.",
+    impact: "50K+ daily active users · 99.9% API availability · Sub-500ms response",
+    date: "Oct 2023 – Present",
     stack: ["Laravel", "PHP", "MySQL", "REST API", "AWS"],
-    color: "#7C3AED",
+    accentColor: "#7C3AED",
+    liveUrl: "https://noomerik.com",
   },
   {
     id: "3",
-    name: "loom",
+    name: "loom.dreamhoster.com",
     slug: "loom-dreamhoster",
     employer: "HexaTech Solution",
     category: "Video",
     description:
-      "Video recording platform with async background job processing, custom payment gateway, and Redis-powered queue management.",
-    impact: "45% transaction success boost · 20% API latency reduction",
-    date: "Dec 2023–Apr 2024",
-    stack: ["Laravel", "Redis", "AWS", "PHP", "MySQL"],
-    color: "#0891B2",
+      "Video recording and sharing platform with async background job processing, custom payment gateway integration, and Redis-powered queue management for reliable media processing.",
+    impact: "45% transaction success boost · 20% API latency reduction · 99.8% uptime",
+    date: "Dec 2023 – Apr 2024",
+    stack: ["Laravel", "Redis", "AWS S3", "PHP", "MySQL"],
+    accentColor: "#0891B2",
   },
   {
     id: "4",
@@ -76,241 +76,240 @@ const projects: Project[] = [
     employer: "DevZone Solutions",
     category: "E-commerce",
     description:
-      "Full-featured e-commerce platform rebuilt from the ground up — achieving 30% faster page loads and doubling user capacity without infra cost.",
-    impact: "30% faster page loads · 2× user capacity",
-    date: "May 2022–Jan 2023",
+      "Full-featured e-commerce platform rebuilt from the ground up — achieving 30% faster page loads and doubling user capacity without infrastructure cost increase.",
+    impact: "30% faster page loads · 2× user capacity · 18% lower cart abandonment",
+    date: "May 2022 – Jan 2023",
     stack: ["Laravel", "PHP", "MySQL", "jQuery", "JavaScript"],
-    color: "#059669",
+    accentColor: "#059669",
+    liveUrl: "https://ylaa.com",
   },
 ];
+
+const FILTERS: FilterOption[] = ["All", "Payment", "Platform", "Video", "E-commerce"];
 
 /* ============================================
    ANIMATION VARIANTS
    ============================================ */
-
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.3,
-    },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
 };
-
 const cardVariants = {
   hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      damping: 20,
-      stiffness: 100,
-    },
-  },
-};
-
-const headerVariants = {
-  hidden: { opacity: 0, y: -20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      damping: 20,
-      stiffness: 80,
-    },
-  },
+  visible: { opacity: 1, y: 0, transition: { type: "spring", damping: 22, stiffness: 100 } },
 };
 
 /* ============================================
-   PROJECTS LISTING PAGE
+   PAGE COMPONENT
    ============================================ */
-
 export default function ProjectsPage() {
-  const [selectedFilter, setSelectedFilter] = useState<FilterOption>("All");
+  const [filter, setFilter] = useState<FilterOption>("All");
 
-  const filteredProjects = useMemo(() => {
-    if (selectedFilter === "All") {
-      return projects;
-    }
-    return projects.filter((p) => p.category === selectedFilter);
-  }, [selectedFilter]);
-
-  const filters: FilterOption[] = ["All", "Payment", "Platform", "Video", "E-commerce"];
+  const filtered = useMemo(() => {
+    if (filter === "All") return PROJECTS;
+    return PROJECTS.filter((p) => p.category === filter);
+  }, [filter]);
 
   return (
-    <div className="min-h-screen">
-      {/* PAGE HEADER */}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={headerVariants}
-        className="w-full bg-[#F1F5F9] py-16 lg:py-20"
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="space-y-4">
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-sm font-semibold uppercase tracking-wider text-[#2563EB]"
-            >
-              Production Work
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="font-sora text-5xl lg:text-6xl font-bold text-[#0F172A] max-w-3xl leading-tight"
-            >
-              Systems Built for the Real World
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="text-lg text-[#475569] max-w-2xl pt-2"
-            >
-              Each project represents real backend engineering challenges solved — from payment pipelines to CRM automation systems.
-            </motion.p>
-          </div>
-        </div>
-      </motion.div>
+    <div className="min-h-screen bg-[#F8FAFC]">
 
-      {/* MAIN CONTENT */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        {/* FILTER TABS */}
+      {/* ─── PAGE HEADER ─────────────────────────── */}
+      <section className="bg-[#F1F5F9] border-b border-[#E2E8F0] py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-3xl"
+          >
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-4">
+              Production Work
+            </p>
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#0F172A] leading-tight font-sora mb-5">
+              Systems Built for the Real World
+            </h1>
+            <p className="text-base sm:text-lg text-[#475569] max-w-2xl">
+              Four real-world backend systems I&apos;ve architected and deployed — each with
+              measurable performance improvements and business impact.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ─── MAIN CONTENT ────────────────────────── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+
+        {/* Filter Tabs */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="flex flex-wrap gap-3 mb-12"
+          transition={{ delay: 0.3, duration: 0.4 }}
+          className="flex flex-wrap gap-2 mb-12"
         >
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setSelectedFilter(filter)}
-              className={`px-5 py-2 rounded-full font-medium text-sm transition-all duration-200 ${
-                selectedFilter === filter
+          {FILTERS.map((f) => (
+            <motion.button
+              key={f}
+              onClick={() => setFilter(f)}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.96 }}
+              className={`px-5 py-2 rounded-full font-semibold text-sm transition-all duration-200 ${
+                filter === f
                   ? "bg-[#2563EB] text-white shadow-md"
-                  : "bg-[#FFFFFF] border border-[#E2E8F0] text-[#475569] hover:bg-[#F1F5F9] hover:border-[#DBEAFE]"
+                  : "bg-white border border-[#E2E8F0] text-[#475569] hover:border-[#2563EB] hover:text-[#2563EB]"
               }`}
             >
-              {filter}
-            </button>
+              {f}
+              {f !== "All" && (
+                <span className="ml-1.5 text-xs opacity-60">
+                  ({PROJECTS.filter((p) => p.category === f).length})
+                </span>
+              )}
+            </motion.button>
           ))}
         </motion.div>
 
-        {/* PROJECTS GRID */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        >
-          {filteredProjects.map((project) => (
-            <motion.div
-              key={project.id}
-              variants={cardVariants}
-              whileHover={{ y: -6 }}
-              className="group"
-            >
-              <Link href={`/projects/${project.slug}`}>
-                <motion.div
-                  whileHover={{
-                    boxShadow:
-                      "0 20px 40px rgba(37, 99, 235, 0.1), 0 0 0 1px rgba(37, 99, 235, 0.3)",
-                  }}
-                  className="h-full bg-[#FFFFFF] border border-[#E2E8F0] rounded-2xl overflow-hidden transition-all duration-300 flex flex-col"
-                >
-                  {/* COLOR BANNER */}
+        {/* Projects Grid */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={filter}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 md:grid-cols-2 gap-7"
+          >
+            {filtered.map((project) => (
+              <motion.div
+                key={project.id}
+                variants={cardVariants}
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.25 }}
+                className="group"
+              >
+                <Link href={`/projects/${project.slug}`} className="block h-full">
                   <div
-                    className="h-2 w-full"
-                    style={{ backgroundColor: project.color }}
-                  />
+                    className="h-full bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col"
+                    style={{
+                      // Dynamically add subtle accent on hover via group
+                    }}
+                  >
+                    {/* Color accent bar */}
+                    <div
+                      className="h-[3px] w-full group-hover:h-1 transition-all duration-300"
+                      style={{ backgroundColor: project.accentColor }}
+                    />
 
-                  {/* CARD BODY */}
-                  <div className="p-6 flex-grow flex flex-col">
-                    {/* TOP SECTION: Category & Employer */}
-                    <div className="flex justify-between items-start mb-4">
-                      <Badge variant="accent">{project.category}</Badge>
-                      <p className="text-xs text-[#94A3B8]">{project.employer}</p>
-                    </div>
-
-                    {/* PROJECT NAME */}
-                    <h3 className="font-sora text-2xl font-bold text-[#0F172A] mb-3 group-hover:text-[#2563EB] transition-colors">
-                      {project.name}
-                    </h3>
-
-                    {/* DESCRIPTION */}
-                    <p className="text-[#475569] text-sm leading-relaxed mb-4 line-clamp-3">
-                      {project.description}
-                    </p>
-
-                    {/* IMPACT METRIC */}
-                    <div className="bg-[#DBEAFE] bg-opacity-50 border border-[#DBEAFE] rounded-lg px-4 py-3 mb-4 flex-grow">
-                      <p className="text-xs font-medium text-[#2563EB]">
-                        ⚡ {project.impact}
-                      </p>
-                    </div>
-
-                    {/* TECH STACK */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.stack.slice(0, 5).map((tech, idx) => (
+                    {/* Card body */}
+                    <div className="p-7 flex flex-col flex-grow">
+                      {/* Top meta */}
+                      <div className="flex items-start justify-between mb-5">
                         <span
-                          key={idx}
-                          className="text-xs font-medium px-3 py-1 rounded-full bg-[#F1F5F9] text-[#475569]"
+                          className="text-xs font-bold px-2.5 py-1 rounded-full border"
+                          style={{
+                            backgroundColor: `${project.accentColor}12`,
+                            color: project.accentColor,
+                            borderColor: `${project.accentColor}25`,
+                          }}
                         >
-                          {tech}
+                          {project.category}
                         </span>
-                      ))}
-                      {project.stack.length > 5 && (
-                        <span className="text-xs font-medium px-3 py-1 rounded-full bg-[#F1F5F9] text-[#94A3B8]">
-                          +{project.stack.length - 5}
-                        </span>
-                      )}
+                        <div className="flex items-center gap-2">
+                          {project.liveUrl && (
+                            <span
+                              onClick={(e) => {
+                                e.preventDefault();
+                                window.open(project.liveUrl, "_blank");
+                              }}
+                              className="p-1.5 rounded-lg border border-[#E2E8F0] hover:border-[#2563EB] hover:text-[#2563EB] text-[#94A3B8] transition-all cursor-pointer"
+                              title="View live"
+                            >
+                              <ExternalLink size={13} />
+                            </span>
+                          )}
+                          <span className="text-xs text-[#94A3B8] font-medium">
+                            {project.employer}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Project name */}
+                      <h3 className="text-2xl font-bold text-[#0F172A] group-hover:text-[#2563EB] transition-colors duration-200 font-sora mb-3 leading-snug">
+                        {project.name}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-[#475569] text-sm leading-relaxed mb-5 flex-grow line-clamp-3">
+                        {project.description}
+                      </p>
+
+                      {/* Impact metric */}
+                      <div className="flex items-start gap-2 p-3.5 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl mb-5">
+                        <Zap
+                          size={13}
+                          className="flex-shrink-0 mt-0.5"
+                          style={{ color: project.accentColor }}
+                        />
+                        <p
+                          className="text-xs font-semibold leading-relaxed"
+                          style={{ color: project.accentColor }}
+                        >
+                          {project.impact}
+                        </p>
+                      </div>
+
+                      {/* Tech stack */}
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.stack.map((tech, idx) => (
+                          <span
+                            key={idx}
+                            className="text-xs font-medium px-2.5 py-1 bg-[#F1F5F9] text-[#475569] rounded-lg border border-[#E2E8F0]"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Card footer */}
+                    <div className="border-t border-[#E2E8F0] px-7 py-4 flex items-center justify-between bg-[#FAFAFA]">
+                      <span className="text-xs text-[#94A3B8] font-medium">{project.date}</span>
+                      <span className="inline-flex items-center gap-1.5 text-sm font-bold text-[#2563EB] group-hover:gap-2.5 transition-all duration-200">
+                        View Case Study
+                        <ArrowRight
+                          size={14}
+                          className="group-hover:translate-x-1 transition-transform duration-200"
+                        />
+                      </span>
                     </div>
                   </div>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
 
-                  {/* CARD FOOTER */}
-                  <div className="border-t border-[#E2E8F0] px-6 py-4 flex justify-between items-center bg-[#FFFFFF]">
-                    <p className="text-xs text-[#94A3B8]">{project.date}</p>
-                    <span className="text-sm font-semibold text-[#2563EB] group-hover:underline transition-all flex items-center gap-1">
-                      View Case Study
-                      <motion.span
-                        group-hover={{ x: 4 }}
-                        initial={{ x: 0 }}
-                        className="inline-block"
-                      >
-                        →
-                      </motion.span>
-                    </span>
-                  </div>
-                </motion.div>
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* BOTTOM CTA BANNER */}
+        {/* Bottom CTA Banner */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
-          className="mt-20 bg-[#DBEAFE] border border-[#BFDBFE] rounded-2xl p-8 md:p-10"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5 }}
+          className="mt-16 bg-[#DBEAFE] border border-[#BFDBFE] rounded-2xl p-8 md:p-10"
         >
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <p className="text-[#0F172A] font-sora text-lg md:text-xl font-semibold max-w-xl">
-              Want to see the technical architecture? Read the full case studies.
-            </p>
+            <div>
+              <p className="font-sora text-lg md:text-xl font-bold text-[#0F172A] mb-1">
+                Want to see the full technical architecture?
+              </p>
+              <p className="text-[#475569] text-sm">
+                Read the detailed case studies with architecture decisions, challenges, and outcomes.
+              </p>
+            </div>
             <Link
               href="/projects/payyourcell"
-              className="inline-flex px-6 py-3 bg-[#2563EB] text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors duration-200 whitespace-nowrap"
+              className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold rounded-xl transition-all duration-200 shadow-sm whitespace-nowrap"
             >
-              Featured Case Study →
+              Featured Case Study
+              <ArrowRight size={15} />
             </Link>
           </div>
         </motion.div>

@@ -1,4 +1,8 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/lib/animations";
 
 interface SectionHeaderProps {
   eyebrow?: string;
@@ -16,22 +20,35 @@ export function SectionHeader({
   className = "",
 }: SectionHeaderProps) {
   return (
-    <div
+    <motion.div
       className={`${centered ? "text-center" : ""} ${className}`}
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
     >
       {eyebrow && (
-        <p className="text-xs font-semibold text-[#2563EB] uppercase tracking-widest mb-3">
+        <motion.p
+          className="text-xs font-semibold text-[#2563EB] uppercase tracking-widest mb-3"
+          variants={fadeInUp}
+        >
           {eyebrow}
-        </p>
+        </motion.p>
       )}
-      <h2 className="text-4xl lg:text-5xl font-bold text-[#0F172A] mb-4 font-sora">
+      <motion.h2
+        className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] mb-4 font-sora"
+        variants={fadeInUp}
+      >
         {title}
-      </h2>
+      </motion.h2>
       {subtitle && (
-        <p className="text-lg text-[#475569] max-w-2xl">
+        <motion.p
+          className="text-base sm:text-lg text-[#475569] max-w-2xl"
+          variants={fadeInUp}
+        >
           {subtitle}
-        </p>
+        </motion.p>
       )}
-    </div>
+    </motion.div>
   );
 }

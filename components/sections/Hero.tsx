@@ -4,6 +4,13 @@ import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ArrowRight, Download, Zap, Shield, Database } from "lucide-react";
+import {
+  staggerContainer,
+  fadeInUp,
+  fadeInRight,
+  floatAnimation,
+} from "@/lib/animations";
 
 // Dynamic import of BackgroundScene without SSR
 const BackgroundScene = dynamic(
@@ -11,124 +18,82 @@ const BackgroundScene = dynamic(
   { ssr: false }
 );
 
-// Animation variants
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.3,
-    },
-  },
-};
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: [0.33, 0.66, 0.66, 1],
-    },
-  },
-};
-
-const fadeInRight = {
-  hidden: { opacity: 0, x: 50 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.33, 0.66, 0.66, 1],
-    },
-  },
-};
-
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.85 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.7,
-      delay: 0.5,
-      ease: [0.33, 0.66, 0.66, 1],
-    },
-  },
-};
-
-const CodeHighlight = () => {
-  return (
-    <div className="relative">
-      <pre className="text-xs lg:text-sm leading-relaxed font-mono overflow-hidden">
-        <code>
-          <span className="text-[#A78BFA]">public</span>
-          {" function "}
-          <span className="text-[#60A5FA]">processPayment</span>
-          {"\n    ("}
-          <span className="text-[#E2E8F0]">PaymentRequest</span>
-          {" "}
-          <span className="text-[#E2E8F0]">$request</span>
-          {"\n): "}
-          <span className="text-[#60A5FA]">JsonResponse</span>
-          {" {\n    "}
-          <span className="text-[#E2E8F0]">$payment</span>
-          {" = "}
-          <span className="text-[#60A5FA]">DB</span>
-          {"::"}
-          <span className="text-[#60A5FA]">transaction</span>
-          {"\n        ("}
-          <span className="text-[#A78BFA]">function</span>
-          {" () \n        "}
-          <span className="text-[#A78BFA]">use</span>
-          {" ("}
-          <span className="text-[#E2E8F0]">$request</span>
-          {") {\n        "}
-          <span className="text-[#A78BFA]">return</span>
-          {" "}
-          <span className="text-[#60A5FA]">Payment</span>
-          {"::"}
-          <span className="text-[#60A5FA]">create</span>
-          {"\n            (["}
-          <span className="text-[#34D399]">'amount'</span>
-          {"  => "}
-          <span className="text-[#E2E8F0]">$request</span>
-          {"->amount,\n            "}
-          <span className="text-[#34D399]">'user_id'</span>
-          {" => "}
-          <span className="text-[#60A5FA]">Auth</span>
-          {"::"}
-          <span className="text-[#60A5FA]">id</span>
-          {"()\n            "}
-          <span className="text-[#34D399]">'status'</span>
-          {"  => "}
-          <span className="text-[#34D399]">'pending'</span>
-          {",\n            ]);\n    });\n\n    "}
-          <span className="text-[#60A5FA]">ProcessPaymentJob</span>
-          {"::dispatch("}
-          <span className="text-[#E2E8F0]">$payment</span>
-          {")->onQueue('payments')->delay(now()->addSeconds(2));\n\n    "}
-          <span className="text-[#A78BFA]">return</span>
-          {" "}
-          <span className="text-[#60A5FA]">response</span>
-          {"()->json(["}
-          <span className="text-[#34D399]">'id'</span>
-          {" => "}
-          <span className="text-[#E2E8F0]">$payment->id</span>
-          {", "}
-          <span className="text-[#34D399]">'status'</span>
-          {" => "}
-          <span className="text-[#34D399]">'queued'</span>
-          {"], 201);\n}"}
-        </code>
-      </pre>
+/* ============================================
+   CODE WINDOW COMPONENT
+   ============================================ */
+const CodeWindow = () => (
+  <div className="code-terminal shadow-2xl">
+    {/* Terminal header */}
+    <div className="code-terminal-header">
+      <span className="code-dot bg-[#FF5F57]" />
+      <span className="code-dot bg-[#FEBC2E]" />
+      <span className="code-dot bg-[#28C840]" />
+      <span className="ml-3 text-xs text-white/40 font-mono">
+        PaymentProcessor.php
+      </span>
     </div>
-  );
-};
 
+    {/* Code content */}
+    <div className="p-5 overflow-x-auto">
+      <pre className="text-xs sm:text-sm leading-relaxed font-mono text-[#CBD5E1]">{`// Secure async payment pipeline
+public function processPayment(
+    PaymentRequest $req
+): JsonResponse {
+    // Encrypted middleware layer
+    $encrypted = encrypt($req->sensitive);
+
+    // Queue async — non-blocking
+    ProcessPaymentJob::dispatch(
+        $encrypted, $req->gateway
+    )->onQueue('payments');
+
+    // GoHighLevel CRM sync
+    GoHighLevel::sync($req->contact);
+
+    return response()->json([
+        'status' => 'queued',
+        'id'     => $req->id,
+    ], 201);
+}`}</pre>
+    </div>
+
+    {/* Status bar */}
+    <div className="px-5 py-3 border-t border-white/5 flex items-center justify-between">
+      <div className="flex items-center gap-2">
+        <span className="w-2 h-2 rounded-full bg-[#28C840]" />
+        <span className="text-xs text-white/30 font-mono">99.9% uptime</span>
+      </div>
+      <span className="text-xs text-white/20 font-mono">Laravel + Redis + AWS</span>
+    </div>
+  </div>
+);
+
+/* ============================================
+   METRIC PILL COMPONENT
+   ============================================ */
+const MetricPill = ({
+  icon: Icon,
+  label,
+  delay,
+}: {
+  icon: React.ElementType;
+  label: string;
+  delay: number;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 8 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+    className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/80 border border-[#E2E8F0] rounded-full text-xs font-semibold text-[#475569] shadow-sm backdrop-blur-sm"
+  >
+    <Icon size={12} className="text-[#2563EB]" />
+    {label}
+  </motion.div>
+);
+
+/* ============================================
+   HERO COMPONENT
+   ============================================ */
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
 
@@ -138,74 +103,192 @@ export default function Hero() {
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden">
-      {/* Background */}
+      {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#F8FAFC] via-[#EFF6FF] to-[#F8FAFC]" />
 
-      {/* Grid */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle,_#CBD5E1_1px,_transparent_1px)] bg-[size:28px_28px] opacity-40 pointer-events-none" />
+      {/* Dot grid */}
+      <div
+        className="absolute inset-0 opacity-[0.35] pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, #CBD5E1 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
 
-      {/* Blob */}
-      <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-[radial-gradient(circle,_rgba(37,99,235,0.08),_transparent)] rounded-full blur-3xl pointer-events-none" />
+      {/* Soft accent glow — top right */}
+      <div
+        className="absolute top-1/4 right-1/3 w-[500px] h-[500px] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(37,99,235,0.07) 0%, transparent 70%)",
+        }}
+      />
 
-      {/* 3D Scene */}
+      {/* Soft accent glow — bottom left */}
+      <div
+        className="absolute bottom-1/4 left-1/4 w-96 h-96 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(37,99,235,0.05) 0%, transparent 70%)",
+        }}
+      />
+
+      {/* 3D Background Scene */}
       {mounted && (
-        <div className="absolute inset-0 opacity-50 pointer-events-none">
+        <div className="absolute inset-0 opacity-40 pointer-events-none">
           <BackgroundScene />
         </div>
       )}
 
+      {/* Main content */}
       <div className="relative z-10 min-h-screen flex items-center">
         <div className="w-full max-w-7xl mx-auto px-6 lg:px-12 py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[52%_48%] gap-14 items-center">
 
-            {/* LEFT */}
+            {/* ─── LEFT COLUMN ───────────────────── */}
             <motion.div
               variants={staggerContainer}
               initial="hidden"
               animate={mounted ? "visible" : "hidden"}
             >
-              <motion.h1
-                variants={fadeInUp}
-                className="mb-6 text-6xl font-bold leading-tight"
-                style={{ color: "#0F172A" }}
-              >
-                I Build Backend Systems That Scale Under Pressure
-              </motion.h1>
+              {/* Eyebrow */}
+              <motion.div variants={fadeInUp} className="mb-6">
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#DBEAFE] border border-[#BFDBFE] text-[#2563EB] text-xs font-semibold rounded-full uppercase tracking-widest">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] animate-pulse" />
+                  Available for Remote Roles
+                </span>
+              </motion.div>
 
+              {/* Name + role */}
               <motion.p
                 variants={fadeInUp}
-                className="mb-8 text-lg max-w-xl"
-                style={{ color: "#475569" }}
+                className="text-sm font-semibold text-[#94A3B8] mb-2 tracking-wide uppercase"
               >
-                Laravel, APIs, payments, CRM automation, and high-performance backend systems.
+                Muhammad Arslan · Backend & Systems Engineer
               </motion.p>
 
-              <motion.div variants={fadeInUp} className="flex gap-4">
+              {/* Headline */}
+              <motion.h1
+                variants={fadeInUp}
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] text-[#0F172A] mb-6 font-sora"
+              >
+                I Build Backend Systems That{" "}
+                <span className="gradient-text">Scale Under Pressure</span>
+              </motion.h1>
+
+              {/* Supporting copy */}
+              <motion.p
+                variants={fadeInUp}
+                className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-lg mb-8"
+              >
+                Specialized in Laravel, PHP, MySQL, Redis, and AWS — building
+                payment pipelines, CRM automations, and high-availability APIs
+                that handle real traffic and real money.
+              </motion.p>
+
+              {/* Metric pills */}
+              <motion.div variants={fadeInUp} className="flex flex-wrap gap-2 mb-8">
+                <MetricPill icon={Zap} label="25% Faster APIs" delay={0.6} />
+                <MetricPill icon={Database} label="60% Query Gain" delay={0.7} />
+                <MetricPill icon={Shield} label="99.9% Uptime" delay={0.8} />
+              </motion.div>
+
+              {/* CTA Buttons */}
+              <motion.div
+                variants={fadeInUp}
+                className="flex flex-col sm:flex-row gap-3"
+              >
+                {/* Primary CTA */}
                 <Link href="/projects">
-                  <motion.button
-                    whileHover={{ y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="px-6 py-3 rounded-lg text-white shadow-lg"
-                    style={{ backgroundColor: "#2563EB" }}
+                  <motion.div
+                    whileHover={{ y: -2, boxShadow: "0 12px 28px rgba(37,99,235,0.25)" }}
+                    whileTap={{ scale: 0.97 }}
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold rounded-xl transition-all duration-200 shadow-lg cursor-pointer"
                   >
-                    Explore Work
-                  </motion.button>
+                    Explore My Work
+                    <ArrowRight size={16} />
+                  </motion.div>
                 </Link>
+
+                {/* Secondary CTA */}
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <motion.div
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white border border-[#E2E8F0] hover:border-[#2563EB] hover:text-[#2563EB] text-[#0F172A] font-semibold rounded-xl transition-all duration-200 shadow-sm cursor-pointer"
+                  >
+                    <Download size={15} />
+                    Download CV
+                  </motion.div>
+                </a>
               </motion.div>
             </motion.div>
 
-            {/* RIGHT */}
+            {/* ─── RIGHT COLUMN ──────────────────── */}
             <motion.div
               className="hidden lg:block"
               variants={fadeInRight}
               initial="hidden"
               animate={mounted ? "visible" : "hidden"}
             >
-              <CodeHighlight />
+              {/* Floating code window */}
+              <motion.div
+                variants={floatAnimation}
+                animate="animate"
+                initial="rest"
+              >
+                <CodeWindow />
+              </motion.div>
+
+              {/* Floating stat badges */}
+              <motion.div
+                className="flex items-center justify-end gap-3 mt-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.2, duration: 0.5 }}
+              >
+                <motion.div
+                  whileHover={{ y: -2 }}
+                  className="px-3 py-2 bg-white border border-[#E2E8F0] rounded-lg shadow-sm transition-all duration-300"
+                >
+                  <p className="text-xs text-[#94A3B8]">Current Role</p>
+                  <p className="text-sm font-bold text-[#0F172A]">Hegemonic Inc</p>
+                </motion.div>
+                <motion.div
+                  whileHover={{ y: -2 }}
+                  className="px-3 py-2 bg-white border border-[#E2E8F0] rounded-lg shadow-sm transition-all duration-300"
+                >
+                  <p className="text-xs text-[#94A3B8]">Stack</p>
+                  <p className="text-sm font-bold text-[#0F172A]">Laravel · AWS</p>
+                </motion.div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
       </div>
+
+      {/* Scroll hint */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+      >
+        <span className="text-xs text-[#94A3B8] uppercase tracking-widest font-medium">
+          Scroll
+        </span>
+        <motion.div
+          animate={{ y: [0, 5, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="w-5 h-8 border-2 border-[#CBD5E1] rounded-full flex items-start justify-center pt-1.5"
+        >
+          <div className="w-1 h-2 bg-[#94A3B8] rounded-full" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { cardHover } from "@/lib/animations";
 
 interface CardProps {
   children: React.ReactNode;
@@ -16,7 +17,7 @@ export function Card({
   glass = false,
   hover = true,
 }: CardProps) {
-  const baseClasses = `rounded-xl border border-[#E2E8F0] ${
+  const baseClasses = `rounded-2xl border border-[#E2E8F0] transition-all duration-400 ${
     glass
       ? "bg-white/40 backdrop-blur-md"
       : "bg-[#FFFFFF]"
@@ -29,11 +30,9 @@ export function Card({
   return (
     <motion.div
       className={baseClasses}
-      whileHover={{ y: -4 }}
-      transition={{
-        duration: 0.3,
-        ease: "easeOut",
-      }}
+      variants={cardHover}
+      initial="rest"
+      whileHover="hover"
     >
       {children}
     </motion.div>

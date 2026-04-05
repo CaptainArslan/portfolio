@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/Button";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -46,30 +45,30 @@ export function Navigation() {
       }`}
     >
       <div className="container-max">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink-0">
             <motion.div
-              className="w-10 h-10 lg:w-12 lg:h-12 bg-[#2563EB] rounded-lg flex items-center justify-center transition-all group-hover:shadow-glow"
+              className="w-9 h-9 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-[#2563EB] rounded-lg flex items-center justify-center transition-all group-hover:shadow-glow"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="text-white font-bold text-sm lg:text-base font-sora">
+              <span className="text-white font-bold text-xs sm:text-sm lg:text-base font-sora">
                 MA
               </span>
             </motion.div>
-            <span className="hidden sm:block font-semibold text-[#0F172A] text-sm lg:text-base font-sora">
+            <span className="hidden sm:block font-semibold text-[#0F172A] text-xs sm:text-sm lg:text-base font-sora">
               Muhammad Arslan
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8 lg:gap-12">
+          <div className="hidden md:flex items-center gap-6 lg:gap-12">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors relative py-2 ${
+                className={`text-xs sm:text-sm font-medium transition-colors relative py-2 group ${
                   isActive(link.href)
                     ? "text-[#2563EB]"
                     : "text-[#475569] hover:text-[#0F172A]"
@@ -82,6 +81,14 @@ export function Navigation() {
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2563EB] rounded-full"
                     initial={false}
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+                {!isActive(link.href) && (
+                  <motion.div
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2563EB] rounded-full"
+                    initial={{ scaleX: 0, originX: 0 }}
+                    whileHover={{ scaleX: 1 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
                   />
                 )}
               </Link>

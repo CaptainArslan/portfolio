@@ -145,7 +145,7 @@ export default function PayYourCellPage() {
                 <li>Inadequate CRM integration, requiring manual data synchronization</li>
                 <li>Unoptimized database queries leading to performance bottlenecks</li>
                 <li>Lack of secure middleware layers for sensitive payment data</li>
-                <li>API response times that couldn't scale with user growth</li>
+                <li>API response times that couldn&apos;t scale with user growth</li>
               </ul>
               <p>
                 The team needed a comprehensive overhaul of the backend architecture to support enterprise clients
@@ -297,8 +297,8 @@ class PaymentController extends Controller
               <div>
                 <p className="font-semibold text-[#0F172A] mb-2">Queue-Based Job Processing</p>
                 <p>
-                  Payment processing is decoupled from the HTTP request using Laravel's queue system. Each payment
-                  is dispatched as a job on the "payments" queue, allowing the API to respond immediately while
+                  Payment processing is decoupled from the HTTP request using Laravel&apos;s queue system. Each payment
+                  is dispatched as a job on the &quot;payments&quot; queue, allowing the API to respond immediately while
                   background workers handle the actual processing. This architecture supports burst traffic without
                   timeouts.
                 </p>

@@ -8,6 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        "xs": "320px",
+        "sm": "640px",
+        "md": "768px",
+        "lg": "1024px",
+        "xl": "1280px",
+        "2xl": "1536px",
+      },
       colors: {
         background: "#F8FAFC",
         surface: "#FFFFFF",
@@ -32,16 +40,37 @@ const config: Config = {
       animation: {
         "float": "float 6s ease-in-out infinite",
         "pulse-slow": "pulse 4s ease-in-out infinite",
+        "blur-in": "blur-in 0.8s ease-out forwards",
+        "shimmer": "shimmer 2s infinite",
+        "glow": "glow 3s ease-in-out infinite",
       },
       keyframes: {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-12px)" },
         },
+        "blur-in": {
+          from: { opacity: "0", filter: "blur(10px)" },
+          to: { opacity: "1", filter: "blur(0px)" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-1000px 0" },
+          "100%": { backgroundPosition: "1000px 0" },
+        },
+        glow: {
+          "0%, 100%": { boxShadow: "0 0 20px rgba(37,99,235,0.4)" },
+          "50%": { boxShadow: "0 0 30px rgba(37,99,235,0.6)" },
+        },
       },
       backgroundImage: {
         "grid-pattern": "radial-gradient(circle, #E2E8F0 1px, transparent 1px)",
         "hero-gradient": "linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 50%, #F8FAFC 100%)",
+      },
+      spacing: {
+        "safe-left": "env(safe-area-inset-left)",
+        "safe-right": "env(safe-area-inset-right)",
+        "safe-top": "env(safe-area-inset-top)",
+        "safe-bottom": "env(safe-area-inset-bottom)",
       },
     },
   },

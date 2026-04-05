@@ -215,6 +215,7 @@ export function delay(ms: number): Promise<void> {
  * @example
  * const debouncedSearch = debounce(searchFunction, 500)
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function debounce<T extends (...args: any[]) => any>(
   func: T,
   wait: number

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useMemo, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Text } from "@react-three/drei";
 import * as THREE from "three";
@@ -88,7 +88,6 @@ function SkillNode({ skill, activeSkill, onNodeClick }: SkillNodeProps) {
         onClick={() => onNodeClick(skill.name)}
         onPointerEnter={() => setHovered(true)}
         onPointerLeave={() => setHovered(false)}
-        style={{ cursor: hovered ? "pointer" : "default" }}
       >
         <sphereGeometry args={[0.35, 16, 16]} />
         <meshStandardMaterial
