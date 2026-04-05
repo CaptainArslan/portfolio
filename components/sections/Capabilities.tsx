@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { cardHover } from "@/lib/animations";
+import capabilitiesData from "@/data/capabilities.json";
 
 /* ============================================
    SVG ICON COMPONENTS
@@ -58,14 +59,23 @@ function CloudIcon() {
    CAPABILITY CARD
    ============================================ */
 interface CapabilityCardProps {
-  icon: React.ReactNode;
+  icon: string;
   title: string;
   description: string;
   metric: string;
   index: number;
 }
 
-function CapabilityCard({ icon, title, description, metric, index }: CapabilityCardProps) {
+function CapabilityCard({ icon: iconName, title, description, metric, index }: CapabilityCardProps) {
+  const icons = {
+    ServerIcon: ServerIcon,
+    DatabaseIcon: DatabaseIcon,
+    CreditCardIcon: CreditCardIcon,
+    WorkflowIcon: WorkflowIcon,
+    CloudIcon: CloudIcon,
+  };
+  const Icon = icons[iconName as keyof typeof icons];
+
   const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: true });
 
   return (
@@ -88,7 +98,7 @@ function CapabilityCard({ icon, title, description, metric, index }: CapabilityC
           whileHover={{ rotate: 8, scale: 1.07 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >
-          {icon}
+          <Icon />
         </motion.div>
 
         {/* Title */}
@@ -118,47 +128,6 @@ function CapabilityCard({ icon, title, description, metric, index }: CapabilityC
   );
 }
 
-/* ============================================
-   CAPABILITIES SECTION
-   ============================================ */
-const CAPABILITIES: Omit<CapabilityCardProps, "index">[] = [
-  {
-    icon: <ServerIcon />,
-    title: "Backend Systems & API Design",
-    description:
-      "Modular Laravel backends and REST API ecosystems that scale to thousands of concurrent users with clean middleware separation and proper error handling.",
-    metric: "200+ API endpoints built",
-  },
-  {
-    icon: <DatabaseIcon />,
-    title: "Database & Performance Engineering",
-    description:
-      "MySQL query optimization, Redis caching strategies, and strategic indexing that turned 800ms responses into sub-100ms consistently.",
-    metric: "60% query time reduction",
-  },
-  {
-    icon: <CreditCardIcon />,
-    title: "Payment Gateway Integration",
-    description:
-      "Secure payment pipelines with custom middleware, webhook handling, transaction auditing, and retry logic — PCI DSS aligned throughout.",
-    metric: "45% success rate boost",
-  },
-  {
-    icon: <WorkflowIcon />,
-    title: "CRM Automation (GoHighLevel)",
-    description:
-      "End-to-end GoHighLevel CRM integrations with webhook-driven automations that eliminated manual onboarding workflows and cut turnaround by 50%.",
-    metric: "50% faster onboarding",
-  },
-  {
-    icon: <CloudIcon />,
-    title: "Cloud & DevOps Workflows",
-    description:
-      "AWS-deployed systems with CI/CD pipelines, Redis caching layers, Nginx configuration, and zero-downtime deployment strategies.",
-    metric: "99.9% uptime maintained",
-  },
-];
-
 export function Capabilities() {
   return (
     <section className="bg-white py-20 lg:py-28">
@@ -166,16 +135,16 @@ export function Capabilities() {
         {/* Section header */}
         <div className="mb-14">
           <SectionHeader
-            eyebrow="Core Capabilities"
-            title="How I Solve Hard Engineering Problems"
-            subtitle="Real expertise built through production systems — not tutorials or side projects."
+            eyebrow={capabilitiesData.sectionHeader.eyebrow}
+            title={capabilitiesData.sectionHeader.title}
+            subtitle={capabilitiesData.sectionHeader.subtitle}
             centered
           />
         </div>
 
         {/* Grid: 1 col → 2 col → 3 col, last row centered */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {CAPABILITIES.map((cap, index) => (
+          {capabilitiesData.capabilities.map((cap, index) => (
             <CapabilityCard key={index} {...cap} index={index} />
           ))}
         </div>

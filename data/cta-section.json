@@ -1,0 +1,13 @@
+{
+  "eyebrow": "Ready to Work Together",
+  "headline": "Let's Build Something That Scales",
+  "subtext": "Whether you need a payment system, API architecture, or CRM automation — I bring production-proven backend expertise.",
+  "primaryButton": {
+    "text": "Start a Conversation",
+    "link": "/contact"
+  },
+  "secondaryButton": {
+    "text": "View My Work",
+    "link": "/projects"
+  }
+}

@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { staggerContainer, fadeInUp, buttonPrimary } from "@/lib/animations";
+import ctaSectionData from "@/data/cta-section.json";
 
 function DotPattern() {
   return (
@@ -52,7 +53,7 @@ export function CTASection() {
             className="text-sm font-medium text-white/70 uppercase tracking-widest mb-4"
             variants={fadeInUp}
           >
-            Ready to Work Together
+            {ctaSectionData.eyebrow}
           </motion.p>
 
           {/* Headline */}
@@ -60,7 +61,7 @@ export function CTASection() {
             className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-6 font-sora leading-tight"
             variants={fadeInUp}
           >
-            Let&apos;s Build Something That Scales
+            {ctaSectionData.headline}
           </motion.h2>
 
           {/* Subtext */}
@@ -68,8 +69,7 @@ export function CTASection() {
             className="text-base sm:text-lg lg:text-xl text-white/80 mb-10 leading-relaxed"
             variants={fadeInUp}
           >
-            Whether you need a payment system, API architecture, or CRM automation —
-            I bring production-proven backend expertise.
+            {ctaSectionData.subtext}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -78,7 +78,7 @@ export function CTASection() {
             variants={fadeInUp}
           >
             {/* Primary Button */}
-            <Link href="/contact" className="w-full sm:w-auto">
+            <Link href={ctaSectionData.primaryButton.link} className="w-full sm:w-auto">
               <motion.div
                 variants={buttonPrimary}
                 initial="rest"
@@ -86,12 +86,12 @@ export function CTASection() {
                 whileTap="tap"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#2563EB] font-semibold rounded-lg transition-all duration-200 shadow-lg w-full sm:w-auto"
               >
-                Start a Conversation
+                {ctaSectionData.primaryButton.text}
               </motion.div>
             </Link>
 
             {/* Secondary Button */}
-            <Link href="/projects" className="w-full sm:w-auto">
+            <Link href={ctaSectionData.secondaryButton.link} className="w-full sm:w-auto">
               <motion.div
                 whileHover={{
                   scale: 1.04,
@@ -101,7 +101,7 @@ export function CTASection() {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-200 w-full sm:w-auto"
               >
-                View My Work
+                {ctaSectionData.secondaryButton.text}
               </motion.div>
             </Link>
           </motion.div>

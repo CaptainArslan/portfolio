@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/lib/animations";
+import trustMetricsData from "@/data/trust-metrics.json";
 
 interface Metric {
   number: string;
@@ -96,39 +97,6 @@ function MetricItem({
 /* ============================================
    TRUST METRICS SECTION
    ============================================ */
-const METRICS: Metric[] = [
-  {
-    number: "3+",
-    label: "Years Experience",
-    description: "Professional backend engineering",
-  },
-  {
-    number: "4",
-    label: "Production Systems",
-    description: "Deployed and maintained at scale",
-  },
-  {
-    number: "200+",
-    label: "API Endpoints",
-    description: "REST APIs designed & deployed",
-  },
-  {
-    number: "50K+",
-    label: "Daily Users",
-    description: "Served across all platforms",
-  },
-  {
-    number: "25%",
-    label: "Faster APIs",
-    description: "Response time improvement achieved",
-  },
-  {
-    number: "60%",
-    label: "Query Gain",
-    description: "MySQL performance improvement",
-  },
-];
-
 export function TrustMetrics() {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
 
@@ -143,14 +111,14 @@ export function TrustMetrics() {
         className="text-center pt-10 pb-4 px-4"
       >
         <p className="text-xs font-semibold uppercase tracking-widest text-[#94A3B8]">
-          By the numbers
+          {trustMetricsData.header}
         </p>
       </motion.div>
 
       {/* Metrics grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-x divide-[#E2E8F0]">
-          {METRICS.map((metric, index) => (
+          {trustMetricsData.metrics.map((metric, index) => (
             <MetricItem key={index} {...metric} index={index} />
           ))}
         </div>

@@ -1,0 +1,39 @@
+{
+  "sectionHeader": {
+    "eyebrow": "Core Capabilities",
+    "title": "How I Solve Hard Engineering Problems",
+    "subtitle": "Real expertise built through production systems — not tutorials or side projects."
+  },
+  "capabilities": [
+    {
+      "icon": "ServerIcon",
+      "title": "Backend Systems & API Design",
+      "description": "Modular Laravel backends and REST API ecosystems that scale to thousands of concurrent users with clean middleware separation and proper error handling.",
+      "metric": "200+ API endpoints built"
+    },
+    {
+      "icon": "DatabaseIcon",
+      "title": "Database & Performance Engineering",
+      "description": "MySQL query optimization, Redis caching strategies, and strategic indexing that turned 800ms responses into sub-100ms consistently.",
+      "metric": "60% query time reduction"
+    },
+    {
+      "icon": "CreditCardIcon",
+      "title": "Payment Gateway Integration",
+      "description": "Secure payment pipelines with custom middleware, webhook handling, transaction auditing, and retry logic — PCI DSS aligned throughout.",
+      "metric": "45% success rate boost"
+    },
+    {
+      "icon": "WorkflowIcon",
+      "title": "CRM Automation (GoHighLevel)",
+      "description": "End-to-end GoHighLevel CRM integrations with webhook-driven automations that eliminated manual onboarding workflows and cut turnaround by 50%.",
+      "metric": "50% faster onboarding"
+    },
+    {
+      "icon": "CloudIcon",
+      "title": "Cloud & DevOps Workflows",
+      "description": "AWS-deployed systems with CI/CD pipelines, Redis caching layers, Nginx configuration, and zero-downtime deployment strategies.",
+      "metric": "99.9% uptime maintained"
+    }
+  ]
+}

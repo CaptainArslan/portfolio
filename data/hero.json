@@ -1,0 +1,24 @@
+{
+  "eyebrow": "Available for Remote Roles",
+  "name": "Muhammad Arslan · Backend & Systems Engineer",
+  "headline": "I Build Backend Systems That Scale Under Pressure",
+  "description": "Specialized in Laravel, PHP, MySQL, Redis, and AWS — building payment pipelines, CRM automations, and high-availability APIs that handle real traffic and real money.",
+  "metrics": [
+    { "icon": "Zap", "label": "25% Faster APIs" },
+    { "icon": "Database", "label": "60% Query Gain" },
+    { "icon": "Shield", "label": "99.9% Uptime" }
+  ],
+  "primaryButton": {
+    "text": "Explore My Work",
+    "link": "/projects"
+  },
+  "secondaryButton": {
+    "text": "Download CV",
+    "link": "/resume.pdf"
+  },
+  "codeSnippet": "// Secure async payment pipeline\npublic function processPayment(\n    PaymentRequest $req\n): JsonResponse {\n    // Encrypted middleware layer\n    $encrypted = encrypt($req->sensitive);\n\n    // Queue async — non-blocking\n    ProcessPaymentJob::dispatch(\n        $encrypted, $req->gateway\n    )->onQueue('payments');\n\n    // GoHighLevel CRM sync\n    GoHighLevel::sync($req->contact);\n\n    return response()->json([\n        'status' => 'queued',\n        'id'     => $req->id,\n    ], 201);\n}",
+  "statusBar": {
+    "uptime": "99.9% uptime",
+    "tech": "Laravel + Redis + AWS"
+  }
+}

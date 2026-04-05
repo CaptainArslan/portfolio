@@ -1,0 +1,156 @@
+{
+  "experience": [
+    {
+      "dateRange": "Sep 2023 – Present",
+      "company": "Hegemonic Inc",
+      "location": "Remote · Houston TX",
+      "title": "Back-End Engineer",
+      "current": true,
+      "achievements": [
+        "Architected PayYourCell payment platform with GoHighLevel CRM automation, reducing client onboarding by 50%",
+        "Built encrypted middleware layers ensuring PCI DSS compliance for thousands of daily transactions",
+        "SQL query optimization and strategic indexing achieving 25% reduction in API response times"
+      ],
+      "tech": ["Laravel", "PHP", "GoHighLevel", "MySQL", "AWS", "Redis"]
+    },
+    {
+      "dateRange": "Apr 2024 – Oct 2024",
+      "company": "CodeCapital",
+      "location": "Gujranwala",
+      "title": "Back-End PHP & Laravel Engineer",
+      "current": false,
+      "achievements": [
+        "Maintained zero-downtime deployments under peak traffic serving 50K+ daily active users",
+        "Implemented Redis caching layer reducing database load by 60% and response times from 800ms to 300ms",
+        "Architected queue-based job processing system handling 10K+ background jobs daily"
+      ],
+      "tech": ["PHP", "Laravel", "MySQL", "Redis", "AWS", "CI/CD"]
+    },
+    {
+      "dateRange": "Dec 2023 – Apr 2024",
+      "company": "HexaTech Solution",
+      "location": "Lahore",
+      "title": "Software Engineer",
+      "current": false,
+      "achievements": [
+        "Built loom.dreamhoster.com with async background processing for video encoding",
+        "Custom payment gateway integration boosted transaction success rate by 45%",
+        "Redis-powered queue system managing thousands of concurrent video processing jobs"
+      ],
+      "tech": ["Laravel", "PHP", "MySQL", "AWS", "Redis", "Webhooks"]
+    },
+    {
+      "dateRange": "Nov 2022 – Apr 2024",
+      "company": "Appalo Inc",
+      "location": "Lahore",
+      "title": "Full-Stack Developer",
+      "current": false,
+      "achievements": [
+        "Real-time location tracking system with geofencing for 5K+ concurrent users",
+        "Firebase push notification system delivering 100K+ notifications daily at 95% rate"
+      ],
+      "tech": ["Laravel", "PHP", "MySQL", "Bootstrap", "jQuery", "Firebase"]
+    },
+    {
+      "dateRange": "Apr 2023 – Dec 2023",
+      "company": "UnitSol",
+      "location": "Gujranwala",
+      "title": "Software Engineer",
+      "current": false,
+      "achievements": [
+        "Delivered Speedo Training School digital management system, improving efficiency by 50%",
+        "Dashboard load time reduced from 2.5s to 1.2s through query optimization and caching"
+      ],
+      "tech": ["PHP", "Laravel", "MySQL", "JavaScript"]
+    },
+    {
+      "dateRange": "May 2022 – Jan 2023",
+      "company": "DevZone Solutions",
+      "location": "Lahore",
+      "title": "Full-Stack Developer",
+      "current": false,
+      "achievements": [
+        "Built Ylaa.com achieving 30% improvement in page load times",
+        "Advanced caching strategy supporting 2× increase in concurrent users without infrastructure cost"
+      ],
+      "tech": ["Laravel", "PHP", "MySQL", "jQuery"]
+    },
+    {
+      "dateRange": "Dec 2022 – Apr 2023",
+      "company": "Syntax Lab",
+      "location": "Gujranwala",
+      "title": "Full-Stack Developer",
+      "current": false,
+      "achievements": [
+        "Delivered scalable web platform with optimized data layer and high-performance API architecture"
+      ],
+      "tech": ["PHP", "Laravel", "MySQL", "JavaScript"]
+    },
+    {
+      "dateRange": "Sep 2021 – Apr 2022",
+      "company": "SoftShack (Pvt.) Ltd.",
+      "location": "Gujranwala",
+      "title": "Full-Stack Engineer",
+      "current": false,
+      "achievements": [
+        "Enterprise software features and API integration layer for business operations platform"
+      ],
+      "tech": ["PHP", "Laravel", "MySQL", "Bootstrap"]
+    },
+    {
+      "dateRange": "Dec 2021 – Apr 2022",
+      "company": "PSEB",
+      "location": "Gujranwala",
+      "title": "Web Developer",
+      "current": false,
+      "achievements": [
+        "Government portal development with secure authentication and user management systems"
+      ],
+      "tech": ["PHP", "HTML", "CSS", "JavaScript"]
+    }
+  ],
+  "philosophy": [
+    {
+      "title": "Systems Before Code",
+      "description": "Architecture comes first. I design clean separation of concerns, proper middleware layers, and extensible API contracts before writing a single line. Code is the implementation of a good system — not the system itself.",
+      "icon": "NodesIcon"
+    },
+    {
+      "title": "Performance is a Feature",
+      "description": "From Redis caching to query indexing, I treat performance metrics as first-class requirements — not afterthoughts. Every millisecond saved is revenue protected and user experience improved.",
+      "icon": "LightningIcon"
+    },
+    {
+      "title": "Integration as First-Class",
+      "description": "Payment gateways, CRM platforms, and third-party APIs aren't bolt-ons. They're core citizens in the systems I design — reliable, observable, and recoverable under failure.",
+      "icon": "PuzzleIcon"
+    }
+  ],
+  "techStack": {
+    "Backend": ["PHP", "Laravel", "REST API", "Middleware", "JWT Auth", "OOP Design Patterns"],
+    "Database": ["MySQL", "Redis", "Query Optimization", "Indexing", "Eloquent ORM"],
+    "Cloud": ["AWS EC2/RDS/S3", "CI/CD", "Git", "Docker", "Linux", "Nginx"],
+    "Integrations": ["GoHighLevel CRM", "Payment Gateways", "Webhook Management", "REST Clients"]
+  },
+  "credentials": [
+    {
+      "title": "BS Computer Science",
+      "institution": "University of Sargodha",
+      "period": "2017 – 2021",
+      "description": "Computer science fundamentals, data structures, algorithms, and software engineering.",
+      "icon": "GradCapIcon"
+    },
+    {
+      "title": "CSDA Certification",
+      "institution": "Certified Software Development Associate",
+      "description": "Industry certification in software development methodologies and best practices.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "title": "Web Development",
+      "institution": "Professional Certification",
+      "description": "Full-stack web development with PHP, MySQL, and JavaScript ecosystem.",
+      "icon": "CheckCircleIcon"
+    }
+  ]
+}

@@ -11,6 +11,7 @@ import {
   fadeInRight,
   floatAnimation,
 } from "@/lib/animations";
+import heroData from "@/data/hero.json";
 
 // Dynamic import of BackgroundScene without SSR
 const BackgroundScene = dynamic(
@@ -35,35 +36,16 @@ const CodeWindow = () => (
 
     {/* Code content */}
     <div className="p-5 overflow-x-auto">
-      <pre className="text-xs sm:text-sm leading-relaxed font-mono text-[#CBD5E1]">{`// Secure async payment pipeline
-public function processPayment(
-    PaymentRequest $req
-): JsonResponse {
-    // Encrypted middleware layer
-    $encrypted = encrypt($req->sensitive);
-
-    // Queue async — non-blocking
-    ProcessPaymentJob::dispatch(
-        $encrypted, $req->gateway
-    )->onQueue('payments');
-
-    // GoHighLevel CRM sync
-    GoHighLevel::sync($req->contact);
-
-    return response()->json([
-        'status' => 'queued',
-        'id'     => $req->id,
-    ], 201);
-}`}</pre>
+      <pre className="text-xs sm:text-sm leading-relaxed font-mono text-[#CBD5E1]">{heroData.codeSnippet}</pre>
     </div>
 
     {/* Status bar */}
     <div className="px-5 py-3 border-t border-white/5 flex items-center justify-between">
       <div className="flex items-center gap-2">
         <span className="w-2 h-2 rounded-full bg-[#28C840]" />
-        <span className="text-xs text-white/30 font-mono">99.9% uptime</span>
+        <span className="text-xs text-white/30 font-mono">{heroData.statusBar.uptime}</span>
       </div>
-      <span className="text-xs text-white/20 font-mono">Laravel + Redis + AWS</span>
+      <span className="text-xs text-white/20 font-mono">{heroData.statusBar.tech}</span>
     </div>
   </div>
 );
@@ -72,24 +54,29 @@ public function processPayment(
    METRIC PILL COMPONENT
    ============================================ */
 const MetricPill = ({
-  icon: Icon,
+  icon: iconName,
   label,
   delay,
 }: {
-  icon: React.ElementType;
+  icon: string;
   label: string;
   delay: number;
-}) => (
-  <motion.div
-    initial={{ opacity: 0, y: 8 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-    className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/80 border border-[#E2E8F0] rounded-full text-xs font-semibold text-[#475569] shadow-sm backdrop-blur-sm"
-  >
-    <Icon size={12} className="text-[#2563EB]" />
-    {label}
-  </motion.div>
-);
+}) => {
+  const icons = { Zap, Database, Shield };
+  const Icon = icons[iconName as keyof typeof icons];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/80 border border-[#E2E8F0] rounded-full text-xs font-semibold text-[#475569] shadow-sm backdrop-blur-sm"
+    >
+      <Icon size={12} className="text-[#2563EB]" />
+      {label}
+    </motion.div>
+  );
+};
 
 /* ============================================
    HERO COMPONENT
@@ -155,7 +142,7 @@ export default function Hero() {
               <motion.div variants={fadeInUp} className="mb-6">
                 <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#DBEAFE] border border-[#BFDBFE] text-[#2563EB] text-xs font-semibold rounded-full uppercase tracking-widest">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] animate-pulse" />
-                  Available for Remote Roles
+                  {heroData.eyebrow}
                 </span>
               </motion.div>
 
@@ -164,7 +151,7 @@ export default function Hero() {
                 variants={fadeInUp}
                 className="text-sm font-semibold text-[#94A3B8] mb-2 tracking-wide uppercase"
               >
-                Muhammad Arslan · Backend & Systems Engineer
+                {heroData.name}
               </motion.p>
 
               {/* Headline */}
@@ -181,16 +168,14 @@ export default function Hero() {
                 variants={fadeInUp}
                 className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-lg mb-8"
               >
-                Specialized in Laravel, PHP, MySQL, Redis, and AWS — building
-                payment pipelines, CRM automations, and high-availability APIs
-                that handle real traffic and real money.
+                {heroData.description}
               </motion.p>
 
               {/* Metric pills */}
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-2 mb-8">
-                <MetricPill icon={Zap} label="25% Faster APIs" delay={0.6} />
-                <MetricPill icon={Database} label="60% Query Gain" delay={0.7} />
-                <MetricPill icon={Shield} label="99.9% Uptime" delay={0.8} />
+                {heroData.metrics.map((metric, index) => (
+                  <MetricPill key={index} icon={metric.icon} label={metric.label} delay={0.6 + index * 0.1} />
+                ))}
               </motion.div>
 
               {/* CTA Buttons */}
@@ -199,20 +184,20 @@ export default function Hero() {
                 className="flex flex-col sm:flex-row gap-3"
               >
                 {/* Primary CTA */}
-                <Link href="/projects">
+                <Link href={heroData.primaryButton.link}>
                   <motion.div
                     whileHover={{ y: -2, boxShadow: "0 12px 28px rgba(37,99,235,0.25)" }}
                     whileTap={{ scale: 0.97 }}
                     className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold rounded-xl transition-all duration-200 shadow-lg cursor-pointer"
                   >
-                    Explore My Work
+                    {heroData.primaryButton.text}
                     <ArrowRight size={16} />
                   </motion.div>
                 </Link>
 
                 {/* Secondary CTA */}
                 <a
-                  href="/resume.pdf"
+                  href={heroData.secondaryButton.link}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -222,7 +207,7 @@ export default function Hero() {
                     className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white border border-[#E2E8F0] hover:border-[#2563EB] hover:text-[#2563EB] text-[#0F172A] font-semibold rounded-xl transition-all duration-200 shadow-sm cursor-pointer"
                   >
                     <Download size={15} />
-                    Download CV
+                    {heroData.secondaryButton.text}
                   </motion.div>
                 </a>
               </motion.div>

@@ -9,6 +9,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import {
   cardHover,
 } from "@/lib/animations";
+import featuredProjectsData from "@/data/featured-projects.json";
 
 interface ProjectCardProps {
   title: string;
@@ -132,48 +133,6 @@ function ProjectCard({
 /* ============================================
    FEATURED PROJECTS SECTION
    ============================================ */
-const PROJECTS: Omit<ProjectCardProps, "index">[] = [
-  {
-    title: "PayYourCell",
-    category: "Payment Platform",
-    description:
-      "Enterprise payment platform with GoHighLevel CRM automation, encrypted middleware for PCI compliance, and performance-tuned APIs serving thousands of active users.",
-    technologies: ["Laravel", "GoHighLevel", "AWS", "Redis", "MySQL"],
-    impact: "50% faster client onboarding · 25% API response improvement · 99.9% uptime",
-    caseStudySlug: "payyourcell",
-    accentColor: "#2563EB",
-  },
-  {
-    title: "Noomerik.com",
-    category: "Service Platform",
-    description:
-      "Scalable service marketplace powered by a modular REST API ecosystem with CRM-driven automation workflows and high-availability backend.",
-    technologies: ["Laravel", "PHP", "MySQL", "REST API", "AWS"],
-    impact: "50K+ daily active users · 99.9% API availability · Sub-500ms response",
-    caseStudySlug: "noomerik",
-    accentColor: "#7C3AED",
-  },
-  {
-    title: "loom.dreamhoster.com",
-    category: "Video Platform",
-    description:
-      "Video recording platform with async background job processing, custom payment gateway integration, and Redis-powered queue management.",
-    technologies: ["Laravel", "Redis", "AWS S3", "PHP", "MySQL"],
-    impact: "45% transaction success boost · 20% API latency reduction · 99.8% uptime",
-    caseStudySlug: "loom-dreamhoster",
-    accentColor: "#0891B2",
-  },
-  {
-    title: "Ylaa.com",
-    category: "E-commerce",
-    description:
-      "Full-featured e-commerce platform rebuilt for performance — achieving 30% faster page loads and doubling user capacity without any infrastructure cost increase.",
-    technologies: ["Laravel", "PHP", "MySQL", "jQuery", "JavaScript"],
-    impact: "30% faster page loads · 2× user capacity · 18% lower cart abandonment",
-    caseStudySlug: "ylaa",
-    accentColor: "#059669",
-  },
-];
 
 export function FeaturedProjects() {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
@@ -190,9 +149,9 @@ export function FeaturedProjects() {
             className="mb-14"
           >
             <SectionHeader
-              eyebrow="Featured Work"
-              title="Projects That Ship to Production"
-              subtitle="Four real-world systems I've architected and deployed — each with measurable business impact."
+              eyebrow={featuredProjectsData.sectionHeader.eyebrow}
+              title={featuredProjectsData.sectionHeader.title}
+              subtitle={featuredProjectsData.sectionHeader.subtitle}
               centered
             />
           </motion.div>
@@ -200,7 +159,7 @@ export function FeaturedProjects() {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {PROJECTS.map((project, index) => (
+          {featuredProjectsData.projects.map((project, index) => (
             <ProjectCard key={project.title} {...project} index={index} />
           ))}
         </div>

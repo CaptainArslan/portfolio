@@ -1,0 +1,35 @@
+{
+  "header": "By the numbers",
+  "metrics": [
+    {
+      "number": "3+",
+      "label": "Years Experience",
+      "description": "Professional backend engineering"
+    },
+    {
+      "number": "4",
+      "label": "Production Systems",
+      "description": "Deployed and maintained at scale"
+    },
+    {
+      "number": "200+",
+      "label": "API Endpoints",
+      "description": "REST APIs designed & deployed"
+    },
+    {
+      "number": "50K+",
+      "label": "Daily Users",
+      "description": "Served across all platforms"
+    },
+    {
+      "number": "25%",
+      "label": "Faster APIs",
+      "description": "Response time improvement achieved"
+    },
+    {
+      "number": "60%",
+      "label": "Query Gain",
+      "description": "MySQL performance improvement"
+    }
+  ]
+}
