@@ -698,7 +698,6 @@ textarea {
 
 /* Prevent bounce scroll on iOS */
 html, body {
-  overscroll-behavior: none;
   -webkit-touch-callout: none;
 }
 
