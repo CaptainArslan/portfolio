@@ -64,7 +64,8 @@ export default function ContactPage() {
     type: "Backend Development Project",
     message: "",
   });
-  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const handleChange = (
@@ -72,16 +73,43 @@ export default function ContactPage() {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (status === "error") {
+      setStatus("idle");
+      setErrorMessage(null);
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("loading");
-    setTimeout(() => {
+    setErrorMessage(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = (await res.json().catch(() => ({}))) as { error?: string };
+      if (!res.ok) {
+        setErrorMessage(
+          typeof data.error === "string" ? data.error : "Something went wrong. Please try again."
+        );
+        setStatus("error");
+        return;
+      }
       setStatus("success");
-      setFormData({ name: "", email: "", subject: "", type: "Backend Development Project", message: "" });
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        type: "Backend Development Project",
+        message: "",
+      });
       setTimeout(() => setStatus("idle"), 6000);
-    }, 1600);
+    } catch {
+      setErrorMessage("Network error. Check your connection and try again.");
+      setStatus("error");
+    }
   };
 
   const inputClass =
@@ -127,7 +155,7 @@ export default function ContactPage() {
                 Currently Available
               </div>
               <a
-                href="/resume.pdf"
+                href="/Muhammad_Arslan_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white border border-[#E2E8F0] hover:border-[#2563EB] hover:text-[#2563EB] text-[#475569] px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200"
@@ -265,6 +293,15 @@ export default function ContactPage() {
                         />
                       </div>
 
+                      {status === "error" && errorMessage && (
+                        <div
+                          role="alert"
+                          className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
+                        >
+                          {errorMessage}
+                        </div>
+                      )}
+
                       {/* Submit */}
                       <motion.button
                         type="submit"
@@ -390,7 +427,7 @@ export default function ContactPage() {
                     Connect on LinkedIn
                   </a>
                   <a
-                    href="/resume.pdf"
+                    href="/Muhammad_Arslan_Resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-white border border-[#E2E8F0] hover:border-[#2563EB] hover:text-[#2563EB] text-[#475569] rounded-xl font-semibold text-sm transition-all duration-200"

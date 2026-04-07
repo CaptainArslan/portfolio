@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Arslan — Backend &amp; Systems Engineer</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#344477",
+                        "inverse-on-surface": "#f0f1f3",
+                        "tertiary-container": "#b75b00",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#1a53d6",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#3e4e82",
+                        "outline-variant": "#c3c5d7",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-surface": "#191c1e",
+                        "on-background": "#191c1e",
+                        "secondary": "#4c5c91",
+                        "primary-fixed": "#dce1ff",
+                        "surface-bright": "#f8f9fb",
+                        "on-primary-fixed-variant": "#003cad",
+                        "primary-fixed-dim": "#b5c4ff",
+                        "surface-dim": "#d9dadc",
+                        "on-tertiary-fixed": "#311300",
+                        "surface-container-high": "#e7e8ea",
+                        "inverse-primary": "#b5c4ff",
+                        "secondary-fixed-dim": "#b5c4ff",
+                        "on-tertiary-fixed-variant": "#723600",
+                        "inverse-surface": "#2e3132",
+                        "error-container": "#ffdad6",
+                        "surface": "#f8f9fb",
+                        "on-surface-variant": "#434654",
+                        "on-primary-fixed": "#00164d",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#dce1ff",
+                        "on-primary-container": "#fffbff",
+                        "primary": "#1550d3",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary-fixed": "#ffdcc6",
+                        "surface-variant": "#e1e2e4",
+                        "on-secondary-fixed": "#03174a",
+                        "primary-container": "#3c6bed",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#924700",
+                        "background": "#f8f9fb",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#b2c2fd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#fffbff",
+                        "outline": "#737686",
+                        "surface-container": "#edeef0",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb786"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(248, 249, 251, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        .premium-gradient {
+            background: linear-gradient(135deg, #1550d3 0%, #3c6bed 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 glass-nav">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-xl font-headline font-bold tracking-tighter text-slate-950 dark:text-white">Arslan</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 pb-1" href="#">Projects</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors" href="#">Capabilities</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors" href="#">Insights</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors" href="#">About</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label font-medium hover:opacity-80 transition-all duration-300 scale-95 active:scale-90">
+                Get in touch
+            </button>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Section 1: Hero -->
+<section class="max-w-7xl mx-auto px-8 py-20 lg:py-32 flex flex-col lg:flex-row items-center gap-16">
+<div class="lg:w-1/2 space-y-8">
+<div class="space-y-4">
+<h2 class="text-primary font-headline font-medium tracking-wide uppercase text-sm">Backend &amp; Systems Engineer</h2>
+<h1 class="text-5xl lg:text-7xl font-headline font-bold text-on-surface tracking-tight leading-[1.1]">
+                        Designing <span class="text-primary">scalable</span> architectures.
+                    </h1>
+<p class="text-xl text-on-surface-variant max-w-lg leading-relaxed">
+                        Arslan creates resilient payment systems, cloud infrastructure, and automation platforms for the next generation of high-growth tech.
+                    </p>
+</div>
+<div class="flex flex-wrap gap-4">
+<button class="premium-gradient text-on-primary px-8 py-4 rounded-xl font-medium shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">
+                        View Projects
+                    </button>
+<button class="bg-surface-container-low text-primary px-8 py-4 rounded-xl font-medium hover:bg-surface-container transition-colors">
+                        Contact Me
+                    </button>
+</div>
+</div>
+<div class="lg:w-1/2 relative">
+<div class="aspect-square w-full bg-surface-container-lowest rounded-[2.5rem] overflow-hidden flex items-center justify-center p-12">
+<img alt="Technical Illustration" class="w-full h-full object-contain mix-blend-multiply opacity-90" data-alt="Minimalist isometric 3D render of abstract server racks and data flow lines in soft blue and white tones with studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEQDWJeTflsYd83ZRCxqjOEFKSnYNkhXGjb5vdP4uMck4dt_yME8AvTG8XstxLFhUJxekLg-WgLywOvkAtAj0ITTTv4Mg_kvAH0Tbt0VgKJ8yT2AdbYSqxmP9u3BMkAcMxCF_ewCR_cYGzSvcBh9U6lY_Q589tTnwE1BClChVKDbxSipcxVqXOq4lRUM_H0qD8vG1Efd2j0_jHcITiepgd-MesbBfQRH6sMlsKDF4L-MK4zMYUrs02qofBPXOyhwjNmYjxMlNvjqTw"/>
+</div>
+<!-- Asymmetric Floating Element -->
+<div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl shadow-slate-200/50 hidden md:block border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-weight="fill">verified</span>
+</div>
+<div>
+<div class="font-bold text-on-surface">Systems Architect</div>
+<div class="text-sm text-on-surface-variant">AWS Certified Professional</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Trust Signals -->
+<section class="bg-surface-container-low py-24">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-surface-container-lowest p-10 rounded-xl space-y-4 hover:scale-[1.02] transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-4xl">history_edu</span>
+<h3 class="text-2xl font-headline font-bold text-on-surface">10+ Years Experience</h3>
+<p class="text-on-surface-variant leading-relaxed">A decade of refining complex backends for enterprise and startup scale.</p>
+</div>
+<div class="bg-surface-container-lowest p-10 rounded-xl space-y-4 hover:scale-[1.02] transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-4xl">rocket_launch</span>
+<h3 class="text-2xl font-headline font-bold text-on-surface">50+ Projects Delivered</h3>
+<p class="text-on-surface-variant leading-relaxed">From microservices migrations to complete fintech infrastructure builds.</p>
+</div>
+<div class="bg-surface-container-lowest p-10 rounded-xl space-y-4 hover:scale-[1.02] transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-4xl">category</span>
+<h3 class="text-2xl font-headline font-bold text-on-surface">Core Domains</h3>
+<p class="text-on-surface-variant leading-relaxed">Specializing in FinTech, SaaS growth, and resilient Cloud Infrastructure.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Featured Work -->
+<section class="max-w-7xl mx-auto px-8 py-32 space-y-16">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-2xl">
+<h2 class="text-4xl font-headline font-bold text-on-surface mb-4 leading-tight">Case Studies in Precision</h2>
+<p class="text-lg text-on-surface-variant">Detailed walkthroughs of high-impact engineering solutions.</p>
+</div>
+<button class="text-primary font-medium hover:underline flex items-center gap-2 group">
+                    View all projects <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<div class="space-y-12">
+<!-- Large Horizontal Card 1 -->
+<div class="group relative bg-surface-container-lowest rounded-[2rem] overflow-hidden flex flex-col lg:flex-row items-stretch hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500">
+<div class="lg:w-1/2 p-12 lg:p-16 flex flex-col justify-center space-y-6">
+<div class="flex gap-3">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-xs font-bold uppercase tracking-wider rounded-full">FinTech</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-xs font-bold uppercase tracking-wider rounded-full">Rust</span>
+</div>
+<h3 class="text-3xl font-headline font-bold text-on-surface">Secure Pay Gateway</h3>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                            Engineered a high-throughput payment processing engine capable of handling 15,000 requests per second with 99.99% uptime and PCI-DSS compliance.
+                        </p>
+<div class="pt-4">
+<a class="inline-flex items-center gap-2 font-semibold text-primary" href="#">
+                                Read Case Study <span class="material-symbols-outlined">north_east</span>
+</a>
+</div>
+</div>
+<div class="lg:w-1/2 h-80 lg:h-auto overflow-hidden">
+<img alt="Payment Gateway Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A sleek dark-mode dashboard with glowing blue data visualizations and charts representing financial transaction metrics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF9LU8xaSZb0Rpjh3TJqWBzzrIKsSP8dg2trA8b-8XPn9SwojBy7OBTNTUWioZHRZey98_j1RgTycDUgUKgIs3AKmPbJt7bgfT0sNx4OfO9E21fhi8XKmceFLfJ3u4wLL4nuhD-YbZEtGGIb2KeH_r_f4k6G9TvrKZU2BEYKXkhQmvCfNr3RMjUr_cNNkSS6zpejie66sZqFgkfdGvtjcNY-zk8ItggEQNCBXVx1gD1u7xcPqZGt0MKOMHFMmz9nmRMgL-pc2wA73F"/>
+</div>
+</div>
+<!-- Large Horizontal Card 2 -->
+<div class="group relative bg-surface-container-lowest rounded-[2rem] overflow-hidden flex flex-col lg:flex-row-reverse items-stretch hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500">
+<div class="lg:w-1/2 p-12 lg:p-16 flex flex-col justify-center space-y-6">
+<div class="flex gap-3">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-xs font-bold uppercase tracking-wider rounded-full">Inventory</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-xs font-bold uppercase tracking-wider rounded-full">Go</span>
+</div>
+<h3 class="text-3xl font-headline font-bold text-on-surface">Inventory Sync Engine</h3>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                            Developed a real-time synchronization platform for global e-commerce, reducing data latency by 75% across distributed warehouse nodes.
+                        </p>
+<div class="pt-4">
+<a class="inline-flex items-center gap-2 font-semibold text-primary" href="#">
+                                Read Case Study <span class="material-symbols-outlined">north_east</span>
+</a>
+</div>
+</div>
+<div class="lg:w-1/2 h-80 lg:h-auto overflow-hidden">
+<img alt="Warehouse Tech Illustration" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="An abstract birds-eye view of a modern logistics center with neon blue light paths representing automated material movement" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmnP6sEc_-PMAP61IXGd3nxFB5tFsQXfYNh9RvysXkljgA95SLAeS_uGd8WcqeU9WU9Q1EXItrf9em62f2QGkY6ChD-XRYklFcMvZ23ubO3o37PuIRm-s6N8BlySOGU6g0TS-XjwCOdFden8aQMyeAD1NM9BJJkq8XUbN5emcqpEbAdmgKBwjLcnnWEx9n7-gfETVhaTMjCahLU_I8USx4TFKPiH4C5WAJhMN2dFhYKnIgQaNEOcooCqLN9EMGQpK8JAayNivzyNFV"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Capabilities Overview -->
+<section class="bg-surface py-32">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center max-w-3xl mx-auto mb-20">
+<h2 class="text-4xl font-headline font-bold text-on-surface mb-6">Technical Capabilities</h2>
+<p class="text-lg text-on-surface-variant leading-relaxed">Bridging the gap between complex requirements and elegant, maintainable codebases.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Capability 1 -->
+<div class="bg-surface-container-low p-8 rounded-[1.5rem] border border-outline-variant/10 hover:border-primary/20 transition-all group">
+<div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">terminal</span>
+</div>
+<h4 class="text-xl font-headline font-bold text-on-surface mb-3">Backend Systems</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Architecture for distributed monoliths and microservices using Rust, Go, and Python.</p>
+</div>
+<!-- Capability 2 -->
+<div class="bg-surface-container-low p-8 rounded-[1.5rem] border border-outline-variant/10 hover:border-primary/20 transition-all group">
+<div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">cloud</span>
+</div>
+<h4 class="text-xl font-headline font-bold text-on-surface mb-3">Infrastructure</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Cloud-native deployment, Kubernetes orchestration, and Infrastructure as Code (Terraform).</p>
+</div>
+<!-- Capability 3 -->
+<div class="bg-surface-container-low p-8 rounded-[1.5rem] border border-outline-variant/10 hover:border-primary/20 transition-all group">
+<div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">payments</span>
+</div>
+<h4 class="text-xl font-headline font-bold text-on-surface mb-3">Payments</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Complex ledger systems, third-party integrations, and robust transactional integrity.</p>
+</div>
+<!-- Capability 4 -->
+<div class="bg-surface-container-low p-8 rounded-[1.5rem] border border-outline-variant/10 hover:border-primary/20 transition-all group">
+<div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">database</span>
+</div>
+<h4 class="text-xl font-headline font-bold text-on-surface mb-3">Databases</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Optimizing PostgreSQL, Redis, and NoSQL clusters for large-scale data integrity.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: CTA -->
+<section class="max-w-7xl mx-auto px-8 py-24 mb-12">
+<div class="premium-gradient rounded-[2.5rem] p-12 lg:p-24 text-center text-on-primary relative overflow-hidden">
+<!-- Abstract Texture Overlay -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0 100 L100 0 L100 100 Z" fill="currentColor"></path>
+</svg>
+</div>
+<div class="relative z-10 space-y-8 max-w-2xl mx-auto">
+<h2 class="text-4xl lg:text-6xl font-headline font-bold leading-tight">Let’s build something scalable.</h2>
+<p class="text-xl opacity-90 leading-relaxed">Currently accepting new engineering partnerships for Q3 2024.</p>
+<div class="flex flex-wrap justify-center gap-6">
+<button class="bg-white text-primary px-10 py-5 rounded-xl font-bold shadow-xl hover:scale-105 transition-transform">
+                            Hire Arslan
+                        </button>
+<button class="bg-primary-container/20 border border-white/30 text-white px-10 py-5 rounded-xl font-bold backdrop-blur-md hover:bg-primary-container/40 transition-all">
+                            Download CV
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200/50 dark:border-slate-800/50 bg-slate-50 dark:bg-slate-950">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 max-w-7xl mx-auto">
+<div class="mb-8 md:mb-0 space-y-2">
+<div class="font-headline font-bold text-slate-900 dark:text-white text-lg">Arslan</div>
+<p class="font-body text-sm leading-relaxed text-slate-500 dark:text-slate-400 max-w-xs">
+                    © 2024 Arslan Engineering. Built for Precision.
+                </p>
+</div>
+<div class="flex gap-12 text-sm">
+<div class="space-y-4">
+<div class="font-headline font-bold text-on-surface">Connect</div>
+<div class="flex flex-col space-y-2">
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200" href="#">GitHub</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200" href="#">LinkedIn</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200" href="#">Twitter</a>
+</div>
+</div>
+<div class="space-y-4">
+<div class="font-headline font-bold text-on-surface">Inquiries</div>
+<div class="flex flex-col space-y-2">
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200" href="mailto:hello@arslan.eng">Email</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200" href="#">Calendly</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

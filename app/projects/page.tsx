@@ -75,7 +75,7 @@ export default function ProjectsPage() {
               Systems Built for the Real World
             </h1>
             <p className="text-base sm:text-lg text-[#475569] max-w-2xl">
-              Four real-world backend systems I&apos;ve architected and deployed — each with
+              Ten real-world systems I&apos;ve architected and deployed — each with
               measurable performance improvements and business impact.
             </p>
           </motion.div>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projects | Arslan Engineering</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {},
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            "headline": ["Public Sans", "sans-serif"],
+            "body": ["Public Sans", "sans-serif"],
+            "label": ["Public Sans", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      background-color: #F8F9FB;
+    }
+  </style>
+</head>
+<body class="antialiased text-slate-900 font-body">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-sm shadow-slate-200/50">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-slate-950 font-['Space_Grotesk']">
+        Arslan
+      </div>
+<div class="hidden md:flex items-center space-x-8 font-['Space_Grotesk'] font-bold tracking-tight">
+<a class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1" href="#">Projects</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors" href="#">Capabilities</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors" href="#">Insights</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors" href="#">About</a>
+</div>
+<button class="bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold text-sm hover:opacity-80 transition-all duration-300 scale-95 active:scale-90">
+        Get in touch
+      </button>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-8 max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="mb-16">
+<h1 class="text-5xl md:text-6xl font-extrabold tracking-tighter font-['Space_Grotesk'] text-slate-950 mb-4">
+        Engineering Portfolio
+      </h1>
+<p class="text-lg text-slate-500 max-w-2xl font-medium">
+        Showcasing our recent deployments in high-performance infrastructure and automated systems.
+      </p>
+</header>
+<!-- Projects Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1: Secure Pay Gateway -->
+<div class="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 flex flex-col h-full">
+<div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined" data-icon="shield_with_heart">shield_with_heart</span>
+</div>
+<h3 class="text-xl font-bold font-['Space_Grotesk'] text-slate-900 mb-2">Secure Pay Gateway</h3>
+<p class="text-slate-500 text-sm mb-6 flex-grow">Advanced encryption protocol for distributed financial transactions.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-semibold rounded-full border border-slate-100">Go</span>
+<span class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-semibold rounded-full border border-slate-100">Redis</span>
+<span class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-semibold rounded-full border border-slate-100">PostgreSQL</span>
+</div>
+</div>
+<!-- Card 2: Inventory Sync Engine -->
+<div class="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 flex flex-col h-full">
+<div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined" data-icon="sync_alt">sync_alt</span>
+</div>
+<h3 class="text-xl font-bold font-['Space_Grotesk'] text-slate-900 mb-2">Inventory Sync Engine</h3>
+<p class="text-slate-500 text-sm mb-6 flex-grow">Real-time multi-channel stock synchronization for enterprise retail.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-semibold rounded-full border border-slate-100">Python</span>
+<span class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-semibold rounded-full border border-slate-100">Kafka</span>
+<span class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-semibold rounded-full border border-slate-100">AWS</span>
+</div>
+</div>
+<!-- Card 3: Cloud Infrastructure Automation -->
+<div class="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 flex flex-col h-full">
+<div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined" data-icon="cloud_done">cloud_done</span>
+</div>
+<h3 class="text-xl font-bold font-['Space_Grotesk'] text-slate-900 mb-2">Cloud Infrastructure Automation</h3>
+<p class="text-slate-500 text-sm mb-6 flex-grow">Self-healing multi-cloud deployments via custom Terraform providers.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-semibold rounded-full border border-slate-100">Terraform</span>
+<span class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-semibold rounded-full border border-slate-100">K8s</span>
+<span class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-semibold rounded-full border border-slate-100">Azure</span>
+</div>
+</div>
+<!-- Card 4: LogiStream API -->
+<div class="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 flex flex-col h-full">
+<div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined" data-icon="api">api</span>
+</div>
+<h3 class="text-xl font-bold font-['Space_Grotesk'] text-slate-900 mb-2">LogiStream API</h3>
+<p class="text-slate-500 text-sm mb-6 flex-grow">Low-latency logistics data stream for global supply chain tracking.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-semibold rounded-full border border-slate-100">Rust</span>
+<span class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-semibold rounded-full border border-slate-100">gRPC</span>
+<span class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-semibold rounded-full border border-slate-100">Docker</span>
+</div>
+</div>
+<!-- Card 5: AuthGuard Pro -->
+<div class="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 flex flex-col h-full">
+<div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+</div>
+<h3 class="text-xl font-bold font-['Space_Grotesk'] text-slate-900 mb-2">AuthGuard Pro</h3>
+<p class="text-slate-500 text-sm mb-6 flex-grow">Proprietary identity management with biometric hardware integration.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-semibold rounded-full border border-slate-100">C++</span>
+<span class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-semibold rounded-full border border-slate-100">OAuth2</span>
+<span class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-semibold rounded-full border border-slate-100">WebAuthn</span>
+</div>
+</div>
+<!-- Card 6: Hyperion Engine -->
+<div class="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 flex flex-col h-full">
+<div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</div>
+<h3 class="text-xl font-bold font-['Space_Grotesk'] text-slate-900 mb-2">Hyperion Engine</h3>
+<p class="text-slate-500 text-sm mb-6 flex-grow">Custom rendering pipeline for real-time industrial digital twins.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-semibold rounded-full border border-slate-100">Vulkan</span>
+<span class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-semibold rounded-full border border-slate-100">C#</span>
+<span class="px-3 py-1 bg-slate-50 text-slate-600 text-xs font-semibold rounded-full border border-slate-100">WebGL</span>
+</div>
+</div>
+</div>
+<!-- CTA Section -->
+<section class="mt-24 bg-slate-900 rounded-2xl p-12 overflow-hidden relative">
+<div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
+<div>
+<h2 class="text-3xl font-bold font-['Space_Grotesk'] text-white mb-2">Ready to start a new project?</h2>
+<p class="text-slate-400 font-medium">Let's build something exceptional together.</p>
+</div>
+<button class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-500 transition-all duration-300">
+          Book a Consultation
+        </button>
+</div>
+<!-- Decorative element -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl"></div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200/50 bg-slate-50">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 max-w-7xl mx-auto">
+<div class="mb-6 md:mb-0">
+<span class="font-['Space_Grotesk'] font-bold text-slate-900 text-lg">Arslan</span>
+<p class="font-['Inter'] text-sm leading-relaxed text-slate-500 mt-2">© 2024 Arslan Engineering. Built for Precision.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-['Inter'] text-sm leading-relaxed text-slate-500 hover:text-blue-600 transition-colors duration-200" href="#">GitHub</a>
+<a class="font-['Inter'] text-sm leading-relaxed text-slate-500 hover:text-blue-600 transition-colors duration-200" href="#">LinkedIn</a>
+<a class="font-['Inter'] text-sm leading-relaxed text-slate-500 hover:text-blue-600 transition-colors duration-200" href="#">Twitter</a>
+<a class="font-['Inter'] text-sm leading-relaxed text-slate-500 hover:text-blue-600 transition-colors duration-200" href="#">Email</a>
+</div>
+</div>
+</footer>
+</body></html>

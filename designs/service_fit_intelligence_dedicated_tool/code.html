@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Service Fit Intelligence | Arslan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#f8f9fb",
+                    "on-tertiary-fixed": "#311300",
+                    "secondary-container": "#b2c2fd",
+                    "primary-container": "#3c6bed",
+                    "outline": "#737686",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e7e8ea",
+                    "on-surface-variant": "#434654",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f2f4f6",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#b5c4ff",
+                    "secondary": "#4c5c91",
+                    "primary-fixed-dim": "#b5c4ff",
+                    "on-secondary-container": "#3e4e82",
+                    "on-secondary-fixed-variant": "#344477",
+                    "on-secondary-fixed": "#03174a",
+                    "surface-dim": "#d9dadc",
+                    "on-tertiary-container": "#fffbff",
+                    "surface-bright": "#f8f9fb",
+                    "on-tertiary-fixed-variant": "#723600",
+                    "tertiary-fixed-dim": "#ffb786",
+                    "on-primary-fixed-variant": "#003cad",
+                    "surface": "#f8f9fb",
+                    "on-background": "#191c1e",
+                    "inverse-on-surface": "#f0f1f3",
+                    "on-surface": "#191c1e",
+                    "tertiary-fixed": "#ffdcc6",
+                    "outline-variant": "#c3c5d7",
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#1a53d6",
+                    "primary": "#1550d3",
+                    "on-primary-container": "#fffbff",
+                    "tertiary": "#924700",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#00164d",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#2e3132",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#b75b00",
+                    "surface-container-highest": "#e1e2e4",
+                    "surface-container": "#edeef0",
+                    "secondary-fixed-dim": "#b5c4ff",
+                    "primary-fixed": "#dce1ff",
+                    "surface-variant": "#e1e2e4",
+                    "secondary-fixed": "#dce1ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fb; }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+        .system-grid {
+            background-image: radial-gradient(#c3c5d7 0.5px, transparent 0.5px);
+            background-size: 32px 32px;
+            opacity: 0.25;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="text-on-background bg-surface min-h-screen">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm shadow-slate-200/50">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-slate-950 font-headline">Arslan</div>
+<div class="hidden md:flex items-center space-gap-8 gap-x-8">
+<a class="text-slate-600 hover:text-slate-900 transition-colors font-body text-sm" href="#">Projects</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors font-body text-sm" href="#">Capabilities</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors font-body text-sm" href="#">Insights</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors font-body text-sm" href="#">About</a>
+</div>
+<button class="bg-primary hover:opacity-80 transition-all duration-300 text-on-primary px-5 py-2 rounded-lg text-sm font-medium scale-95 active:scale-90">
+                Get in touch
+            </button>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="relative pt-32 pb-24 overflow-hidden">
+<!-- Background Grid Decoration -->
+<div class="absolute inset-0 system-grid pointer-events-none"></div>
+<div class="max-w-4xl mx-auto px-6 relative z-10">
+<!-- Hero Section -->
+<section class="text-center mb-16">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-surface-container-highest text-on-surface-variant text-xs font-medium mb-6">
+<span class="material-symbols-outlined text-sm mr-1.5" data-icon="cognition">cognition</span>
+                    Service Fit Intelligence v1.0
+                </span>
+<h1 class="text-4xl md:text-6xl font-bold tracking-tight text-on-background mb-8 leading-[1.1]">
+                    Find out if I’m the right <br/>engineer for your project
+                </h1>
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-primary-container rounded-xl blur opacity-10 group-focus-within:opacity-25 transition duration-500"></div>
+<div class="relative bg-surface-container-lowest rounded-xl p-2 shadow-sm border border-outline-variant/10">
+<textarea class="w-full min-h-[200px] p-6 bg-transparent border-none focus:ring-0 text-lg font-body placeholder:text-outline-variant/60 resize-none" placeholder="Describe your project, technical stack, and engineering challenges..."></textarea>
+<div class="flex justify-between items-center p-4 border-t border-surface-container">
+<div class="flex gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="attach_file">attach_file</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="link">link</span>
+</button>
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-lg font-medium shadow-lg shadow-primary/20 hover:opacity-90 transition-all flex items-center gap-2">
+                                Run Analysis
+                                <span class="material-symbols-outlined text-sm" data-icon="auto_awesome">auto_awesome</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Loading State Simulation -->
+<section class="mb-20">
+<div class="flex flex-col gap-4 max-w-2xl mx-auto bg-surface-container-low/50 p-8 rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<p class="text-sm font-medium text-primary font-label uppercase tracking-widest">Analyzing your request...</p>
+</div>
+<div class="h-4 bg-surface-container-high rounded-full w-full animate-pulse"></div>
+<div class="h-4 bg-surface-container-high rounded-full w-5/6 animate-pulse"></div>
+<div class="h-4 bg-surface-container-high rounded-full w-4/6 animate-pulse"></div>
+</div>
+</section>
+<!-- Result Panel: Strong Fit -->
+<section class="space-y-8 animate-in fade-in duration-700">
+<div class="bg-surface-container-lowest rounded-xl shadow-2xl shadow-slate-200/50 overflow-hidden border border-outline-variant/15">
+<!-- Result Header -->
+<div class="p-8 md:p-12 flex flex-col md:flex-row md:items-center justify-between gap-8 border-b border-surface-container">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="text-primary font-bold text-sm uppercase tracking-widest font-label">Analysis Result</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="text-on-surface-variant text-sm font-label">Confidence: 98%</span>
+</div>
+<h2 class="text-3xl md:text-4xl font-bold text-on-surface">Strong Fit Identified</h2>
+</div>
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90">
+<circle class="text-surface-container" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="5" stroke-width="8"></circle>
+</svg>
+<span class="absolute inset-0 flex items-center justify-center font-headline font-bold text-xl text-primary">98%</span>
+</div>
+</div>
+<!-- Detailed Explanation -->
+<div class="p-8 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="md:col-span-2 space-y-6">
+<h3 class="text-xl font-bold">Why we're a match</h3>
+<p class="text-on-surface-variant leading-relaxed text-lg">
+                                Your project requires high-concurrency architecture and financial-grade security, which aligns perfectly with my background in distributed systems. The mention of <strong>real-time ledger processing</strong> and <strong>sub-millisecond latency</strong> targets matches my recent work on high-throughput fintech pipelines.
+                            </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-1.5 bg-surface-container-high rounded-full text-sm font-medium text-on-surface-variant">Distributed Systems</span>
+<span class="px-4 py-1.5 bg-surface-container-high rounded-full text-sm font-medium text-on-surface-variant">Rust / Go</span>
+<span class="px-4 py-1.5 bg-surface-container-high rounded-full text-sm font-medium text-on-surface-variant">PostgreSQL Optimization</span>
+<span class="px-4 py-1.5 bg-surface-container-high rounded-full text-sm font-medium text-on-surface-variant">PCI-DSS Compliance</span>
+</div>
+</div>
+<!-- Matching Expertise Sidebar -->
+<div class="space-y-6 border-l border-surface-container pl-0 md:pl-12">
+<h3 class="text-sm font-bold uppercase tracking-widest text-outline">Capabilities</h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="check_circle">check_circle</span>
+<div>
+<p class="font-bold text-sm">System Scalability</p>
+<p class="text-xs text-on-surface-variant">Handling 100k+ TPS</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="check_circle">check_circle</span>
+<div>
+<p class="font-bold text-sm">Fintech Core</p>
+<p class="text-xs text-on-surface-variant">Ledger &amp; Reconciliation</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="check_circle">check_circle</span>
+<div>
+<p class="font-bold text-sm">Infrastructure</p>
+<p class="text-xs text-on-surface-variant">Terraform &amp; AWS Expert</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Relevant Projects -->
+<div class="space-y-4">
+<h3 class="text-sm font-bold uppercase tracking-widest text-outline flex items-center gap-2">
+                        Closest Reference Project
+                        <span class="h-px bg-surface-container-high flex-grow"></span>
+</h3>
+<div class="group relative bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-xl transition-all duration-500 border border-outline-variant/10">
+<div class="flex flex-col md:flex-row">
+<div class="md:w-1/3 h-64 md:h-auto overflow-hidden">
+<img alt="Project Visualization" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Technical dashboard interface with data visualizations, dark theme, neon blue accents, professional fintech engineering aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf3D4OUn7W9wXqTlwp9cjtprkgAKFPBDBaVG9H0QGDDVQsp0yaKp68h4xNQTvQuSrymVKfdm_dwM--Peup-iKMavb2A58iupEeHdvgX6aatmeMFmChBYQQnPGur4DntWXxiSqPgqdKjgNLKVGF838wN-mDjxXDBZPSvwOjbXiHrCzPEVXw9motDfnHRyU41yUTwqloIyvze-UkL7EHNYstIrCabe7itIsKuCucfA6VyVvGeDZiAcW_tm7ydGlqPzlv3v1YyU7MAd35"/>
+</div>
+<div class="md:w-2/3 p-8 md:p-12 flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded">Fintech</span>
+<span class="text-outline-variant text-xs font-label">2023 Case Study</span>
+</div>
+<h4 class="text-2xl font-bold mb-4">PayYourCell Core</h4>
+<p class="text-on-surface-variant mb-6 leading-relaxed">
+                                    Architected a high-volume payment processing engine that handles over $2.4B in annual transaction volume with 99.999% uptime. Implemented custom reconciliation logic that reduced processing overhead by 40%.
+                                </p>
+<a class="inline-flex items-center text-primary font-bold text-sm group/link" href="#">
+                                    View technical breakdown
+                                    <span class="material-symbols-outlined ml-2 transition-transform group-hover/link:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- CTA -->
+<div class="text-center py-12">
+<button class="bg-primary-container text-on-primary-container px-12 py-4 rounded-xl font-bold text-lg hover:brightness-110 transition-all shadow-xl shadow-primary-container/20">
+                        Schedule an Intake Call
+                    </button>
+<p class="mt-4 text-sm text-outline">Available to start new projects from October 2024</p>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full border-t border-slate-200/50 bg-slate-50">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 max-w-7xl mx-auto">
+<div class="mb-6 md:mb-0">
+<div class="font-headline font-bold text-slate-900 text-lg mb-2">Arslan Engineering.</div>
+<p class="font-body text-sm text-slate-500">© 2024 Arslan Engineering. Built for Precision.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" href="#">GitHub</a>
+<a class="text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" href="#">LinkedIn</a>
+<a class="text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" href="#">Twitter</a>
+<a class="text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" href="#">Email</a>
+</div>
+</div>
+</footer>
+</body></html>

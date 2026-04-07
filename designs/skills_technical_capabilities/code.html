@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Capabilities | Arslan Engineering</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {},
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans"],
+                        "body": ["Public Sans"],
+                        "label": ["Public Sans"],
+                        "display": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #F8F9FB;
+        }
+    </style>
+</head>
+<body class="font-body text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-sm shadow-slate-200/50">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="text-xl font-bold tracking-tighter text-slate-950">Arslan</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 hover:text-slate-900 transition-colors" href="#">Projects</a>
+<a class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1" href="#">Capabilities</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors" href="#">Insights</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors" href="#">About</a>
+</nav>
+<button class="bg-blue-600 text-white px-5 py-2 rounded-full font-medium text-sm hover:opacity-80 transition-all duration-300 scale-95 active:scale-90">
+                Get in touch
+            </button>
+</div>
+</header>
+<main class="pt-32 pb-24 px-6 max-w-7xl mx-auto">
+<!-- Hero Section -->
+<section class="mb-20">
+<div class="max-w-3xl">
+<h1 class="font-display font-bold text-5xl tracking-tight text-slate-900 mb-6">Technical Capabilities</h1>
+<p class="text-xl text-slate-600 leading-relaxed">
+                    Engineering robust digital ecosystems through precision-focused infrastructure and high-performance backend systems.
+                </p>
+</div>
+</section>
+<!-- Capabilities Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Backend Systems -->
+<div class="md:col-span-8 group cursor-pointer bg-white rounded-3xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500">
+<div class="flex justify-between items-start mb-12">
+<div class="p-4 bg-blue-50 rounded-2xl">
+<span class="material-symbols-outlined text-blue-600 text-3xl" data-icon="terminal">terminal</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-widest text-slate-400">8+ Years Experience</span>
+</div>
+<h3 class="font-display font-bold text-3xl mb-4">Backend Architecture</h3>
+<p class="text-slate-500 mb-8 max-w-lg">Developing scalable microservices and high-concurrency APIs using Go, Rust, and Python. Focus on low-latency and fault tolerance.</p>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 bg-slate-50 rounded-full text-sm font-medium text-slate-700">Golang</span>
+<span class="px-4 py-2 bg-slate-50 rounded-full text-sm font-medium text-slate-700">Rust</span>
+<span class="px-4 py-2 bg-slate-50 rounded-full text-sm font-medium text-slate-700">gRPC</span>
+<span class="px-4 py-2 bg-slate-50 rounded-full text-sm font-medium text-slate-700">Node.js</span>
+<span class="px-4 py-2 bg-slate-50 rounded-full text-sm font-medium text-slate-700">RabbitMQ</span>
+</div>
+</div>
+<!-- Database Design -->
+<div class="md:col-span-4 bg-white rounded-3xl p-8 shadow-sm border border-slate-100 group hover:border-blue-200 transition-all duration-500">
+<div class="mb-12">
+<div class="p-4 bg-indigo-50 rounded-2xl inline-block">
+<span class="material-symbols-outlined text-indigo-600 text-3xl" data-icon="database">database</span>
+</div>
+</div>
+<h3 class="font-display font-bold text-2xl mb-4">Database Systems</h3>
+<p class="text-slate-500 mb-8">Specializing in distributed databases and complex schema optimization for real-time applications.</p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+<span class="text-slate-700 font-medium">PostgreSQL &amp; Aurora</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+<span class="text-slate-700 font-medium">Redis In-Memory</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+<span class="text-slate-700 font-medium">Elasticsearch</span>
+</li>
+</ul>
+</div>
+<!-- Infrastructure -->
+<div class="md:col-span-4 bg-slate-900 rounded-3xl p-8 shadow-xl relative overflow-hidden group">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-500/20 transition-colors"></div>
+<div class="relative z-10">
+<div class="mb-12">
+<div class="p-4 bg-white/10 rounded-2xl inline-block backdrop-blur-md">
+<span class="material-symbols-outlined text-blue-400 text-3xl" data-icon="cloud">cloud</span>
+</div>
+</div>
+<h3 class="font-display font-bold text-2xl text-white mb-4">Infrastructure</h3>
+<p class="text-slate-400 mb-8">Cloud-native deployment strategies using Infrastructure as Code (IaC) and Kubernetes orchestration.</p>
+<div class="grid grid-cols-2 gap-4">
+<div class="text-center p-3 rounded-xl bg-white/5 border border-white/10">
+<div class="text-blue-400 font-bold">AWS</div>
+</div>
+<div class="text-center p-3 rounded-xl bg-white/5 border border-white/10">
+<div class="text-blue-400 font-bold">Terraform</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Payments -->
+<div class="md:col-span-5 bg-white rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col justify-between">
+<div>
+<div class="mb-8">
+<div class="p-4 bg-emerald-50 rounded-2xl inline-block">
+<span class="material-symbols-outlined text-emerald-600 text-3xl" data-icon="payments">payments</span>
+</div>
+</div>
+<h3 class="font-display font-bold text-2xl mb-4">Payment Systems</h3>
+<p class="text-slate-500 mb-6">Integrating secure, PCI-compliant financial gateways and custom billing engines for global SaaS.</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex flex-col">
+<span class="text-2xl font-bold text-slate-900">$50M+</span>
+<span class="text-xs text-slate-400 font-bold uppercase tracking-tighter">Processed Volume</span>
+</div>
+<div class="h-10 w-px bg-slate-100"></div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-300" data-icon="shield_with_heart">shield_with_heart</span>
+<span class="material-symbols-outlined text-slate-300" data-icon="account_balance">account_balance</span>
+</div>
+</div>
+</div>
+<!-- Systems / OS -->
+<div class="md:col-span-3 bg-white rounded-3xl p-8 shadow-sm border border-slate-100 relative overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover opacity-5 grayscale" data-alt="close-up of server racks in a data center with blue ambient lighting and clean cable management" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtS692FCVvQEzCeotAagEN6jVH39IipLpQLar5YnEUtv3U02lzi8oBKZ8KLv8rv60S47EzpZ5v_6d65__EcBOb8yl1FtB4o5fJyum1aRsRghJelLuG7O_GxyR4xKhznDBLqdE0EoFRBdDE7AGHyYdjnVg5X9omdwJ43h7sDuH_fP53sIoM7TbpiMGweosC9yAQts11o7Gh3wevVNf27CmK1fe3IfYOdvJKbOmfGjG_NtZ0L8YWgtwT9-gGnelItVlj44DVSFHk94BW"/>
+<div class="relative z-10">
+<div class="mb-8">
+<div class="p-4 bg-orange-50 rounded-2xl inline-block">
+<span class="material-symbols-outlined text-orange-600 text-3xl" data-icon="settings_ethernet">settings_ethernet</span>
+</div>
+</div>
+<h3 class="font-display font-bold text-2xl mb-2">Systems</h3>
+<p class="text-slate-500 text-sm mb-6">Kernel tuning, networking protocols, and embedded Linux environments.</p>
+<button class="flex items-center gap-2 text-slate-900 font-bold text-sm group">
+                        View Projects 
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Experience Detail / Expandable Concept (Static Representation) -->
+<section class="mt-32">
+<div class="border-t border-slate-200 pt-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+<div>
+<h4 class="font-display font-bold text-xl mb-4">Core Philosophy</h4>
+<p class="text-slate-500 leading-relaxed">We don't just write code; we architect systems designed for the next decade. Reliability is our primary feature.</p>
+</div>
+<div>
+<h4 class="font-display font-bold text-xl mb-4">Tech Evolution</h4>
+<p class="text-slate-500 leading-relaxed">Continuous research into emerging primitives like WebAssembly and Edge Computing to keep our partners ahead.</p>
+</div>
+<div>
+<h4 class="font-display font-bold text-xl mb-4">Success Metrics</h4>
+<div class="space-y-4 mt-6">
+<div class="flex justify-between items-end border-b border-slate-100 pb-2">
+<span class="text-slate-400 text-sm">System Uptime</span>
+<span class="font-bold text-slate-900">99.999%</span>
+</div>
+<div class="flex justify-between items-end border-b border-slate-100 pb-2">
+<span class="text-slate-400 text-sm">Avg Latency</span>
+<span class="font-bold text-slate-900">&lt;45ms</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200/50 bg-slate-50">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 max-w-7xl mx-auto">
+<div class="mb-8 md:mb-0">
+<span class="font-display font-bold text-slate-900 text-xl tracking-tight">Arslan Engineering</span>
+<p class="mt-2 font-body text-sm text-slate-500">© 2024 Arslan Engineering. Built for Precision.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" href="#">GitHub</a>
+<a class="text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" href="#">LinkedIn</a>
+<a class="text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" href="#">Twitter</a>
+<a class="text-slate-500 hover:text-blue-600 transition-colors duration-200 text-sm font-medium" href="#">Email</a>
+</div>
+</div>
+</footer>
+</body></html>

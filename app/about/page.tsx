@@ -196,7 +196,7 @@ export default function About() {
                     <ArrowRight size={15} />
                   </motion.div>
                 </Link>
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="/Muhammad_Arslan_Resume.pdf" target="_blank" rel="noopener noreferrer">
                   <motion.div
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.97 }}
