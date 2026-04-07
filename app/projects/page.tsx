@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Zap, ExternalLink } from "lucide-react";
+import projectsData from "@/data/projects.json";
 
 /* ============================================
    TYPES
@@ -26,64 +27,9 @@ interface Project {
 }
 
 /* ============================================
-   DATA
+   DATA — edit /data/projects.json
    ============================================ */
-const PROJECTS: Project[] = [
-  {
-    id: "1",
-    name: "PayYourCell",
-    slug: "payyourcell",
-    employer: "Hegemonic Inc",
-    category: "Payment",
-    description:
-      "Enterprise payment platform with GoHighLevel CRM-integrated workflows, encrypted middleware architecture, and performance-tuned APIs serving thousands of active users daily.",
-    impact: "50% faster client onboarding · 25% API response time improvement · 99.9% uptime",
-    date: "Sep 2023 – Present",
-    stack: ["Laravel", "GoHighLevel", "MySQL", "AWS", "Redis"],
-    accentColor: "#2563EB",
-  },
-  {
-    id: "2",
-    name: "Noomerik.com",
-    slug: "noomerik",
-    employer: "Hegemonic Inc",
-    category: "Platform",
-    description:
-      "Scalable service marketplace built on a modular REST API ecosystem with CRM-driven automation workflows, high-availability backend, and real-time availability updates.",
-    impact: "50K+ daily active users · 99.9% API availability · Sub-500ms response",
-    date: "Oct 2023 – Present",
-    stack: ["Laravel", "PHP", "MySQL", "REST API", "AWS"],
-    accentColor: "#7C3AED",
-    liveUrl: "https://noomerik.com",
-  },
-  {
-    id: "3",
-    name: "loom.dreamhoster.com",
-    slug: "loom-dreamhoster",
-    employer: "HexaTech Solution",
-    category: "Video",
-    description:
-      "Video recording and sharing platform with async background job processing, custom payment gateway integration, and Redis-powered queue management for reliable media processing.",
-    impact: "45% transaction success boost · 20% API latency reduction · 99.8% uptime",
-    date: "Dec 2023 – Apr 2024",
-    stack: ["Laravel", "Redis", "AWS S3", "PHP", "MySQL"],
-    accentColor: "#0891B2",
-  },
-  {
-    id: "4",
-    name: "Ylaa.com",
-    slug: "ylaa",
-    employer: "DevZone Solutions",
-    category: "E-commerce",
-    description:
-      "Full-featured e-commerce platform rebuilt from the ground up — achieving 30% faster page loads and doubling user capacity without infrastructure cost increase.",
-    impact: "30% faster page loads · 2× user capacity · 18% lower cart abandonment",
-    date: "May 2022 – Jan 2023",
-    stack: ["Laravel", "PHP", "MySQL", "jQuery", "JavaScript"],
-    accentColor: "#059669",
-    liveUrl: "https://ylaa.com",
-  },
-];
+const PROJECTS: Project[] = projectsData.projects as Project[];
 
 const FILTERS: FilterOption[] = ["All", "Payment", "Platform", "Video", "E-commerce"];
 

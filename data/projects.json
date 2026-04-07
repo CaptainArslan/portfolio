@@ -1,0 +1,310 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "name": "PayYourCell",
+      "slug": "payyourcell",
+      "employer": "Hegemonic Inc",
+      "category": "Payment",
+      "description": "Enterprise payment platform with GoHighLevel CRM-integrated workflows, encrypted middleware architecture, and performance-tuned APIs serving thousands of active users daily.",
+      "impact": "50% faster client onboarding · 25% API response time improvement · 99.9% uptime",
+      "date": "Sep 2023 – Present",
+      "stack": [
+        "Laravel",
+        "GoHighLevel",
+        "MySQL",
+        "AWS",
+        "Redis"
+      ],
+      "accentColor": "#2563EB"
+    },
+    {
+      "id": "2",
+      "name": "Noomerik.com",
+      "slug": "noomerik",
+      "employer": "Hegemonic Inc",
+      "category": "Platform",
+      "description": "Scalable service marketplace built on a modular REST API ecosystem with CRM-driven automation workflows, high-availability backend, and real-time availability updates.",
+      "impact": "50K+ daily active users · 99.9% API availability · Sub-500ms response",
+      "date": "Oct 2023 – Present",
+      "stack": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "REST API",
+        "AWS"
+      ],
+      "accentColor": "#7C3AED",
+      "liveUrl": "https://noomerik.com"
+    },
+    {
+      "id": "3",
+      "name": "loom.dreamhoster.com",
+      "slug": "loom-dreamhoster",
+      "employer": "HexaTech Solution",
+      "category": "Video",
+      "description": "Video recording and sharing platform with async background job processing, custom payment gateway integration, and Redis-powered queue management for reliable media processing.",
+      "impact": "45% transaction success boost · 20% API latency reduction · 99.8% uptime",
+      "date": "Dec 2023 – Apr 2024",
+      "stack": [
+        "Laravel",
+        "Redis",
+        "AWS S3",
+        "PHP",
+        "MySQL"
+      ],
+      "accentColor": "#0891B2"
+    },
+    {
+      "id": "4",
+      "name": "Ylaa.com",
+      "slug": "ylaa",
+      "employer": "DevZone Solutions",
+      "category": "E-commerce",
+      "description": "Full-featured e-commerce platform rebuilt from the ground up — achieving 30% faster page loads and doubling user capacity without infrastructure cost increase.",
+      "impact": "30% faster page loads · 2× user capacity · 18% lower cart abandonment",
+      "date": "May 2022 – Jan 2023",
+      "stack": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "jQuery",
+        "JavaScript"
+      ],
+      "accentColor": "#059669",
+      "liveUrl": "https://ylaa.com"
+    }
+  ],
+  "caseStudies": {
+    "payyourcell": {
+      "name": "PayYourCell",
+      "slug": "payyourcell",
+      "category": "Payment Platform",
+      "employer": "Hegemonic Inc",
+      "color": "#2563EB",
+      "date": "Sep 2023 – Present",
+      "description": "Enterprise payment platform with CRM-integrated workflows, encrypted middleware architecture, and performance-tuned APIs serving thousands of active users daily.",
+      "challenge": "Hegemonic Inc needed a payment platform that could handle high transaction volumes while integrating seamlessly with their GoHighLevel CRM — with zero manual data entry between systems. The challenge was building a secure, scalable architecture that could process payments without creating bottlenecks in their sales workflow, while maintaining strict PCI compliance.",
+      "architecture": "Built a Laravel backend with a dedicated payment processing layer using encrypted middleware to ensure sensitive data never touches the application layer directly. Implemented async queue processing for transaction handling, allowing payments to be processed without blocking user-facing requests. GoHighLevel webhook integration ensures automatic CRM updates, eliminating manual data entry entirely.",
+      "highlights": [
+        "GoHighLevel CRM webhook integration with bi-directional data sync",
+        "Encrypted middleware pipeline achieving full PCI compliance",
+        "MySQL query optimization delivering 25% API response time improvement",
+        "Redis-powered async queue for non-blocking transaction processing",
+        "High-availability backend serving thousands of concurrent users daily"
+      ],
+      "outcome": "Successfully deployed payment platform now serving thousands of active users. Client onboarding time reduced by 50% through automated CRM workflows. API response times improved by 25% through strategic database optimization and caching layers. System maintains 99.9% uptime across all production environments.",
+      "metrics": [
+        {
+          "label": "Onboarding Speed",
+          "value": "50%",
+          "sub": "Faster"
+        },
+        {
+          "label": "API Response",
+          "value": "25%",
+          "sub": "Improvement"
+        },
+        {
+          "label": "Uptime",
+          "value": "99.9%",
+          "sub": "Production"
+        }
+      ],
+      "keyFeatures": {
+        "Payment Processing": "Secure encrypted payment layer with PCI compliance, handling high-volume transactions with async processing and automatic retry logic.",
+        "CRM Integration": "Real-time GoHighLevel integration through webhooks ensuring zero manual data entry and instant CRM record updates on every transaction.",
+        "Performance Optimization": "MySQL query optimization, Redis caching, and strategic indexing for sub-second response times under peak load.",
+        "Scalability": "High-availability architecture supporting unlimited transaction growth without infrastructure redesign or service interruption."
+      },
+      "technicalStack": [
+        "Laravel Framework",
+        "PHP 8.x",
+        "MySQL",
+        "Redis",
+        "AWS EC2/RDS",
+        "GoHighLevel API",
+        "Encrypted Middleware",
+        "REST APIs"
+      ],
+      "codeSnippet": {
+        "filename": "PaymentProcessor.php",
+        "language": "php",
+        "code": "<?php\n\nnamespace App\\Services;\n\nuse App\\Jobs\\ProcessPaymentJob;\nuse App\\Integrations\\GoHighLevel;\n\nclass PaymentProcessor\n{\n    public function processTransaction(Payment $payment): Payment\n    {\n        // Encrypted middleware layer — sensitive data\n        // never touches the application layer directly\n        $encrypted = $this->encryptPayload($payment->data);\n\n        // Dispatch to Redis queue — non-blocking\n        ProcessPaymentJob::dispatch(\n            $encrypted,\n            $payment->gateway_id\n        )->onQueue('payments');\n\n        return $payment->markAsPending();\n    }\n\n    public function syncWithCRM(PaymentResult $result): void\n    {\n        // Bi-directional GoHighLevel webhook sync\n        GoHighLevel::contact($result->customer_id)\n            ->updateOpportunity([\n                'stage'  => 'Won',\n                'amount' => $result->amount,\n            ]);\n    }\n}"
+      }
+    },
+    "noomerik": {
+      "name": "Noomerik.com",
+      "slug": "noomerik",
+      "category": "Service Platform",
+      "employer": "Hegemonic Inc",
+      "color": "#7C3AED",
+      "date": "Oct 2023 – Present",
+      "description": "Scalable service marketplace built on a modular REST API ecosystem with CRM-driven automation workflows, high-availability backend, and real-time availability updates.",
+      "challenge": "Noomerik required a service marketplace platform that could scale across multiple service categories while automating complex workflow management. The platform needed to handle intricate service routing, real-time availability updates, and maintain 99.9% uptime during peak demand periods — all while supporting both web and mobile clients through a single unified API.",
+      "architecture": "Architected a modular REST API ecosystem with clear versioning strategy to support both web and mobile clients from one codebase. Implemented CRM-driven automation workflows for service provider management, customer notifications, and transaction processing. Built a distributed caching layer using Redis for performance optimization and a WebSocket layer for real-time updates.",
+      "highlights": [
+        "50+ REST API endpoints with full versioning strategy for seamless client evolution",
+        "CRM automation reducing manual operations — provider onboarding and notifications fully automated",
+        "99.9% uptime through distributed architecture with automatic failover",
+        "Real-time availability system using WebSockets for live service status updates",
+        "Comprehensive centralized logging infrastructure and error handling pipeline"
+      ],
+      "outcome": "Deployed high-availability service marketplace supporting 50K+ daily active users with 99.9% uptime. Automated workflows eliminated manual operations, improving service delivery speed significantly. Platform handles complex service routing and real-time availability updates across all service categories with sub-500ms API responses.",
+      "metrics": [
+        {
+          "label": "Daily Active Users",
+          "value": "50K+",
+          "sub": "Concurrent"
+        },
+        {
+          "label": "API Uptime",
+          "value": "99.9%",
+          "sub": "Availability"
+        },
+        {
+          "label": "Response Time",
+          "value": "<500ms",
+          "sub": "Average"
+        }
+      ],
+      "keyFeatures": {
+        "API Ecosystem": "Comprehensive REST APIs covering service discovery, booking, payment, and provider management with full version control strategy.",
+        "CRM Integration": "Automated workflows for provider onboarding, customer communication, and service fulfillment tracking with zero manual intervention.",
+        "Real-Time Updates": "WebSocket and polling mechanisms for live service availability, order status, and instant push notifications.",
+        "Distributed Architecture": "Multi-region-ready deployment with database replication strategy and intelligent multi-layer caching."
+      },
+      "technicalStack": [
+        "Laravel Framework",
+        "PHP 8.x",
+        "MySQL",
+        "Redis",
+        "AWS EC2/RDS",
+        "REST APIs",
+        "WebSockets",
+        "CRM Integration"
+      ],
+      "liveUrl": "https://noomerik.com",
+      "codeSnippet": {
+        "filename": "ServiceAvailabilityController.php",
+        "language": "php",
+        "code": "<?php\n\nnamespace App\\Http\\Controllers\\Api\\V1;\n\nuse App\\Services\\AvailabilityService;\nuse Illuminate\\Http\\JsonResponse;\n\nclass ServiceAvailabilityController extends Controller\n{\n    public function __construct(\n        private AvailabilityService $availability\n    ) {}\n\n    /**\n     * Real-time availability — cached with Redis TTL\n     * Handles 50K+ daily requests at <500ms P95\n     */\n    public function index(ServiceRequest $request): JsonResponse\n    {\n        $slots = $this->availability\n            ->forCategory($request->category_id)\n            ->withinRadius($request->lat, $request->lng, 25)\n            ->cache(ttl: 30) // 30-second Redis cache\n            ->paginate(20);\n\n        return ServiceResource::collection($slots)\n            ->response()\n            ->setStatusCode(200);\n    }\n}"
+      }
+    },
+    "loom-dreamhoster": {
+      "name": "loom.dreamhoster.com",
+      "slug": "loom-dreamhoster",
+      "category": "Video Platform",
+      "employer": "HexaTech Solution",
+      "color": "#0891B2",
+      "date": "Dec 2023 – Apr 2024",
+      "description": "Video recording and sharing platform with async background job processing, custom payment gateway integration, and Redis-powered queue management for reliable media processing.",
+      "challenge": "The platform needed to handle large video uploads and process them asynchronously without blocking user-facing operations. A custom payment gateway was required for subscription and usage-based billing with significantly improved transaction success rates. API latency needed optimization for fast video metadata retrieval and smooth playback initiation.",
+      "architecture": "Built a video processing pipeline using Laravel with Redis-powered background job queues for async encoding and transcoding. Implemented a custom payment gateway integration handling subscription billing, usage tracking, and automatic retry logic. Optimized database queries through strategic indexing and query caching to reduce video metadata retrieval latency by 20%.",
+      "highlights": [
+        "Redis queue system managing thousands of concurrent video processing jobs per hour",
+        "Custom payment gateway achieving 45% improvement in transaction success rates",
+        "20% API latency reduction through query optimization and strategic caching layers",
+        "Async video encoding pipeline supporting multiple output formats and resolutions",
+        "Distributed video storage with AWS S3 and CDN integration for global fast access"
+      ],
+      "outcome": "Successfully deployed video platform with robust async processing infrastructure. Transaction success rates improved by 45% through custom payment gateway optimization and retry logic. API performance improved by 20%, enabling faster video metadata retrieval and seamless streaming initiation. Platform maintains 99.8% uptime across all services.",
+      "metrics": [
+        {
+          "label": "Transaction Success",
+          "value": "+45%",
+          "sub": "Improvement"
+        },
+        {
+          "label": "API Latency",
+          "value": "20%",
+          "sub": "Reduction"
+        },
+        {
+          "label": "Uptime",
+          "value": "99.8%",
+          "sub": "Production"
+        }
+      ],
+      "keyFeatures": {
+        "Video Encoding Pipeline": "Background job queue for transcoding videos into multiple formats and resolutions for adaptive streaming across devices.",
+        "Payment Gateway": "Custom gateway handling subscription billing, per-usage tracking, automatic retries, and comprehensive revenue reporting.",
+        "Async Processing": "Redis-powered queue system reliably processing thousands of concurrent video jobs without blocking user operations.",
+        "CDN Delivery": "Distributed file storage with AWS S3, compression, and CloudFront CDN enabling fast global video access."
+      },
+      "technicalStack": [
+        "Laravel Framework",
+        "PHP 8.x",
+        "MySQL",
+        "Redis Queues",
+        "AWS S3/CloudFront",
+        "FFmpeg",
+        "Custom Payment API",
+        "Background Jobs"
+      ],
+      "codeSnippet": {
+        "filename": "VideoProcessingJob.php",
+        "language": "php",
+        "code": "<?php\n\nnamespace App\\Jobs;\n\nuse App\\Models\\Video;\nuse App\\Services\\FFmpegService;\nuse App\\Services\\CDNService;\nuse Illuminate\\Bus\\Queueable;\nuse Illuminate\\Queue\\SerializesModels;\n\nclass ProcessVideoJob implements ShouldQueue\n{\n    use Queueable, SerializesModels;\n\n    public int $tries = 3;\n    public int $timeout = 600; // 10 min max\n\n    public function handle(\n        FFmpegService $ffmpeg,\n        CDNService $cdn\n    ): void {\n        // Transcode to multiple resolutions\n        $outputs = $ffmpeg->transcode($this->video->raw_path, [\n            '1080p' => ['bitrate' => '5000k'],\n            '720p'  => ['bitrate' => '2500k'],\n            '480p'  => ['bitrate' => '1000k'],\n        ]);\n\n        // Push to CDN — update manifest\n        $cdn->upload($outputs)\n            ->invalidateCache($this->video->cdn_key);\n\n        $this->video->markAsReady();\n    }\n}"
+      }
+    },
+    "ylaa": {
+      "name": "Ylaa.com",
+      "slug": "ylaa",
+      "category": "E-commerce Platform",
+      "employer": "DevZone Solutions",
+      "color": "#059669",
+      "date": "May 2022 – Jan 2023",
+      "description": "Full-featured e-commerce platform rebuilt from the ground up — achieving 30% faster page loads and doubling user capacity without infrastructure cost increase.",
+      "challenge": "The original platform suffered from severe performance degradation and limited scalability as the user base grew. Page load times were unacceptably slow, leading to high cart abandonment rates. The goal was to rebuild the platform to support 2x user growth without proportional infrastructure cost increases, while delivering a modern mobile-first shopping experience.",
+      "architecture": "Completely rebuilt the platform using Laravel with optimized database query patterns, strategic lazy loading, and multi-layer caching using Redis. Implemented real-time inventory management with instant stock level update notifications. Redesigned the frontend with jQuery-enhanced UX improvements for a seamless mobile shopping experience, reducing cart abandonment by 18%.",
+      "highlights": [
+        "30% faster page load times via CSS/JS minification, lazy loading, and N+1 query elimination",
+        "2x user capacity achieved without infrastructure cost increase through intelligent caching",
+        "18% reduction in cart abandonment through improved mobile-first responsive UI",
+        "Real-time inventory management with instant stock level updates across all sessions",
+        "Faceted product search and filtering system with category-level caching"
+      ],
+      "outcome": "Successfully delivered a rebuilt e-commerce platform achieving 30% faster page loads across all devices. Doubled user capacity without increasing server costs through intelligent resource utilization and query optimization. Cart abandonment dropped by 18% due to the enhanced mobile checkout experience. Platform now handles peak traffic with predictable, stable performance.",
+      "metrics": [
+        {
+          "label": "Page Load Speed",
+          "value": "30%",
+          "sub": "Faster"
+        },
+        {
+          "label": "User Capacity",
+          "value": "2×",
+          "sub": "Growth"
+        },
+        {
+          "label": "Cart Abandonment",
+          "value": "−18%",
+          "sub": "Reduction"
+        }
+      ],
+      "keyFeatures": {
+        "Performance Overhaul": "Eliminated N+1 queries, implemented strategic Redis caching, and added CDN for static assets — 30% faster page loads.",
+        "Shopping Cart": "Persistent cart system with real-time pricing, tax calculation, inventory validation, and seamless session management.",
+        "Mobile-First Checkout": "Redesigned responsive checkout flow with guest/registered user options, reducing cart abandonment by 18%.",
+        "Inventory Management": "Real-time stock level updates with low-stock notifications, preventing overselling and improving fulfillment accuracy."
+      },
+      "technicalStack": [
+        "Laravel Framework",
+        "PHP 8.x",
+        "MySQL",
+        "JavaScript/jQuery",
+        "Bootstrap CSS",
+        "Stripe API",
+        "AWS Hosting",
+        "Redis Caching"
+      ],
+      "liveUrl": "https://ylaa.com",
+      "codeSnippet": {
+        "filename": "ProductCatalogService.php",
+        "language": "php",
+        "code": "<?php\n\nnamespace App\\Services;\n\nuse App\\Models\\Product;\nuse Illuminate\\Support\\Facades\\Cache;\n\nclass ProductCatalogService\n{\n    /**\n     * Faceted product search with category-level caching\n     * Eliminated N+1 queries — 30% faster page loads\n     */\n    public function search(SearchFilters $filters): LengthAwarePaginator\n    {\n        $cacheKey = 'catalog:' . md5(serialize($filters));\n\n        return Cache::remember($cacheKey, 300, function () use ($filters) {\n            return Product::query()\n                ->with(['category', 'images', 'inventory'])\n                ->when($filters->category, fn($q, $cat) =>\n                    $q->whereHas('category', fn($q) =>\n                        $q->where('slug', $cat)\n                    )\n                )\n                ->when($filters->priceMin, fn($q, $min) =>\n                    $q->where('price', '>=', $min)\n                )\n                ->orderBy($filters->sortBy, $filters->sortDir)\n                ->paginate(24);\n        });\n    }\n}"
+      }
+    }
+  }
+}

@@ -2,17 +2,17 @@
   "header": "By the numbers",
   "metrics": [
     {
-      "number": "3+",
+      "number": "4+",
       "label": "Years Experience",
       "description": "Professional backend engineering"
     },
     {
-      "number": "4",
+      "number": "6+",
       "label": "Production Systems",
       "description": "Deployed and maintained at scale"
     },
     {
-      "number": "200+",
+      "number": "300+",
       "label": "API Endpoints",
       "description": "REST APIs designed & deployed"
     },
