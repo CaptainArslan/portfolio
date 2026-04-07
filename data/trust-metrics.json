@@ -2,34 +2,34 @@
   "header": "By the numbers",
   "metrics": [
     {
-      "number": "4+",
+      "number": "3+",
       "label": "Years Experience",
-      "description": "Professional backend engineering"
+      "description": "Professional backend engineering (resume)"
     },
     {
-      "number": "6+",
-      "label": "Production Systems",
-      "description": "Deployed and maintained at scale"
+      "number": "10",
+      "label": "Portfolio Systems",
+      "description": "Case studies & live platforms on this site"
     },
     {
-      "number": "300+",
-      "label": "API Endpoints",
-      "description": "REST APIs designed & deployed"
-    },
-    {
-      "number": "50K+",
-      "label": "Daily Users",
-      "description": "Served across all platforms"
+      "number": "6",
+      "label": "Employers",
+      "description": "International & local — roles on resume"
     },
     {
       "number": "25%",
       "label": "Faster APIs",
-      "description": "Response time improvement achieved"
+      "description": "Core endpoint response improvement (Hegemonic)"
     },
     {
       "number": "60%",
-      "label": "Query Gain",
-      "description": "MySQL performance improvement"
+      "label": "Query efficiency",
+      "description": "MySQL load cut via Redis & indexing (CodeCapital)"
+    },
+    {
+      "number": "99.9%",
+      "label": "Uptime on production APIs",
+      "description": "Target maintained on shipped backends"
     }
   ]
 }

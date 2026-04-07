@@ -49,10 +49,13 @@ function MetricItem({
   index,
 }: Metric & { index: number }) {
   const { ref, inView } = useInView({ threshold: 0.4, triggerOnce: true });
-  const endNum = parseInt(number.replace(/[^0-9]/g, ""));
+  const endNum = parseInt(number.replace(/[^0-9]/g, ""), 10);
   const hasPlus = number.includes("+");
   const hasX = number.includes("×") || number.includes("x");
   const isK = number.toLowerCase().includes("k");
+  /** Decimals, %, or K suffix break the counter — show the string as authored */
+  const useLiteralValue =
+    number.includes("%") || /\d+\.\d/.test(number) || /k/i.test(number);
 
   return (
     <motion.div
@@ -72,10 +75,22 @@ function MetricItem({
         whileInView={{ scale: [0.9, 1.05, 1] }}
         transition={{ type: "spring", stiffness: 100, damping: 12 }}
       >
-        <AnimatedCounter end={endNum} isInView={inView} />
-        {hasPlus && "+"}
-        {isK && !hasPlus && "K+"}
-        {hasX && "×"}
+        {useLiteralValue ? (
+          <motion.span
+            initial={{ opacity: 0, y: 6 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.45, delay: index * 0.06 }}
+          >
+            {number}
+          </motion.span>
+        ) : (
+          <>
+            <AnimatedCounter end={endNum} isInView={inView} />
+            {hasPlus && "+"}
+            {isK && !hasPlus && "K+"}
+            {hasX && "×"}
+          </>
+        )}
       </motion.div>
 
       {/* Label */}

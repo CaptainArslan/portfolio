@@ -218,9 +218,9 @@ export default function About() {
             >
               {[
                 { number: '3+', label: 'Years Experience', sub: 'Backend engineering' },
-                { number: '9', label: 'Companies Served', sub: 'International & local' },
-                { number: '4', label: 'Production Systems', sub: 'Deployed at scale' },
-                { number: '99.9%', label: 'Uptime Maintained', sub: 'Across all platforms' },
+                { number: '6', label: 'Employers', sub: 'International & local (resume)' },
+                { number: '10', label: 'Portfolio Systems', sub: 'Case studies & live platforms' },
+                { number: '99.9%', label: 'Uptime Maintained', sub: 'Production APIs' },
               ].map((stat, idx) => (
                 <motion.div
                   key={idx}

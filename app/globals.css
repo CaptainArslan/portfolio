@@ -66,6 +66,30 @@
    COMPONENT CLASSES
    ============================================ */
 @layer components {
+  /* Mobile nav drawer — explicit thin scrollbar (iOS still uses overlay; Android/desktop show track) */
+  .nav-mobile-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #2563eb #e2e8f0;
+  }
+
+  .nav-mobile-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .nav-mobile-scroll::-webkit-scrollbar-track {
+    background: #e2e8f0;
+    border-radius: 3px;
+  }
+
+  .nav-mobile-scroll::-webkit-scrollbar-thumb {
+    background: #2563eb;
+    border-radius: 3px;
+  }
+
+  .nav-mobile-scroll::-webkit-scrollbar-thumb:hover {
+    background: #1d4ed8;
+  }
+
   /* Section Padding */
   .section-padding {
     @apply py-20 lg:py-28;

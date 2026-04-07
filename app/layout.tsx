@@ -3,6 +3,8 @@ import { Sora, Inter } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
+import { ScrollToTop } from "@/components/layout/ScrollToTop";
+import { SiteShell } from "@/components/layout/SiteShell";
 
 /* ============================================
    FONT CONFIGURATION
@@ -99,7 +101,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
       <body
-        className={`font-inter text-[#0F172A] bg-[#F8FAFC] antialiased overflow-x-hidden ${inter.variable}`}
+        className={`font-inter min-w-0 text-[#0F172A] bg-[#F8FAFC] antialiased ${inter.variable}`}
       >
         {/* Background Grid Pattern */}
         <div className="fixed inset-0 pointer-events-none opacity-40">
@@ -135,12 +137,25 @@ export default function RootLayout({
           </svg>
         </div>
 
-        {/* Main Content */}
-        <div className="relative z-10 flex flex-col min-h-screen overflow-x-hidden">
-          <Navigation />
-          <main className="flex-grow overflow-x-hidden">{children}</main>
-          <Footer />
-        </div>
+        {/* Main Content — nav outside overflow-x clip; mobile nav is fixed + spacer below */}
+        <SiteShell>
+          <div className="relative z-10 flex min-h-screen min-w-0 flex-col">
+            <Navigation />
+            {/* Reserves space for fixed mobile header (toolbar + safe area) */}
+            <div
+              className="shrink-0 md:hidden"
+              style={{
+                height: "calc(4.25rem + env(safe-area-inset-top, 0px))",
+              }}
+              aria-hidden
+            />
+            <div className="flex min-w-0 flex-1 flex-col overflow-x-clip">
+              <main className="min-w-0 flex-grow">{children}</main>
+              <Footer />
+            </div>
+            <ScrollToTop />
+          </div>
+        </SiteShell>
       </body>
     </html>
   );

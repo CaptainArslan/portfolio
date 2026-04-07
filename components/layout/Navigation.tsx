@@ -26,7 +26,7 @@ export function Navigation() {
       setScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -38,14 +38,14 @@ export function Navigation() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`isolate z-50 w-full shrink-0 transition-[background-color,box-shadow,border-color,backdrop-filter] duration-300 fixed left-0 right-0 top-0 md:sticky md:top-0 ${
         scrolled
-          ? "backdrop-blur-xl border-b border-[#E2E8F0] bg-white/90 shadow-sm"
-          : "bg-transparent"
+          ? "border-b border-[#E2E8F0] bg-white/92 shadow-[0_1px_0_rgba(15,23,42,0.04),0_8px_32px_rgba(15,23,42,0.06)] supports-[backdrop-filter]:backdrop-blur-xl"
+          : "border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="container-max">
-        <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
+      <div className="container-max pt-[env(safe-area-inset-top)]">
+        <div className="flex h-16 items-center justify-between sm:h-[4.25rem] lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink-0">
             <motion.div
@@ -126,9 +126,9 @@ export function Navigation() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden border-t border-[#E2E8F0] bg-white/95 backdrop-blur-md"
+            className="nav-mobile-scroll md:hidden max-h-[min(70vh,calc(100dvh-4.25rem-env(safe-area-inset-top,0px)))] min-h-0 overflow-y-auto overflow-x-hidden overscroll-y-contain border-t border-[#E2E8F0] bg-white/95 supports-[backdrop-filter]:backdrop-blur-md [-webkit-overflow-scrolling:touch]"
           >
-            <div className="container-max px-4 py-4 space-y-2">
+            <div className="container-max space-y-2 py-4">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.href}

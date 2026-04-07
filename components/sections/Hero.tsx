@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Zap, Shield, Database } from "lucide-react";
+import { ArrowRight, Download, Zap, Shield, Database, Briefcase, Layers } from "lucide-react";
 import {
   staggerContainer,
   fadeInUp,
@@ -62,7 +62,7 @@ const MetricPill = ({
   label: string;
   delay: number;
 }) => {
-  const icons = { Zap, Database, Shield };
+  const icons = { Zap, Database, Shield, Briefcase, Layers };
   const Icon = icons[iconName as keyof typeof icons];
 
   return (
