@@ -66,7 +66,7 @@ export function Footer() {
             {/* Social links */}
             <div className="flex gap-2 pt-1">
               <a
-                href="https://www.linkedin.com/in/muhammadarslan-390448213"
+                href="https://www.linkedin.com/in/muhammad-arslan-390448213"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-3 py-2 bg-[#F1F5F9] border border-[#E2E8F0] hover:bg-[#DBEAFE] hover:border-[#2563EB] hover:text-[#2563EB] text-[#475569] text-xs font-medium rounded-lg transition-all duration-200"

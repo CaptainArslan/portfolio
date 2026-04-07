@@ -41,7 +41,7 @@ Role:     Backend & Systems Engineer
 Stack:    Laravel · PHP · MySQL · Redis · AWS · REST API
 Location: Gujranwala, Pakistan (Remote-First)
 Email:    am1667099@gmail.com
-LinkedIn: linkedin.com/in/muhammadarslan-390448213
+LinkedIn: https://www.linkedin.com/in/muhammad-arslan-390448213
 ```
 
 **Core Expertise:**

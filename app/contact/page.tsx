@@ -418,7 +418,7 @@ export default function ContactPage() {
                 <h3 className="text-base font-bold text-[#0F172A] mb-4 font-sora">Connect Online</h3>
                 <div className="space-y-3">
                   <a
-                    href="https://www.linkedin.com/in/muhammadarslan-390448213"
+                    href="https://www.linkedin.com/in/muhammad-arslan-390448213"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-[#2563EB] hover:bg-[#1D4ED8] text-white rounded-xl font-semibold text-sm transition-all duration-200 shadow-sm"

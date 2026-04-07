@@ -68,7 +68,7 @@ export const personalInfo: PersonalInfo = {
   location: 'Gujranwala, Punjab, Pakistan',
   email: 'am1667099@gmail.com',
   phone: '+92 317 763 8978',
-  linkedin: 'linkedin.com/in/muhammadarslan-390448213',
+  linkedin: 'https://www.linkedin.com/in/muhammad-arslan-390448213',
   yearsExperience: 3,
   bio: 'Experienced Back-End Engineer with 3+ years of expertise in building scalable, high-performance systems. Specialized in Laravel, PHP, and AWS cloud infrastructure. Proven track record of optimizing database queries, implementing secure payment systems, and delivering mission-critical applications that handle peak traffic seamlessly.',
 };

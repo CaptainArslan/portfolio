@@ -3,6 +3,10 @@ import * as React from "react";
 import { Resend } from "resend";
 import { z } from "zod";
 import { ContactInquiryEmail } from "@/components/emails/ContactInquiryEmail";
+import {
+  contactEmailConfigErrorMessage,
+  resolveContactEmailEnv,
+} from "@/lib/contact-email-env";
 import { getResendFromConfigError } from "@/lib/resend-from";
 
 const sendSchema = z.object({
@@ -14,19 +18,14 @@ const sendSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
-  const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.RESEND_FROM?.trim();
-  const to = process.env.CONTACT_NOTIFICATION_EMAIL?.trim();
-
-  if (!apiKey || !from || !to) {
+  const env = resolveContactEmailEnv();
+  if (!env.ok) {
     return NextResponse.json(
-      {
-        error:
-          "Email is not configured. Set RESEND_API_KEY, RESEND_FROM, and CONTACT_NOTIFICATION_EMAIL.",
-      },
+      { error: contactEmailConfigErrorMessage(env.missing) },
       { status: 500 }
     );
   }
+  const { apiKey, from, to } = env;
 
   const fromConfigError = getResendFromConfigError(from);
   if (fromConfigError) {
