@@ -1,173 +1,231 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Text } from "@react-three/drei";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Canvas, useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
+import { Environment, OrbitControls, Text, Billboard } from "@react-three/drei";
 import * as THREE from "three";
+
+type SkillCategoryId = "backend" | "database" | "payments" | "cloud" | "realtime";
 
 interface SkillNodeData {
   name: string;
+  skillKey: string;
   position: [number, number, number];
-  category: "backend" | "database" | "cloud" | "payment" | "frontend" | "devops";
+  category: SkillCategoryId;
+  radius: number;
 }
 
-const SKILLS_DATA: SkillNodeData[] = [
-  // Backend
-  { name: "Laravel", position: [-2, 1.5, 0], category: "backend" },
-  { name: "PHP", position: [-1, -1, 1], category: "backend" },
-  { name: "REST API", position: [0.5, 2, -1], category: "backend" },
-  { name: "Middleware", position: [1.5, -2, 0.5], category: "backend" },
-  { name: "JWT", position: [-2.5, -1.5, -1], category: "backend" },
-  { name: "Queue", position: [2.5, 1, 1], category: "backend" },
-  { name: "Webhooks", position: [0, -2.5, 1], category: "backend" },
+/** Positions tuned for a cloud layout; skillKey matches skills page exactly */
+const NODES: SkillNodeData[] = [
+  { name: "Laravel", skillKey: "Laravel", position: [-2.1, 1.5, 0.2], category: "backend", radius: 0.5 },
+  { name: "PHP", skillKey: "PHP (OOP)", position: [-1.0, -0.7, 1.1], category: "backend", radius: 0.4 },
+  { name: "REST API", skillKey: "REST API Design", position: [0.5, 1.85, -0.7], category: "backend", radius: 0.36 },
+  { name: "Middleware", skillKey: "Middleware Development", position: [1.7, -1.5, 0.35], category: "backend", radius: 0.32 },
+  { name: "JWT", skillKey: "JWT Authentication", position: [-2.3, -1.1, -0.8], category: "backend", radius: 0.3 },
 
-  // Database
-  { name: "MySQL", position: [-1.5, 2, 1], category: "database" },
-  { name: "Redis", position: [1.5, -1, 2], category: "database" },
+  { name: "MySQL", skillKey: "MySQL", position: [-1.5, 2.0, 0.85], category: "database", radius: 0.46 },
+  { name: "Redis", skillKey: "Redis", position: [1.35, -0.55, 1.95], category: "database", radius: 0.38 },
+  { name: "Queries", skillKey: "Query Optimization", position: [0.2, 0.5, -2.0], category: "database", radius: 0.3 },
+  { name: "Indexing", skillKey: "Database Indexing", position: [-1.2, -1.8, -1.4], category: "database", radius: 0.28 },
+  { name: "Cache", skillKey: "Caching Strategies", position: [2.0, 1.0, -1.5], category: "database", radius: 0.28 },
 
-  // Cloud & DevOps
-  { name: "AWS", position: [2, 2, 0], category: "cloud" },
-  { name: "Docker", position: [-2, 0, 2], category: "devops" },
-  { name: "CI/CD", position: [1, 1.5, -2], category: "devops" },
-  { name: "Linux", position: [-1, -2, -1], category: "devops" },
+  { name: "Gateway", skillKey: "Payment Gateway Integration", position: [2.45, 0.15, -0.95], category: "payments", radius: 0.4 },
+  { name: "GoHighLevel", skillKey: "GoHighLevel CRM", position: [-2.25, 0.85, 1.35], category: "payments", radius: 0.36 },
+  { name: "Webhooks", skillKey: "Webhook Management", position: [0.15, -2.05, 1.25], category: "payments", radius: 0.32 },
+  { name: "PCI", skillKey: "PCI DSS Compliance", position: [-0.6, 1.2, 1.9], category: "payments", radius: 0.28 },
+  { name: "Transactions", skillKey: "Transaction Processing", position: [1.8, -2.0, -0.4], category: "payments", radius: 0.3 },
 
-  // Payment & Integrations
-  { name: "Payment Gateway", position: [2.5, 0.5, -1], category: "payment" },
-  { name: "GoHighLevel", position: [-2.5, 1, 1], category: "cloud" },
+  { name: "AWS", skillKey: "AWS (EC2, RDS, S3)", position: [2.05, 1.75, -0.15], category: "cloud", radius: 0.42 },
+  { name: "Docker", skillKey: "Docker", position: [-1.85, 0.25, 1.95], category: "cloud", radius: 0.33 },
+  { name: "CI/CD", skillKey: "CI/CD Pipelines", position: [0.95, 1.15, -1.75], category: "cloud", radius: 0.32 },
+  { name: "Linux", skillKey: "Linux Server Management", position: [-0.75, -1.95, -1.05], category: "cloud", radius: 0.3 },
+  { name: "Git", skillKey: "Git & Version Control", position: [2.15, -1.05, 0.85], category: "cloud", radius: 0.31 },
 
-  // Frontend & Tools
-  { name: "JavaScript", position: [0, 0, 2], category: "frontend" },
-  { name: "HTML/CSS", position: [1, -2.5, 0], category: "frontend" },
-  { name: "Bootstrap", position: [-1.5, 1, -2], category: "frontend" },
-  { name: "Git", position: [2, -1.5, 1], category: "devops" },
-  { name: "Composer", position: [0.5, 2.5, -1], category: "devops" },
+  { name: "Queues", skillKey: "Laravel Queues (Redis)", position: [2.25, 0.75, 1.05], category: "realtime", radius: 0.35 },
+  { name: "Jobs", skillKey: "Background Jobs", position: [-0.45, -1.35, 1.75], category: "realtime", radius: 0.32 },
+  { name: "Async", skillKey: "Async Processing", position: [1.55, 2.1, 0.55], category: "realtime", radius: 0.3 },
+  { name: "Push", skillKey: "Push Notifications", position: [-1.6, 0.3, -1.85], category: "realtime", radius: 0.28 },
 ];
 
-const CATEGORY_COLORS: Record<string, string> = {
-  backend: "#3B82F6",    // blue
-  database: "#10B981",   // green
-  cloud: "#A855F7",      // purple
-  payment: "#F59E0B",    // yellow
-  frontend: "#EC4899",   // pink
-  devops: "#06B6D4",     // cyan
+const CATEGORY_COLOR: Record<SkillCategoryId, THREE.Color> = {
+  backend: new THREE.Color("#2563EB"),
+  database: new THREE.Color("#0D9488"),
+  payments: new THREE.Color("#EA580C"),
+  cloud: new THREE.Color("#7C3AED"),
+  realtime: new THREE.Color("#DB2777"),
 };
 
-interface SkillNodeProps {
-  skill: SkillNodeData;
-  activeSkill: string | null;
-  onNodeClick: (skill: string) => void;
+function SoftFog() {
+  const { scene } = useThree();
+  useEffect(() => {
+    scene.fog = new THREE.FogExp2("#E8EEF7", 0.042);
+    return () => {
+      scene.fog = null;
+    };
+  }, [scene]);
+  return null;
 }
 
-function SkillNode({ skill, activeSkill, onNodeClick }: SkillNodeProps) {
+interface SkillSphereProps {
+  node: SkillNodeData;
+  activeSkill: string | null;
+  activeCategory: string;
+  onPick: (skillKey: string) => void;
+}
+
+function SkillSphere({ node, activeSkill, activeCategory, onPick }: SkillSphereProps) {
   const meshRef = useRef<THREE.Mesh>(null);
   const groupRef = useRef<THREE.Group>(null);
-  const isActive = activeSkill === skill.name;
   const [hovered, setHovered] = useState(false);
+  const base = useMemo(
+    () => ({ y: node.position[1], phase: node.position[0] * 1.6 + node.position[2] * 2.0 }),
+    [node.position]
+  );
+
+  const isActive = activeSkill === node.skillKey;
+  const dimOthers = activeCategory !== node.category && !isActive;
 
   useFrame((state) => {
-    if (!groupRef.current) return;
-
-    // Slow continuous orbit
-    groupRef.current.rotation.y += 0.0005;
-
+    const t = state.clock.elapsedTime;
+    if (groupRef.current) {
+      groupRef.current.position.y = base.y + Math.sin(t * 0.85 + base.phase) * 0.11;
+    }
     if (meshRef.current) {
-      // Pulsing scale for active node
-      if (isActive) {
-        const scale = 1.2 + Math.sin(state.clock.elapsedTime * 3) * 0.2;
-        meshRef.current.scale.set(scale, scale, scale);
-      } else {
-        meshRef.current.scale.set(1, 1, 1);
-      }
+      const pulse = isActive ? 1 + Math.sin(t * 2.6) * 0.055 : 1;
+      const hoverBoost = hovered ? 1.1 : 1;
+      const s = node.radius * pulse * hoverBoost;
+      meshRef.current.scale.setScalar(s);
     }
   });
 
+  const color = CATEGORY_COLOR[node.category];
+  const emissiveStr = isActive ? 0.5 : hovered ? 0.32 : dimOthers ? 0.07 : 0.2;
+  const opacity = dimOthers ? 0.4 : isActive ? 1 : hovered ? 0.94 : 0.8;
+
+  const handleClick = useCallback(
+    (e: ThreeEvent<MouseEvent>) => {
+      e.stopPropagation();
+      onPick(node.skillKey);
+    },
+    [node.skillKey, onPick]
+  );
+
   return (
-    <group ref={groupRef} position={skill.position}>
+    <group ref={groupRef} position={node.position}>
       <mesh
         ref={meshRef}
-        onClick={() => onNodeClick(skill.name)}
-        onPointerEnter={() => setHovered(true)}
-        onPointerLeave={() => setHovered(false)}
+        onClick={handleClick}
+        onPointerOver={() => {
+          setHovered(true);
+          document.body.style.cursor = "pointer";
+        }}
+        onPointerOut={() => {
+          setHovered(false);
+          document.body.style.cursor = "auto";
+        }}
       >
-        <sphereGeometry args={[0.35, 16, 16]} />
-        <meshStandardMaterial
-          color={CATEGORY_COLORS[skill.category]}
+        <sphereGeometry args={[1, 40, 40]} />
+        <meshPhysicalMaterial
+          color={color}
+          emissive={color}
+          emissiveIntensity={emissiveStr}
+          metalness={0.32}
+          roughness={0.16}
+          clearcoat={1}
+          clearcoatRoughness={0.1}
           transparent
-          opacity={isActive ? 0.9 : 0.7}
-          emissive={CATEGORY_COLORS[skill.category]}
-          emissiveIntensity={isActive ? 0.8 : hovered ? 0.5 : 0.2}
-          roughness={0.4}
-          metalness={0.6}
+          opacity={opacity}
+          toneMapped
         />
       </mesh>
 
-      {/* Text Label */}
-      <Text
-        position={[0, 0.6, 0]}
-        fontSize={0.25}
-        color="#FFFFFF"
-        anchorX="center"
-        anchorY="middle"
-        maxWidth={1.5}
-      >
-        {skill.name}
-      </Text>
-
-      {/* Glow effect for active node */}
       {isActive && (
-        <mesh>
-          <sphereGeometry args={[0.5, 16, 16]} />
-          <meshBasicMaterial
-            color={CATEGORY_COLORS[skill.category]}
-            transparent
-            opacity={0.1}
-          />
+        <mesh scale={node.radius * 1.6}>
+          <sphereGeometry args={[1, 28, 28]} />
+          <meshBasicMaterial color={color} transparent opacity={0.11} depthWrite={false} />
         </mesh>
       )}
+
+      <Billboard position={[0, node.radius + 0.44, 0]}>
+        <Text
+          fontSize={0.2}
+          color={dimOthers ? "#94A3B8" : "#64748B"}
+          fillOpacity={dimOthers ? 0.5 : 0.9}
+          anchorX="center"
+          anchorY="middle"
+          outlineWidth={0.018}
+          outlineColor="#ffffff"
+          outlineOpacity={0.9}
+          maxWidth={2.4}
+        >
+          {node.name}
+        </Text>
+      </Billboard>
     </group>
   );
 }
 
-interface SceneProps {
+interface SceneInnerProps {
   activeSkill: string | null;
-  onNodeClick: (skill: string) => void;
+  activeCategory: string;
+  onPick: (skillKey: string) => void;
 }
 
-function SkillsSceneContent({ activeSkill, onNodeClick }: SceneProps) {
+function SceneContent({ activeSkill, activeCategory, onPick }: SceneInnerProps) {
+  const [dragging, setDragging] = useState(false);
+
   return (
     <>
-      <perspectiveCamera position={[0, 0, 8]} fov={60} />
-      <ambientLight intensity={0.7} />
-      <directionalLight position={[10, 10, 5]} intensity={0.9} color="#E0F2FE" />
-      <pointLight position={[-10, -10, 5]} intensity={0.4} color="#A78BFA" />
+      <SoftFog />
+      <color attach="background" args={["#EEF2F7"]} />
 
-      {SKILLS_DATA.map((skill) => (
-        <SkillNode
-          key={skill.name}
-          skill={skill}
-          activeSkill={activeSkill}
-          onNodeClick={onNodeClick}
-        />
-      ))}
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[8, 11, 6]} intensity={1.05} color="#FFFBF5" />
+      <directionalLight position={[-5, -3, -4]} intensity={0.32} color="#C4B5FD" />
+      <pointLight position={[0, 5, 4]} intensity={0.45} color="#BFDBFE" distance={22} />
+      <pointLight position={[-3, -2, 5]} intensity={0.22} color="#5EEAD4" distance={18} />
+
+      <Environment preset="city" environmentIntensity={0.75} />
+
+      <group>
+        {NODES.map((node) => (
+          <SkillSphere
+            key={node.skillKey}
+            node={node}
+            activeSkill={activeSkill}
+            activeCategory={activeCategory}
+            onPick={onPick}
+          />
+        ))}
+      </group>
 
       <OrbitControls
+        enablePan={false}
         enableZoom
-        enablePan
-        enableRotate
-        autoRotate
-        autoRotateSpeed={2}
-        rotateSpeed={0.5}
+        minDistance={5.2}
+        maxDistance={13.5}
+        rotateSpeed={0.62}
+        zoomSpeed={0.65}
+        autoRotate={!dragging}
+        autoRotateSpeed={0.28}
+        onStart={() => setDragging(true)}
+        onEnd={() => setDragging(false)}
       />
     </>
   );
 }
 
-interface SkillsSceneProps {
+export interface SkillsSceneProps {
   activeSkill: string | null;
-  onNodeClick: (skill: string) => void;
+  activeCategory: string;
+  onNodeClick: (skillKey: string) => void;
 }
 
-export default function SkillsScene({ activeSkill, onNodeClick }: SkillsSceneProps) {
+export default function SkillsScene({
+  activeSkill,
+  activeCategory,
+  onNodeClick,
+}: SkillsSceneProps) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -178,13 +236,20 @@ export default function SkillsScene({ activeSkill, onNodeClick }: SkillsScenePro
 
   return (
     <Canvas
-      style={{
-        width: "100%",
-        height: "100%",
+      style={{ width: "100%", height: "100%", touchAction: "none" }}
+      dpr={[1, Math.min(2, typeof window !== "undefined" ? window.devicePixelRatio : 1)]}
+      gl={{
+        antialias: true,
+        alpha: false,
+        powerPreference: "high-performance",
       }}
-      dpr={[1, 2]}
+      camera={{ position: [0, 1.1, 8.2], fov: 50, near: 0.1, far: 55 }}
     >
-      <SkillsSceneContent activeSkill={activeSkill} onNodeClick={onNodeClick} />
+      <SceneContent
+        activeSkill={activeSkill}
+        activeCategory={activeCategory}
+        onPick={onNodeClick}
+      />
     </Canvas>
   );
 }

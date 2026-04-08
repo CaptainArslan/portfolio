@@ -124,6 +124,13 @@ const LEVEL_CONFIG: Record<string, { bg: string; text: string; border: string }>
   Intermediate: { bg: "#F1F5F9", text: "#64748B", border: "#E2E8F0" },
 };
 
+function findCategoryIdForSkill(skillName: string): string | null {
+  for (const c of SKILL_CATEGORIES) {
+    if (c.skills.some((s) => s.name === skillName)) return c.id;
+  }
+  return null;
+}
+
 /* ============================================
    ANIMATION VARIANTS
    ============================================ */
@@ -149,6 +156,12 @@ export default function SkillsPage() {
   const handleCategoryChange = (id: string) => {
     setActiveCategory(id);
     setActiveSkill(null);
+  };
+
+  const handleSkillMapPick = (skillName: string) => {
+    const cat = findCategoryIdForSkill(skillName);
+    if (cat) setActiveCategory(cat);
+    setActiveSkill(skillName);
   };
 
   return (
@@ -392,25 +405,19 @@ export default function SkillsPage() {
                   </h3>
                 </div>
 
-                {/* 3D Scene */}
-                <div className="bg-white rounded-2xl border border-[#E2E8F0] overflow-hidden shadow-card h-[360px] sm:h-[420px] lg:h-[460px]">
-                  <div className="hidden lg:block h-full">
+                {/* 3D Scene — drag to orbit, scroll/pinch to zoom; tap spheres to jump to skill */}
+                <div className="relative overflow-hidden rounded-2xl border border-[#E2E8F0] bg-gradient-to-b from-[#F8FAFC] to-[#EEF2FF] shadow-card h-[360px] sm:h-[420px] lg:h-[480px]">
+                  <p className="pointer-events-none absolute left-3 top-2 z-10 text-[10px] font-medium uppercase tracking-wider text-[#94A3B8] sm:left-4 sm:top-3">
+                    Drag to explore · Click a sphere
+                  </p>
+                  <div className="h-full min-h-[280px] w-full pt-6 sm:pt-7">
                     <Suspense fallback={null}>
                       <SkillsScene
+                        activeCategory={activeCategory}
                         activeSkill={activeSkill}
-                        onNodeClick={(skill) => setActiveSkill(skill)}
+                        onNodeClick={handleSkillMapPick}
                       />
                     </Suspense>
-                  </div>
-                  <div className="lg:hidden h-full flex items-center justify-center px-6 text-center">
-                    <div>
-                      <p className="text-sm font-semibold text-[#0F172A] mb-2">
-                        Interact with the full skill map on larger screens.
-                      </p>
-                      <p className="text-xs text-[#64748B] leading-relaxed">
-                        Switch categories and expand skill details above for the same insight on mobile.
-                      </p>
-                    </div>
                   </div>
                 </div>
 
