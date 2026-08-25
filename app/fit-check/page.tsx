@@ -419,7 +419,7 @@ export default function FitCheckPage() {
                       Summary
                     </p>
                     <p className="text-[#475569] leading-relaxed text-sm">
-                      Based on the job requirements, my 3+ years in Laravel backend development,
+                      Based on the job requirements, my 5+ years in Laravel backend development,
                       payment gateway integrations, and AWS infrastructure deployments closely
                       match what you&apos;re looking for. I have direct, production-proven experience
                       building the exact systems this role requires.

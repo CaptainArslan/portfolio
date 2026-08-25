@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Zap, ChevronRight } from "lucide-react";
+import skillsData from "@/data/skills.json";
 
 const SkillsScene = dynamic(() => import("@/components/three/SkillsScene"), {
   ssr: false,
@@ -39,84 +40,9 @@ interface SkillCategory {
 }
 
 /* ============================================
-   DATA
+   DATA — sourced from /data/skills.json
    ============================================ */
-const SKILL_CATEGORIES: SkillCategory[] = [
-  {
-    id: "backend",
-    name: "Backend & API",
-    headline: "Scalable Laravel APIs",
-    description: "RESTful architecture serving thousands of requests daily with clean middleware layers.",
-    accentColor: "#2563EB",
-    skills: [
-      { name: "Laravel", level: "Expert", description: "Modern PHP framework powering production systems at scale", impactMetric: "Built APIs handling 10K+ daily requests" },
-      { name: "PHP (OOP)", level: "Expert", description: "Core backend language with deep architectural knowledge", impactMetric: "Design patterns across all production projects" },
-      { name: "REST API Design", level: "Expert", description: "Industry-standard API design and versioned documentation", impactMetric: "200+ endpoints designed & maintained" },
-      { name: "Middleware Development", level: "Advanced", description: "Custom request/response handling and security layers", impactMetric: "Secured PCI-compliant payment flows" },
-      { name: "JWT Authentication", level: "Advanced", description: "Token-based security and session management", impactMetric: "Zero authentication breaches recorded" },
-    ],
-    impact: "Built APIs serving thousands of daily requests with sub-200ms response times",
-  },
-  {
-    id: "database",
-    name: "Database & Performance",
-    headline: "Optimized Data Architecture",
-    description: "Strategic indexing and Redis caching for peak database performance.",
-    accentColor: "#10B981",
-    skills: [
-      { name: "MySQL", level: "Expert", description: "Relational database design and advanced query optimization", impactMetric: "60% query time reduction achieved" },
-      { name: "Redis", level: "Advanced", description: "In-memory caching, distributed sessions, and pub/sub", impactMetric: "45% database load reduction" },
-      { name: "Query Optimization", level: "Expert", description: "EXPLAIN analysis, index tuning, query restructuring", impactMetric: "From 800ms to sub-100ms response times" },
-      { name: "Database Indexing", level: "Advanced", description: "Strategic composite and covering index implementation", impactMetric: "Sub-100ms response guarantees" },
-      { name: "Caching Strategies", level: "Advanced", description: "Cache-aside, write-through, and stampede prevention", impactMetric: "85%+ cache hit rate maintained" },
-    ],
-    impact: "60% query performance improvement through strategic indexing and Redis caching",
-  },
-  {
-    id: "payments",
-    name: "Payments & CRM",
-    headline: "Transaction & Integration Flow",
-    description: "Payment processing and CRM automation at enterprise scale.",
-    accentColor: "#F59E0B",
-    skills: [
-      { name: "Payment Gateway Integration", level: "Expert", description: "Custom and standard processor integrations with retry logic", impactMetric: "10K+ monthly transactions processed" },
-      { name: "GoHighLevel CRM", level: "Expert", description: "Webhook-driven CRM automations and bidirectional sync", impactMetric: "50% manual workflow reduction" },
-      { name: "Webhook Management", level: "Advanced", description: "Real-time event handling and HMAC signature verification", impactMetric: "Zero polling overhead achieved" },
-      { name: "PCI DSS Compliance", level: "Advanced", description: "Secure payment data handling and encrypted middleware", impactMetric: "Zero PCI violations recorded" },
-      { name: "Transaction Processing", level: "Advanced", description: "Payment handling with error recovery and audit logging", impactMetric: "99.95% success rate maintained" },
-    ],
-    impact: "45% transaction success rate boost through custom payment middleware",
-  },
-  {
-    id: "cloud",
-    name: "Cloud & DevOps",
-    headline: "Infrastructure & Deployment",
-    description: "Zero-downtime deployments and cloud infrastructure management on AWS.",
-    accentColor: "#A855F7",
-    skills: [
-      { name: "AWS (EC2, RDS, S3)", level: "Advanced", description: "Full lifecycle cloud infrastructure management", impactMetric: "High-availability multi-service architecture" },
-      { name: "CI/CD Pipelines", level: "Advanced", description: "Automated deployment with GitHub Actions and testing", impactMetric: "70% deployment time reduction" },
-      { name: "Git & Version Control", level: "Expert", description: "Git flow, branching strategies, and code reviews", impactMetric: "Zero merge conflicts in team projects" },
-      { name: "Linux Server Management", level: "Intermediate", description: "Server administration and Nginx configuration", impactMetric: "99.9% uptime maintained" },
-      { name: "Docker", level: "Intermediate", description: "Containerization for consistent environments", impactMetric: "Environment parity across stages" },
-    ],
-    impact: "Zero-downtime deployments with automated CI/CD pipelines on AWS",
-  },
-  {
-    id: "realtime",
-    name: "Real-Time & Async",
-    headline: "Queue & Event Systems",
-    description: "Background job processing and event-driven architecture at scale.",
-    accentColor: "#EC4899",
-    skills: [
-      { name: "Laravel Queues (Redis)", level: "Advanced", description: "Job queueing, prioritization, and retry management", impactMetric: "1000s of daily tasks processed" },
-      { name: "Background Jobs", level: "Advanced", description: "Async processing with failure handling and exponential backoff", impactMetric: "40% response time improvement" },
-      { name: "Async Processing", level: "Advanced", description: "Non-blocking operations for long-running video/file tasks", impactMetric: "Video processing pipeline built" },
-      { name: "Push Notifications", level: "Intermediate", description: "Firebase real-time notifications and user updates", impactMetric: "100K+ daily notifications at 95% rate" },
-    ],
-    impact: "Async video processing system with Redis-powered job queues",
-  },
-];
+const SKILL_CATEGORIES: SkillCategory[] = skillsData.categories as SkillCategory[];
 
 const LEVEL_CONFIG: Record<string, { bg: string; text: string; border: string }> = {
   Expert:       { bg: "#DCFCE7", text: "#16A34A", border: "#BBF7D0" },
@@ -191,7 +117,7 @@ export default function SkillsPage() {
               variants={itemVariants}
               className="text-base sm:text-lg text-[#475569] max-w-2xl"
             >
-              Built through 3+ years of production work — not side projects.
+              Built through 5+ years of production work — not side projects.
               Each skill is backed by a real metric.
             </motion.p>
           </motion.div>
@@ -405,10 +331,10 @@ export default function SkillsPage() {
                   </h3>
                 </div>
 
-                {/* 3D Scene — drag to orbit, scroll/pinch to zoom; tap spheres to jump to skill */}
-                <div className="relative overflow-hidden rounded-2xl border border-[#E2E8F0] bg-gradient-to-b from-[#F8FAFC] to-[#EEF2FF] shadow-card h-[360px] sm:h-[420px] lg:h-[480px]">
-                  <p className="pointer-events-none absolute left-3 top-2 z-10 text-[10px] font-medium uppercase tracking-wider text-[#94A3B8] sm:left-4 sm:top-3">
-                    Drag to explore · Click a sphere
+                {/* 3D Scene — drag to orbit, scroll/pinch to zoom; tap a node to jump to skill */}
+                <div className="relative overflow-hidden rounded-2xl border border-[#1E293B] bg-gradient-to-b from-[#0B1220] to-[#111827] shadow-card h-[360px] sm:h-[420px] lg:h-[480px]">
+                  <p className="pointer-events-none absolute left-3 top-2 z-10 text-[10px] font-medium uppercase tracking-wider text-[#93C5FD]/70 sm:left-4 sm:top-3">
+                    Drag to explore · Click a node
                   </p>
                   <div className="h-full min-h-[280px] w-full pt-6 sm:pt-7">
                     <Suspense fallback={null}>
@@ -459,7 +385,7 @@ export default function SkillsPage() {
                     {[
                       { val: "25+", label: "Core Skills" },
                       { val: "13", label: "Expert Level" },
-                      { val: "3+", label: "Yrs Prod." },
+                      { val: "5+", label: "Yrs Prod." },
                     ].map((s, i) => (
                       <div key={i}>
                         <div className="text-xl font-bold text-[#2563EB] font-sora">{s.val}</div>

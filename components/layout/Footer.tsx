@@ -134,13 +134,15 @@ export function Footer() {
               +92 317 763 8978
             </a>
 
-            <Link
-              href="/contact"
+            <a
+              href="https://wa.me/923177638978?text=Hi%20Muhammad%2C%20I%27d%20like%20to%20talk%20about%20a%20project."
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#2563EB] hover:text-[#1D4ED8] transition-colors"
             >
               Start a Conversation
               <ExternalLink size={13} />
-            </Link>
+            </a>
           </div>
         </div>
 

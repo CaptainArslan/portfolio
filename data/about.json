@@ -76,37 +76,16 @@
       "tech": ["Laravel", "PHP", "MySQL", "jQuery"]
     },
     {
-      "dateRange": "Dec 2022 – Apr 2023",
-      "company": "Syntax Lab",
-      "location": "Gujranwala",
-      "title": "Full-Stack Developer",
-      "current": false,
-      "achievements": [
-        "Delivered scalable web platform with optimized data layer and high-performance API architecture"
-      ],
-      "tech": ["PHP", "Laravel", "MySQL", "JavaScript"]
-    },
-    {
       "dateRange": "Sep 2021 – Apr 2022",
       "company": "SoftShack (Pvt.) Ltd.",
       "location": "Gujranwala",
       "title": "Full-Stack Engineer",
       "current": false,
       "achievements": [
-        "Enterprise software features and API integration layer for business operations platform"
+        "Contributed to university portal projects in Agile teams",
+        "Optimized backend efficiency and cross-device front-end responsiveness"
       ],
-      "tech": ["PHP", "Laravel", "MySQL", "Bootstrap"]
-    },
-    {
-      "dateRange": "Dec 2021 – Apr 2022",
-      "company": "PSEB",
-      "location": "Gujranwala",
-      "title": "Web Developer",
-      "current": false,
-      "achievements": [
-        "Government portal development with secure authentication and user management systems"
-      ],
-      "tech": ["PHP", "HTML", "CSS", "JavaScript"]
+      "tech": ["Core PHP", "Laravel", "MySQL", "Bootstrap"]
     }
   ],
   "philosophy": [

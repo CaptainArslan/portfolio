@@ -13,6 +13,9 @@ interface FormState {
   subject: string;
   type: string;
   message: string;
+  /** Honeypot — real visitors never see or fill this field. Bots that autofill every
+   * input will populate it, which lets the API silently drop the submission. */
+  company: string;
 }
 
 /* ============================================
@@ -63,6 +66,7 @@ export default function ContactPage() {
     subject: "",
     type: "Backend Development Project",
     message: "",
+    company: "",
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -104,6 +108,7 @@ export default function ContactPage() {
         subject: "",
         type: "Backend Development Project",
         message: "",
+        company: "",
       });
       setTimeout(() => setStatus("idle"), 6000);
     } catch {
@@ -215,11 +220,29 @@ export default function ContactPage() {
                     <motion.form
                       key="form"
                       onSubmit={handleSubmit}
-                      className="space-y-5"
+                      className="relative space-y-5"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                     >
+                      {/* Honeypot — hidden from real visitors, invisible to screen readers,
+                          and skipped in tab order. Bots that fill every field trip it. */}
+                      <div
+                        aria-hidden="true"
+                        className="absolute -left-[9999px] top-auto h-0 w-0 overflow-hidden"
+                      >
+                        <label htmlFor="company">Company</label>
+                        <input
+                          type="text"
+                          id="company"
+                          name="company"
+                          value={formData.company}
+                          onChange={handleChange}
+                          tabIndex={-1}
+                          autoComplete="off"
+                        />
+                      </div>
+
                       {/* Name + Email row */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>

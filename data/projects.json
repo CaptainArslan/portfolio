@@ -1,22 +1,156 @@
 {
   "projects": [
     {
-      "id": "1",
-      "name": "PayYourCell",
-      "slug": "payyourcell",
-      "employer": "Hegemonic Inc",
-      "category": "Payment",
-      "description": "Enterprise payment platform with GoHighLevel CRM-integrated workflows, encrypted middleware architecture, and performance-tuned APIs serving thousands of active users daily.",
-      "impact": "50% faster client onboarding · 25% API response time improvement · 99.9% uptime",
-      "date": "Sep 2023 – Present",
+      "id": "7",
+      "name": "Waste Pilot",
+      "slug": "waste-pilot",
+      "employer": "Arcann Waste",
+      "category": "Platform",
+      "description": "Multi-tenant Laravel platform for Arcann Waste that digitizes dumpster rental operations for waste companies and independent contractors — JWT-secured company panel with real-time chat, automated job dispatching, and payment processing built for trustworthy billing and collections.",
+      "impact": "Multi-tenant platform · JWT-secured panel · real-time chat (Firebase/Pusher) · automated job dispatch · integrated payments",
+      "date": "2025 – Present",
       "stack": [
         "Laravel",
-        "GoHighLevel",
         "MySQL",
-        "AWS",
-        "Redis"
+        "JWT",
+        "Multi-tenant",
+        "Redis",
+        "AWS S3"
       ],
-      "accentColor": "#2563EB"
+      "accentColor": "#166534"
+    },
+    {
+      "id": "10",
+      "name": "HayWork",
+      "slug": "haywork",
+      "employer": "HayWork",
+      "category": "Platform",
+      "description": "Armenian-language freelance marketplace (haywork.am) connecting clients with specialists — multi-category gigs, AMD-priced listings, freelancer profiles with ratings, job posts, and platform features like hourly work, commissions, and payouts.",
+      "impact": "1000+ specialists · 500+ services · 250+ applications (site) · 4.8★ reviews · category discovery & search",
+      "date": "2025 – Present",
+      "stack": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "REST API",
+        "Payment integration",
+        "cPanel Hosting"
+      ],
+      "accentColor": "#BE185D",
+      "liveUrl": "https://haywork.am"
+    },
+    {
+      "id": "9",
+      "name": "Pay Cellular Plan",
+      "slug": "pay-cellular-plan",
+      "employer": "Pay Cellular Plan",
+      "category": "Payment",
+      "description": "Consumer wireless bill-pay and prepaid top-up flow across major carriers — phone-number-led checkout, transaction tracking and search, secure gateway handoff, and published refund paths when payments do not post.",
+      "impact": "Multi-carrier refills · transaction lookup · encrypted checkout · 24×7 support positioning · refund policy surfaced on-site",
+      "date": "2025 – Present",
+      "stack": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "Payment APIs",
+        "Cloudways"
+      ],
+      "accentColor": "#0D9488",
+      "liveUrl": "https://paycellularplan.com"
+    },
+    {
+      "id": "8",
+      "name": "PaymentCellular",
+      "slug": "paymentcellular",
+      "employer": "PaymentCellular",
+      "category": "Payment",
+      "description": "Public payment experience for cellular and wireless-adjacent services — hardened web front door (bot verification), server-side payment orchestration, and APIs built for reliable checkout and post-payment callbacks.",
+      "impact": "Production-hardened surface · payment orchestration · webhook-safe settlement paths · stack aligned with high-trust money movement",
+      "date": "2025 – Present",
+      "stack": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "Payment APIs",
+        "Cloudways"
+      ],
+      "accentColor": "#4338CA",
+      "liveUrl": "https://paymentcellular.com"
+    },
+    {
+      "id": "6",
+      "name": "Silent Partners",
+      "slug": "silent-partners",
+      "employer": "Silent Partners",
+      "category": "Platform",
+      "description": "B2B real estate network for discreet placement of high-value listings (€5M+) — anonymized property exposure, agent-to-agent matching, and messaging focused on sales support and cross-regional buyer access.",
+      "impact": "Anonymized listings · €5M+ segment · seller & buyer agent workflows · discreet cross-border reach",
+      "date": "2025 – Present",
+      "stack": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "Hostinger"
+      ],
+      "accentColor": "#0F766E",
+      "liveUrl": "https://silentpartners.shahab01.com"
+    },
+    {
+      "id": "5",
+      "name": "Catering d'Aran",
+      "slug": "catering-daran",
+      "employer": "Catering d'Aran",
+      "category": "E-commerce",
+      "description": "Bilingual school meal ordering for Valle de Arán — child profiles with allergy data, weekly menu selection aligned to the school calendar, and online payments with instant receipts for parents.",
+      "impact": "3-step parent journey · allergy-aware profiles · holiday-aware scheduling · instant receipts",
+      "date": "2025 – Present",
+      "stack": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "REST API",
+        "Payment APIs",
+        "Cron Jobs",
+        "Shared Hosting"
+      ],
+      "accentColor": "#C2410C",
+      "liveUrl": "https://cateringdaran.com"
+    },
+    {
+      "id": "4",
+      "name": "Ylaa.com",
+      "slug": "ylaa",
+      "employer": "DevZone Solutions",
+      "category": "E-commerce",
+      "description": "Full-featured e-commerce platform rebuilt from the ground up — achieving 30% faster page loads and doubling user capacity without infrastructure cost increase.",
+      "impact": "30% faster page loads · 2× user capacity · 18% lower cart abandonment",
+      "date": "May 2022 – Jan 2023",
+      "stack": [
+        "Core PHP",
+        "MySQL",
+        "jQuery",
+        "JavaScript",
+        "Bootstrap"
+      ],
+      "accentColor": "#059669",
+      "liveUrl": "https://ylaa.com"
+    },
+    {
+      "id": "3",
+      "name": "loom.dreamhoster.com",
+      "slug": "loom-dreamhoster",
+      "employer": "HexaTech Solution",
+      "category": "Video",
+      "description": "Video recording and sharing platform with async background job processing and custom payment gateway integration for reliable media processing.",
+      "impact": "45% transaction success boost · 20% API latency reduction · 99.8% uptime",
+      "date": "Dec 2023 – Apr 2024",
+      "stack": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "cPanel Hosting"
+      ],
+      "accentColor": "#0891B2"
     },
     {
       "id": "2",
@@ -38,177 +172,480 @@
       "liveUrl": "https://noomerik.com"
     },
     {
-      "id": "3",
-      "name": "loom.dreamhoster.com",
-      "slug": "loom-dreamhoster",
-      "employer": "HexaTech Solution",
-      "category": "Video",
-      "description": "Video recording and sharing platform with async background job processing, custom payment gateway integration, and Redis-powered queue management for reliable media processing.",
-      "impact": "45% transaction success boost · 20% API latency reduction · 99.8% uptime",
-      "date": "Dec 2023 – Apr 2024",
+      "id": "1",
+      "name": "PayYourCell",
+      "slug": "payyourcell",
+      "employer": "Hegemonic Inc",
+      "category": "Payment",
+      "description": "Enterprise payment platform with GoHighLevel CRM-integrated workflows, encrypted middleware architecture, and performance-tuned APIs serving thousands of active users daily.",
+      "impact": "50% faster client onboarding · 25% API response time improvement · 99.9% uptime",
+      "date": "Sep 2023 – Present",
       "stack": [
         "Laravel",
-        "Redis",
-        "AWS S3",
-        "PHP",
-        "MySQL"
-      ],
-      "accentColor": "#0891B2"
-    },
-    {
-      "id": "4",
-      "name": "Ylaa.com",
-      "slug": "ylaa",
-      "employer": "DevZone Solutions",
-      "category": "E-commerce",
-      "description": "Full-featured e-commerce platform rebuilt from the ground up — achieving 30% faster page loads and doubling user capacity without infrastructure cost increase.",
-      "impact": "30% faster page loads · 2× user capacity · 18% lower cart abandonment",
-      "date": "May 2022 – Jan 2023",
-      "stack": [
-        "Laravel",
-        "PHP",
+        "GoHighLevel",
         "MySQL",
-        "jQuery",
-        "JavaScript"
+        "AWS",
+        "Redis"
       ],
-      "accentColor": "#059669",
-      "liveUrl": "https://ylaa.com"
-    },
-    {
-      "id": "5",
-      "name": "Catering d'Aran",
-      "slug": "catering-daran",
-      "employer": "Catering d'Aran",
-      "category": "E-commerce",
-      "description": "Bilingual school meal ordering for Valle de Arán — child profiles with allergy data, weekly menu selection aligned to the school calendar, and online payments with instant receipts for parents.",
-      "impact": "3-step parent journey · allergy-aware profiles · holiday-aware scheduling · instant receipts",
-      "date": "2025 – Present",
-      "stack": ["Laravel", "PHP", "MySQL", "REST API", "Payment APIs"],
-      "accentColor": "#C2410C",
-      "liveUrl": "https://cateringdaran.com"
-    },
-    {
-      "id": "6",
-      "name": "Silent Partners",
-      "slug": "silent-partners",
-      "employer": "Silent Partners",
-      "category": "Platform",
-      "description": "B2B real estate network for discreet placement of high-value listings (€5M+) — anonymized property exposure, agent-to-agent matching, and messaging focused on sales support and cross-regional buyer access.",
-      "impact": "Anonymized listings · €5M+ segment · seller & buyer agent workflows · discreet cross-border reach",
-      "date": "2025 – Present",
-      "stack": ["Laravel", "PHP", "MySQL", "REST API", "AWS"],
-      "accentColor": "#0F766E",
-      "liveUrl": "https://silentpartners.shahab01.com"
-    },
-    {
-      "id": "7",
-      "name": "Waste Pilot",
-      "slug": "waste-pilot",
-      "employer": "Arcann Waste",
-      "category": "Platform",
-      "description": "Company panel for waste operators and local contractors to run dumpster rentals digitally — JWT-secured dashboard with real-time roll-off location visibility, operational statistics, and workflows tuned for multiple customer types and trustworthy billing.",
-      "impact": "Digital rental ops · live dumpster tracking · multi-segment customers · stats & reporting · payment-ready trust model",
-      "date": "2025 – Present",
-      "stack": ["Next.js", "TypeScript", "JWT", "REST API", "Vercel"],
-      "accentColor": "#166534",
-      "liveUrl": "https://waste-pilot-company-panel-testing.vercel.app"
-    },
-    {
-      "id": "8",
-      "name": "PaymentCellular",
-      "slug": "paymentcellular",
-      "employer": "PaymentCellular",
-      "category": "Payment",
-      "description": "Public payment experience for cellular and wireless-adjacent services — hardened web front door (bot verification), server-side payment orchestration, and APIs built for reliable checkout and post-payment callbacks.",
-      "impact": "Production-hardened surface · payment orchestration · webhook-safe settlement paths · stack aligned with high-trust money movement",
-      "date": "2025 – Present",
-      "stack": ["Laravel", "PHP", "MySQL", "Payment APIs", "REST API", "AWS"],
-      "accentColor": "#4338CA",
-      "liveUrl": "https://paymentcellular.com"
-    },
-    {
-      "id": "9",
-      "name": "Pay Cellular Plan",
-      "slug": "pay-cellular-plan",
-      "employer": "Pay Cellular Plan",
-      "category": "Payment",
-      "description": "Consumer wireless bill-pay and prepaid top-up flow across major carriers — phone-number-led checkout, transaction tracking and search, secure gateway handoff, and published refund paths when payments do not post.",
-      "impact": "Multi-carrier refills · transaction lookup · encrypted checkout · 24×7 support positioning · refund policy surfaced on-site",
-      "date": "2025 – Present",
-      "stack": ["Laravel", "PHP", "MySQL", "Payment APIs", "REST API", "AWS"],
-      "accentColor": "#0D9488",
-      "liveUrl": "https://paycellularplan.com"
-    },
-    {
-      "id": "10",
-      "name": "HayWork",
-      "slug": "haywork",
-      "employer": "HayWork",
-      "category": "Platform",
-      "description": "Armenian-language freelance marketplace (haywork.am) connecting clients with specialists — multi-category gigs, AMD-priced listings, freelancer profiles with ratings, job posts, and platform features like hourly work, commissions, and payouts.",
-      "impact": "1000+ specialists · 500+ services · 250+ applications (site) · 4.8★ reviews · category discovery & search",
-      "date": "2025 – Present",
-      "stack": ["Laravel", "PHP", "MySQL", "REST API", "Payment integration", "AWS"],
-      "accentColor": "#BE185D",
-      "liveUrl": "https://haywork.am"
+      "accentColor": "#2563EB"
     }
   ],
   "caseStudies": {
-    "payyourcell": {
-      "name": "PayYourCell",
-      "slug": "payyourcell",
-      "category": "Payment Platform",
-      "employer": "Hegemonic Inc",
-      "color": "#2563EB",
-      "date": "Sep 2023 – Present",
-      "description": "Enterprise payment platform with CRM-integrated workflows, encrypted middleware architecture, and performance-tuned APIs serving thousands of active users daily.",
-      "challenge": "Hegemonic Inc needed a payment platform that could handle high transaction volumes while integrating seamlessly with their GoHighLevel CRM — with zero manual data entry between systems. The challenge was building a secure, scalable architecture that could process payments without creating bottlenecks in their sales workflow, while maintaining strict PCI compliance.",
-      "architecture": "Built a Laravel backend with a dedicated payment processing layer using encrypted middleware to ensure sensitive data never touches the application layer directly. Implemented async queue processing for transaction handling, allowing payments to be processed without blocking user-facing requests. GoHighLevel webhook integration ensures automatic CRM updates, eliminating manual data entry entirely.",
+    "waste-pilot": {
+      "name": "Waste Pilot",
+      "slug": "waste-pilot",
+      "category": "Waste Operations Platform",
+      "employer": "Arcann Waste",
+      "color": "#166534",
+      "date": "2025 – Present",
+      "description": "Multi-tenant Laravel platform for Arcann Waste that digitizes dumpster rental operations for waste companies and independent contractors — JWT-secured company panel with real-time chat, automated job dispatching, and payment processing built for trustworthy billing and collections.",
+      "challenge": "Rental businesses often juggle spreadsheets, phone dispatch, and ad hoc updates from the field. The product needed one platform where multiple waste companies (tenants) and their contractors could coordinate roll-off jobs, communicate in real time, and process payments reliably — all while keeping each company's data and billing isolated from the others.",
+      "architecture": "Built as a multi-tenant Laravel application with JWT-based authentication for company and contractor accounts. Redis powers application-level caching to keep dashboard and job-status queries fast under load, while AWS S3 handles file and document storage. Firebase and Pusher provide real-time chat between companies, contractors, and drivers during job dispatch. Scheduled cron jobs handle recurring tasks — job assignment sweeps, status reminders, and billing cycles — on top of a MySQL-backed order and job-dispatching system, with payment integration handling invoicing and collections.",
       "highlights": [
-        "GoHighLevel CRM webhook integration with bi-directional data sync",
-        "Encrypted middleware pipeline achieving full PCI compliance",
-        "MySQL query optimization delivering 25% API response time improvement",
-        "Redis-powered async queue for non-blocking transaction processing",
-        "High-availability backend serving thousands of concurrent users daily"
+        "Multi-tenant architecture keeping each waste company's data, contractors, and billing isolated from other tenants on the same platform",
+        "JWT-secured authentication for company and contractor accounts across the panel",
+        "Real-time chat via Firebase and Pusher connecting companies, contractors, and drivers during job dispatch",
+        "Redis-backed caching for fast dashboard and job-status queries under load",
+        "Cron-driven scheduler automating job assignment, status reminders, and billing cycles",
+        "Integrated payment processing for invoicing and collections tied to completed jobs"
       ],
-      "outcome": "Successfully deployed payment platform now serving thousands of active users. Client onboarding time reduced by 50% through automated CRM workflows. API response times improved by 25% through strategic database optimization and caching layers. System maintains 99.9% uptime across all production environments.",
+      "outcome": "A live multi-tenant company panel giving Arcann Waste's network of waste companies and contractors a modern, JWT-secured control surface for dumpster rental operations — with real-time chat for dispatch coordination, automated scheduling via cron jobs, and integrated payments that keep billing and collections on track.",
       "metrics": [
         {
-          "label": "Onboarding Speed",
-          "value": "50%",
+          "label": "Access",
+          "value": "JWT",
+          "sub": "Secure panel"
+        },
+        {
+          "label": "Tenancy",
+          "value": "Multi-tenant",
+          "sub": "Isolated companies"
+        },
+        {
+          "label": "Dispatch",
+          "value": "Real-time",
+          "sub": "Chat & jobs"
+        }
+      ],
+      "keyFeatures": {
+        "Multi-tenant panel": "Each waste company operates in its own isolated tenant space — data, contractors, and billing kept separate on shared infrastructure.",
+        "Job dispatching": "Order and job-dispatching system routes rental requests to contractors, with cron-driven scheduling automating recurring assignment and reminder tasks.",
+        "Real-time chat": "Firebase and Pusher power live chat between companies, contractors, and drivers to coordinate jobs without phone tag.",
+        "Payments & billing": "Integrated payment processing ties invoicing and collections directly to completed rental jobs.",
+        "Performance & caching": "Redis-backed caching keeps dashboard and job-status views responsive as tenant and job volume grows."
+      },
+      "technicalStack": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "JWT Authentication",
+        "Multi-tenant Architecture",
+        "Redis Caching",
+        "AWS S3",
+        "Firebase",
+        "Pusher",
+        "Cron & Scheduler",
+        "Payment Integration"
+      ],
+      "codeSnippet": {
+        "filename": "DispatchPendingJobs.php",
+        "language": "php",
+        "code": "<?php\n\nnamespace App\\Console\\Commands;\n\nuse App\\Models\\Company;\nuse App\\Jobs\\AssignContractorJob;\nuse Illuminate\\Console\\Command;\n\nclass DispatchPendingJobs extends Command\n{\n    protected $signature = 'jobs:dispatch-pending';\n    protected $description = 'Sweep each tenant company for unassigned rental jobs and dispatch them to contractors';\n\n    /**\n     * Runs on the scheduler (cron) — keeps each company's jobs\n     * scoped to its own tenant while routing new requests to\n     * available contractors.\n     */\n    public function handle(): void\n    {\n        Company::with('pendingJobs')->chunk(50, function ($companies) {\n            foreach ($companies as $company) {\n                foreach ($company->pendingJobs as $job) {\n                    if (! $job->contractor_id) {\n                        AssignContractorJob::dispatch($job)->onQueue('dispatch');\n                    }\n                }\n            }\n        });\n    }\n}"
+      }
+    },
+    "haywork": {
+      "name": "HayWork",
+      "slug": "haywork",
+      "category": "Freelance Marketplace",
+      "employer": "HayWork",
+      "color": "#BE185D",
+      "date": "2025 – Present",
+      "description": "HayWork (Հայկական Ֆրիլանս Հարթակ) is a live marketplace at haywork.am where businesses post project needs and hire vetted specialists online — organized by verticals from programming and design to marketing, AI, languages, and video, with listings priced in Armenian dram and public review signals.",
+      "challenge": "A national freelance economy needs trust at scale: discoverability across dozens of categories, transparent pricing, freelancer credibility (ratings, portfolios, company vs. individual), and money movement that respects platform fees and payout expectations — all while staying fast in Armenian and friendly to the diaspora audience highlighted on the site.",
+      "architecture": "Structured the product as a multi-sided marketplace: searchable service catalog and job-style postings, profile and review entities, and commission-aware order or escrow-style flows aligned with on-page promises (e.g. 10% platform fee, hourly gigs, workspace, withdrawal). APIs back category navigation, featured and “most searched” surfaces, and recommendation-style blocks for services and professionals.",
+      "highlights": [
+        "Broad category taxonomy on the public home experience — consulting, business, web design, programming & IT, AI, graphic design, video, digital marketing, and more",
+        "AMD-denominated listings and hourly rates visible on cards, matching local payment reality",
+        "Social proof: review carousel and sitewide rating callout (4.8/5 from 100+ reviews, as stated on the site)",
+        "Scale messaging: 1000+ specialists, 500+ services, 250+ applications (figures presented on haywork.am)",
+        "Productized platform features called out publicly — hourly services, 10% commission, workspace, direct withdrawal, unlimited free applications"
+      ],
+      "outcome": "An operational Armenian freelance hub that packages talent discovery, structured offers, and marketplace operations in one domain — positioning HayWork as the place where clients brief work clearly and specialists across Armenia and the diaspora can be found in a single flow.",
+      "metrics": [
+        {
+          "label": "Specialists",
+          "value": "1000+",
+          "sub": "On-site stat"
+        },
+        {
+          "label": "Services",
+          "value": "500+",
+          "sub": "On-site stat"
+        },
+        {
+          "label": "Reviews",
+          "value": "4.8★",
+          "sub": "100+ cited"
+        }
+      ],
+      "keyFeatures": {
+        "Discovery & search": "Homepage paths into popular categories and search so clients narrow thousands of skills to a shortlist quickly.",
+        "Listings & jobs": "Mixed model of fixed-price style services and one-off job postings with visible budgets in AMD.",
+        "Freelancer identity": "Profiles for individuals and studios with rates, ratings, and engagement hooks for new talent.",
+        "Monetization & ops": "Published fee and payout mechanics reduce ambiguity for both sides before work starts.",
+        "Trust layer": "Reviews and featured testimonials reinforce quality for a marketplace that competes on reputation."
+      },
+      "technicalStack": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "REST API",
+        "Payments & commissions",
+        "Search & catalog indexing",
+        "cPanel shared hosting"
+      ],
+      "liveUrl": "https://haywork.am",
+      "codeSnippet": {
+        "filename": "FeaturedServiceQuery.php",
+        "language": "php",
+        "code": "<?php\n\nnamespace App\\Services\\Marketplace;\n\nuse App\\Models\\ServiceListing;\nuse Illuminate\\Database\\Eloquent\\Builder;\n\nclass FeaturedServiceQuery\n{\n    /**\n     * Home “recommended services” — active listings, category filter,\n     * stable ordering for carousel slots.\n     */\n    public function forHome(array $categoryIds): Builder\n    {\n        return ServiceListing::query()\n            ->where('status', 'published')\n            ->whereIn('category_id', $categoryIds)\n            ->with(['seller.profile', 'category'])\n            ->withAvg('reviews as rating_avg', 'score')\n            ->withCount('reviews')\n            ->orderByDesc('is_featured')\n            ->orderByDesc('rating_avg')\n            ->limit(24);\n    }\n}"
+      }
+    },
+    "pay-cellular-plan": {
+      "name": "Pay Cellular Plan",
+      "slug": "pay-cellular-plan",
+      "category": "Wireless Top-Up & Bill Pay",
+      "employer": "Pay Cellular Plan",
+      "color": "#0D9488",
+      "date": "2025 – Present",
+      "description": "Public refill and wireless bill-pay experience at paycellularplan.com — customers choose a carrier, walk through a short phone-number-first flow, pay through a secure gateway, and can track or look up transactions when something does not post as expected.",
+      "challenge": "Prepaid and pay-in-advance wireless is high-chargeback and high-support: users mistype MSISDNs, carriers post asynchronously, and trust breaks if status is unclear. The product had to make carrier selection obvious, keep personally identifiable data scoped, route every successful payment to the right fulfillment integration, and expose transaction search plus a clear refund path (including human support via email).",
+      "architecture": "Modeled orders around normalized phone identity, selected carrier SKU, and amount — then handed card data only to a PCI-scoped payment gateway while preserving server-side intent and settlement state. Background jobs reconcile provider callbacks with carrier fulfillment APIs where applicable; customer service tools reuse the same order keys users see in “Find Transactions” so disputes are debuggable without exposing full PAN data.",
+      "highlights": [
+        "Marketing copy positions multi-carrier coverage including Boost Mobile, MetroPCS, and Cricket Wireless (as named on the public site)",
+        "Four-step journey described in FAQ: enter phone, confirm number, choose recharge amount, complete secure payment",
+        "“Track your transaction” and search-oriented UX for users who need proof or status after paying",
+        "Published refund guidance: contact support@paycellularplan.com within 7 days with order number and phone if payment does not appear on the carrier account",
+        "Site FAQ cites 12M+ completed top-ups as a scale signal for the service (marketing claim on-page)"
+      ],
+      "outcome": "A live consumer surface focused on speed and trust for wireless refills: encrypted checkout, carrier-specific paths, and operational transparency when a recharge fails to post — aligned with the brand’s positioning as a high-volume top-up channel.",
+      "metrics": [
+        {
+          "label": "Scale (site)",
+          "value": "12M+",
+          "sub": "Top-ups cited"
+        },
+        {
+          "label": "Flow",
+          "value": "4 steps",
+          "sub": "FAQ"
+        },
+        {
+          "label": "Support",
+          "value": "24×7",
+          "sub": "Positioning"
+        }
+      ],
+      "keyFeatures": {
+        "Carrier choice": "Homepage-led “Choose Your Carrier” pattern so users start in the right prepaid or bill-pay rail.",
+        "Transaction tools": "Track and search flows for customers chasing confirmation or reconciliation after payment.",
+        "Secure payments": "Site emphasizes encrypted checkout and privacy policy alignment for card and personal data.",
+        "Trust operations": "Money-back framing for canceled orders and structured refund requests when carrier posting lags."
+      },
+      "technicalStack": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "Payment gateway integration",
+        "Queue & reconciliation jobs",
+        "Cloudways"
+      ],
+      "liveUrl": "https://paycellularplan.com",
+      "codeSnippet": {
+        "filename": "TopUpIntentService.php",
+        "language": "php",
+        "code": "<?php\n\nnamespace App\\Services;\n\nuse App\\Data\\TopUpDraft;\nuse App\\Models\\Carrier;\nuse App\\Models\\TopUpIntent;\nuse Illuminate\\Support\\Str;\n\nclass TopUpIntentService\n{\n    /**\n     * Four-step flow: capture MSISDN + carrier + amount, persist intent\n     * before redirecting to PCI-scoped payment gateway.\n     */\n    public function start(TopUpDraft $draft): TopUpIntent\n    {\n        $carrier = Carrier::where('slug', $draft->carrierSlug)->firstOrFail();\n\n        return TopUpIntent::create([\n            'public_ref'       => (string) Str::ulid(),\n            'e164'             => $draft->normalizedE164(),\n            'carrier_id'       => $carrier->id,\n            'amount_cents'     => $draft->amountCents,\n            'status'           => 'awaiting_payment',\n            'idempotency_key'  => $draft->clientIdempotencyKey(),\n        ]);\n    }\n}"
+      }
+    },
+    "paymentcellular": {
+      "name": "PaymentCellular",
+      "slug": "paymentcellular",
+      "category": "Payments & Cellular Services",
+      "employer": "PaymentCellular",
+      "color": "#4338CA",
+      "date": "2025 – Present",
+      "description": "Customer-facing property at paymentcellular.com for payment flows associated with cellular and wireless-service use cases — engineered for a trustworthy checkout path, resilient callbacks, and operational visibility when money moves.",
+      "challenge": "Consumer payment sites in the telecom and refill space attract automated traffic and fraud probes before real users arrive. The product needed a front door that could throttle bots without frustrating legitimate customers, while keeping card or wallet flows, idempotent webhooks, and ledger-style persistence consistent so finance teams can reconcile confidently.",
+      "architecture": "Laravel-centered backend with explicit payment service boundaries: initiate authorization on the server, persist intent and provider references in MySQL, and process asynchronous webhooks on dedicated queue workers with signature verification and replay protection. Edge or WAF-style verification (observed on the live host) sits in front of the marketing and app surfaces to reduce scrapers and credential stuffing noise.",
+      "highlights": [
+        "Public hostname paymentcellular.com with automated visitor verification observed in production — reducing noise before application logic runs",
+        "Server-side payment initiation so secrets and provider credentials never ship to the browser",
+        "Webhook ingestion path built for retries, duplicate delivery, and out-of-order events",
+        "Transactional records that tie customer session, provider charge, and internal order state",
+        "Deployment profile consistent with Cloudways-hosted Laravel applications used across similar payment products"
+      ],
+      "outcome": "Live home experience under the PaymentCellular brand with defenses appropriate for a money-moving surface: verified humans reach the app, payments are orchestrated safely on the server, and operators have a clear trail from click-through to settled funds.",
+      "metrics": [
+        {
+          "label": "Surface",
+          "value": "Live",
+          "sub": "paymentcellular.com"
+        },
+        {
+          "label": "Edge",
+          "value": "Verified",
+          "sub": "Bot challenge"
+        },
+        {
+          "label": "Money path",
+          "value": "Server",
+          "sub": "Orchestrated"
+        }
+      ],
+      "keyFeatures": {
+        "Cellular-focused payments": "Brand and domain center on wireless and cellular-adjacent payment journeys rather than generic retail checkout.",
+        "Hardened entry": "Automated request verification on the public site limits abusive traffic before it hits core checkout APIs.",
+        "Provider integration": "Gateway-agnostic service layer maps internal orders to processor tokens, captures, and refunds.",
+        "Reconciliation support": "Structured events and IDs so finance can match gateway reports to application state."
+      },
+      "technicalStack": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "Payment gateway APIs",
+        "Queue workers & webhooks",
+        "Cloudways"
+      ],
+      "liveUrl": "https://paymentcellular.com",
+      "codeSnippet": {
+        "filename": "PaymentWebhookController.php",
+        "language": "php",
+        "code": "<?php\n\nnamespace App\\Http\\Controllers\\Webhooks;\n\nuse App\\Jobs\\FinalizeCellularPaymentJob;\nuse App\\Models\\PaymentIntent;\nuse Illuminate\\Http\\Request;\nuse Illuminate\\Http\\Response;\n\nclass PaymentWebhookController extends Controller\n{\n    /**\n     * Idempotent provider callback — verify signature, enqueue settle work.\n     * Duplicate or out-of-order events must not double-capture.\n     */\n    public function __invoke(Request $request): Response\n    {\n        if (! $this->gateway->verifySignature($request)) {\n            return response('invalid signature', 400);\n        }\n\n        $intent = PaymentIntent::where('provider_ref', $request->input('id'))->first();\n        if (! $intent || $intent->isTerminal()) {\n            return response('ok', 200); // idempotent noop\n        }\n\n        FinalizeCellularPaymentJob::dispatch($intent, $request->all())\n            ->onQueue('payments-webhooks');\n\n        return response('ok', 200);\n    }\n}"
+      }
+    },
+    "silent-partners": {
+      "name": "Silent Partners",
+      "slug": "silent-partners",
+      "category": "Real Estate Platform",
+      "employer": "Silent Partners",
+      "color": "#0F766E",
+      "date": "2025 – Present",
+      "description": "Platform for real estate professionals to market and source large-volume properties discreetly — listings are presented from anonymized data so identification is not possible, while connecting offering agents with agents representing qualified buyers.",
+      "challenge": "Premium and special-use properties often need quiet distribution: public portals and broad advertising can work against both seller discretion and serious buyer qualification. The product had to support a minimum deal scale (€5M+), keep sensitive listing detail abstract until trust is established, and still give agents enough signal to pursue the right opportunities across regions.",
+      "architecture": "Structured the domain around verified agent roles, anonymized listing profiles (attributes and ranges without identifying addresses or parties), and guarded discovery workflows so exposure stays controlled. Backend logic enforces eligibility, segmentation by volume and market, and audit-friendly state as introductions move forward.",
+      "highlights": [
+        "Anonymized presentation of objects so marketing can proceed without exposing identity prematurely",
+        "Focus on high-volume segment (€5M minimum) and difficult or special-property use cases",
+        "Connects listing agents with buyer-side agents for discreet placement and joint go-to-market",
+        "Positioning for Germany-wide and international professional partnerships beyond a single region",
+        "Public narrative aligned with sales support, market expansion, and structured acquisition collaboration"
+      ],
+      "outcome": "Live experience matching the site proposition: Silent Partners as a dedicated channel for discreet, agent-to-agent collaboration on large properties — improving placement options for unusual inventory while preserving the confidentiality buyers and sellers expect at this tier.",
+      "metrics": [
+        {
+          "label": "Listing focus",
+          "value": "€5M+",
+          "sub": "Minimum volume"
+        },
+        {
+          "label": "Exposure model",
+          "value": "Anonymous",
+          "sub": "Anonymized data"
+        },
+        {
+          "label": "Reach",
+          "value": "DE & intl.",
+          "sub": "Agent network"
+        }
+      ],
+      "keyFeatures": {
+        "Discreet marketing": "Supports placement of large and special properties where traditional public listing strategies are a poor fit.",
+        "Agent matching": "Bridges agents who hold mandates with agents who curate qualified buyers, without forcing early identification.",
+        "Anonymized listings": "Property narratives emphasize non-identifying attributes so discovery stays professional and controlled.",
+        "Market expansion": "Messaging highlights cross-regional partnerships to unlock demand outside the agent’s immediate footprint."
+      },
+      "technicalStack": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "Role-based access control",
+        "Hostinger"
+      ],
+      "liveUrl": "https://silentpartners.shahab01.com",
+      "codeSnippet": {
+        "filename": "AnonymizedListingQuery.php",
+        "language": "php",
+        "code": "<?php\n\nnamespace App\\Services;\n\nuse App\\Models\\PropertyListing;\nuse Illuminate\\Database\\Eloquent\\Builder;\n\nclass AnonymizedListingQuery\n{\n    /**\n     * Public/agent feed: €5M+ segment, no direct identifiers.\n     * Identification must remain impossible at browse time.\n     */\n    public function discoverable(Builder $query): Builder\n    {\n        return $query\n            ->where('minimum_volume_eur', '>=', 5_000_000)\n            ->where('anonymization_state', 'complete')\n            ->select([\n                'public_ref',\n                'asset_class',\n                'region_band',\n                'approx_sqm_band',\n                'high_level_brief',\n            ])\n            ->whereDoesntHave('exposureBlocks', fn ($q) =>\n                $q->where('active', true));\n    }\n}"
+      }
+    },
+    "catering-daran": {
+      "name": "Catering d'Aran",
+      "slug": "catering-daran",
+      "category": "School Meal Ordering",
+      "employer": "Catering d'Aran",
+      "color": "#C2410C",
+      "date": "2025 – Present",
+      "description": "Public-facing ordering experience for school catering in Valle de Arán — parents configure child profiles, choose weekly menu days around the school calendar, and pay with immediate digital receipts.",
+      "challenge": "The business needed a straightforward way for families to purchase school menus online while capturing allergy and dietary constraints up front, avoiding manual coordination with the kitchen. Ordering also had to respect non-school days so parents are never charged for holidays, and checkout had to deliver instant proof of payment for school records.",
+      "architecture": "Modeled the domain around child profiles, weekly menu plans, and school-calendar rules so availability is computed server-side before checkout. A scheduled cron job keeps the school-holiday calendar and weekly menu availability in sync automatically. Integrated payment processing for authorization and receipt generation, with transactional persistence so order state, payment status, and audit-friendly records stay aligned.",
+      "highlights": [
+        "Child profiles with structured allergy and dietary fields to reduce risk before meals are prepared",
+        "Scheduled cron job keeps the school-holiday calendar synced automatically so ordering always reflects the current school schedule",
+        "Week-based menu selection with school-holiday exclusion so only valid school days are orderable",
+        "End-to-end payment flow with instant receipts for parents and traceable order history",
+        "Bilingual public experience aligned with families and schools across the region",
+        "Contact and policy pages (privacy, refunds, delivery) supporting transparent operations"
+      ],
+      "outcome": "Live platform aligned with the site’s three-step journey: create a child profile, select eligible days, and complete payment with receipts. Parents get a clearer, faster alternative to manual ordering while the catering team receives structured, constraint-aware orders tied to the academic calendar.",
+      "metrics": [
+        {
+          "label": "Parent flow",
+          "value": "3 steps",
+          "sub": "On-site"
+        },
+        {
+          "label": "Service area",
+          "value": "Valle de Arán",
+          "sub": "Spain"
+        },
+        {
+          "label": "Safety",
+          "value": "Allergies",
+          "sub": "Profile-driven"
+        }
+      ],
+      "keyFeatures": {
+        "Child profiles": "Parents define each child’s plan and capture allergy details so menus can be evaluated before preparation and service.",
+        "Calendar-aware ordering": "Weekly selection logic excludes school holidays so ordering mirrors the real academic schedule.",
+        "Payments & receipts": "Streamlined checkout with immediate receipts for record-keeping and fewer administrative follow-ups.",
+        "Trust & compliance": "Published privacy, refund, cancellation, and delivery policies accessible from the public site."
+      },
+      "technicalStack": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "REST API",
+        "Payment gateway integration",
+        "Transactional order pipeline",
+        "Cron Jobs",
+        "Shared Hosting"
+      ],
+      "liveUrl": "https://cateringdaran.com",
+      "codeSnippet": {
+        "filename": "SchoolMenuOrderService.php",
+        "language": "php",
+        "code": "<?php\n\nnamespace App\\Services;\n\nuse App\\Models\\ChildProfile;\nuse App\\Models\\SchoolCalendar;\nuse Carbon\\Carbon;\n\nclass SchoolMenuOrderService\n{\n    /**\n     * Orderable days for a child’s weekly plan — excludes holidays\n     * and respects allergy constraints from the parent profile.\n     */\n    public function orderableDays(ChildProfile $child, Carbon $weekStart): array\n    {\n        $holidays = SchoolCalendar::nonSchoolDays(\n            $child->school_id,\n            $weekStart\n        );\n\n        return $child->weeklyMenuPlan()\n            ->forWeekStarting($weekStart)\n            ->excludingDates($holidays)\n            ->matchingDietaryRules($child->allergies)\n            ->toSelectableSlots();\n    }\n}"
+      }
+    },
+    "ylaa": {
+      "name": "Ylaa.com",
+      "slug": "ylaa",
+      "category": "E-commerce Platform",
+      "employer": "DevZone Solutions",
+      "color": "#059669",
+      "date": "May 2022 – Jan 2023",
+      "description": "Full-featured e-commerce platform rebuilt from the ground up — achieving 30% faster page loads and doubling user capacity without infrastructure cost increase.",
+      "challenge": "The original platform suffered from severe performance degradation and limited scalability as the user base grew. Page load times were unacceptably slow, leading to high cart abandonment rates. The goal was to rebuild the platform to support 2x user growth without proportional infrastructure cost increases, while delivering a modern mobile-first shopping experience.",
+      "architecture": "Completely rebuilt the platform in core PHP (no framework) with optimized database query patterns, strategic lazy loading, and query-level caching. Implemented real-time inventory management with instant stock level update notifications. Redesigned the frontend with jQuery-enhanced UX improvements for a seamless mobile shopping experience, reducing cart abandonment by 18%.",
+      "highlights": [
+        "30% faster page load times via CSS/JS minification, lazy loading, and N+1 query elimination",
+        "2x user capacity achieved without infrastructure cost increase through intelligent caching",
+        "18% reduction in cart abandonment through improved mobile-first responsive UI",
+        "Real-time inventory management with instant stock level updates across all sessions",
+        "Faceted product search and filtering system with category-level caching"
+      ],
+      "outcome": "Successfully delivered a rebuilt e-commerce platform achieving 30% faster page loads across all devices. Doubled user capacity without increasing server costs through intelligent resource utilization and query optimization. Cart abandonment dropped by 18% due to the enhanced mobile checkout experience. Platform now handles peak traffic with predictable, stable performance.",
+      "metrics": [
+        {
+          "label": "Page Load Speed",
+          "value": "30%",
           "sub": "Faster"
         },
         {
-          "label": "API Response",
-          "value": "25%",
+          "label": "User Capacity",
+          "value": "2×",
+          "sub": "Growth"
+        },
+        {
+          "label": "Cart Abandonment",
+          "value": "−18%",
+          "sub": "Reduction"
+        }
+      ],
+      "keyFeatures": {
+        "Performance Overhaul": "Eliminated N+1 queries, implemented strategic query-level caching, and added CDN for static assets — 30% faster page loads.",
+        "Shopping Cart": "Persistent cart system with real-time pricing, tax calculation, inventory validation, and seamless session management.",
+        "Mobile-First Checkout": "Redesigned responsive checkout flow with guest/registered user options, reducing cart abandonment by 18%.",
+        "Inventory Management": "Real-time stock level updates with low-stock notifications, preventing overselling and improving fulfillment accuracy."
+      },
+      "technicalStack": [
+        "Core PHP (no framework)",
+        "MySQL",
+        "JavaScript/jQuery",
+        "Bootstrap CSS",
+        "Stripe API"
+      ],
+      "liveUrl": "https://ylaa.com",
+      "codeSnippet": {
+        "filename": "ProductCatalogService.php",
+        "language": "php",
+        "code": "<?php\n\nclass ProductCatalogService\n{\n    private PDO $db;\n\n    public function __construct(PDO $db)\n    {\n        $this->db = $db;\n    }\n\n    /**\n     * Faceted product search in a single query\n     * Eliminated N+1 queries — 30% faster page loads\n     */\n    public function search(array $filters): array\n    {\n        $sql = \"SELECT p.*, c.name AS category_name, i.stock\n                FROM products p\n                INNER JOIN categories c ON c.id = p.category_id\n                INNER JOIN inventory i ON i.product_id = p.id\n                WHERE (:category IS NULL OR c.slug = :category)\n                  AND (:priceMin IS NULL OR p.price >= :priceMin)\n                ORDER BY p.created_at DESC\n                LIMIT 24\";\n\n        $stmt = $this->db->prepare($sql);\n        $stmt->execute([\n            ':category' => $filters['category'] ?? null,\n            ':priceMin' => $filters['priceMin'] ?? null,\n        ]);\n\n        return $stmt->fetchAll(PDO::FETCH_ASSOC);\n    }\n}"
+      }
+    },
+    "loom-dreamhoster": {
+      "name": "loom.dreamhoster.com",
+      "slug": "loom-dreamhoster",
+      "category": "Video Platform",
+      "employer": "HexaTech Solution",
+      "color": "#0891B2",
+      "date": "Dec 2023 – Apr 2024",
+      "description": "Video recording and sharing platform with async background job processing and custom payment gateway integration for reliable media processing.",
+      "challenge": "The platform needed to handle large video uploads and process them asynchronously without blocking user-facing operations. A custom payment gateway was required for subscription and usage-based billing with significantly improved transaction success rates. API latency needed optimization for fast video metadata retrieval and smooth playback initiation.",
+      "architecture": "Built a video processing pipeline using Laravel with database-driven background job queues for async encoding and transcoding. Implemented a custom payment gateway integration handling subscription billing, usage tracking, and automatic retry logic. Optimized database queries through strategic indexing to reduce video metadata retrieval latency by 20%.",
+      "highlights": [
+        "Database-driven queue system processing video encoding jobs asynchronously without blocking user-facing operations",
+        "Custom payment gateway achieving 45% improvement in transaction success rates",
+        "20% API latency reduction through query optimization and database indexing",
+        "Async video encoding pipeline supporting multiple output formats and resolutions",
+        "Video files stored and served directly from the hosting server, tuned for shared-hosting constraints"
+      ],
+      "outcome": "Successfully deployed video platform with robust async processing infrastructure. Transaction success rates improved by 45% through custom payment gateway optimization and retry logic. API performance improved by 20%, enabling faster video metadata retrieval and seamless streaming initiation. Platform maintains 99.8% uptime across all services.",
+      "metrics": [
+        {
+          "label": "Transaction Success",
+          "value": "+45%",
           "sub": "Improvement"
         },
         {
+          "label": "API Latency",
+          "value": "20%",
+          "sub": "Reduction"
+        },
+        {
           "label": "Uptime",
-          "value": "99.9%",
+          "value": "99.8%",
           "sub": "Production"
         }
       ],
       "keyFeatures": {
-        "Payment Processing": "Secure encrypted payment layer with PCI compliance, handling high-volume transactions with async processing and automatic retry logic.",
-        "CRM Integration": "Real-time GoHighLevel integration through webhooks ensuring zero manual data entry and instant CRM record updates on every transaction.",
-        "Performance Optimization": "MySQL query optimization, Redis caching, and strategic indexing for sub-second response times under peak load.",
-        "Scalability": "High-availability architecture supporting unlimited transaction growth without infrastructure redesign or service interruption."
+        "Video Encoding Pipeline": "Background job queue for transcoding videos into multiple formats and resolutions for adaptive streaming across devices.",
+        "Payment Gateway": "Custom gateway handling subscription billing, per-usage tracking, automatic retries, and comprehensive revenue reporting.",
+        "Async Processing": "Database-driven queue system reliably processing video jobs without blocking user operations.",
+        "Media Storage": "Videos stored and served directly from cPanel shared hosting storage, with compression to keep delivery efficient."
       },
       "technicalStack": [
         "Laravel Framework",
         "PHP 8.x",
         "MySQL",
-        "Redis",
-        "AWS EC2/RDS",
-        "GoHighLevel API",
-        "Encrypted Middleware",
-        "REST APIs"
+        "Database Queues",
+        "cPanel Shared Hosting",
+        "FFmpeg",
+        "Custom Payment API"
       ],
       "codeSnippet": {
-        "filename": "PaymentProcessor.php",
+        "filename": "VideoProcessingJob.php",
         "language": "php",
-        "code": "<?php\n\nnamespace App\\Services;\n\nuse App\\Jobs\\ProcessPaymentJob;\nuse App\\Integrations\\GoHighLevel;\n\nclass PaymentProcessor\n{\n    public function processTransaction(Payment $payment): Payment\n    {\n        // Encrypted middleware layer — sensitive data\n        // never touches the application layer directly\n        $encrypted = $this->encryptPayload($payment->data);\n\n        // Dispatch to Redis queue — non-blocking\n        ProcessPaymentJob::dispatch(\n            $encrypted,\n            $payment->gateway_id\n        )->onQueue('payments');\n\n        return $payment->markAsPending();\n    }\n\n    public function syncWithCRM(PaymentResult $result): void\n    {\n        // Bi-directional GoHighLevel webhook sync\n        GoHighLevel::contact($result->customer_id)\n            ->updateOpportunity([\n                'stage'  => 'Won',\n                'amount' => $result->amount,\n            ]);\n    }\n}"
+        "code": "<?php\n\nnamespace App\\Jobs;\n\nuse App\\Models\\Video;\nuse App\\Services\\FFmpegService;\nuse Illuminate\\Bus\\Queueable;\nuse Illuminate\\Queue\\SerializesModels;\nuse Illuminate\\Support\\Facades\\Storage;\n\nclass ProcessVideoJob implements ShouldQueue\n{\n    use Queueable, SerializesModels;\n\n    public int $tries = 3;\n    public int $timeout = 600; // 10 min max\n\n    public function handle(FFmpegService $ffmpeg): void\n    {\n        // Transcode to multiple resolutions\n        $outputs = $ffmpeg->transcode($this->video->raw_path, [\n            '1080p' => ['bitrate' => '5000k'],\n            '720p'  => ['bitrate' => '2500k'],\n            '480p'  => ['bitrate' => '1000k'],\n        ]);\n\n        // Move finished renditions into local public storage\n        foreach ($outputs as $quality => $path) {\n            Storage::disk('public')->put(\n                \"videos/{$this->video->id}/{$quality}.mp4\",\n                file_get_contents($path)\n            );\n        }\n\n        $this->video->markAsReady();\n    }\n}"
       }
     },
     "noomerik": {
@@ -269,461 +706,61 @@
         "code": "<?php\n\nnamespace App\\Http\\Controllers\\Api\\V1;\n\nuse App\\Services\\AvailabilityService;\nuse Illuminate\\Http\\JsonResponse;\n\nclass ServiceAvailabilityController extends Controller\n{\n    public function __construct(\n        private AvailabilityService $availability\n    ) {}\n\n    /**\n     * Real-time availability — cached with Redis TTL\n     * Handles 50K+ daily requests at <500ms P95\n     */\n    public function index(ServiceRequest $request): JsonResponse\n    {\n        $slots = $this->availability\n            ->forCategory($request->category_id)\n            ->withinRadius($request->lat, $request->lng, 25)\n            ->cache(ttl: 30) // 30-second Redis cache\n            ->paginate(20);\n\n        return ServiceResource::collection($slots)\n            ->response()\n            ->setStatusCode(200);\n    }\n}"
       }
     },
-    "loom-dreamhoster": {
-      "name": "loom.dreamhoster.com",
-      "slug": "loom-dreamhoster",
-      "category": "Video Platform",
-      "employer": "HexaTech Solution",
-      "color": "#0891B2",
-      "date": "Dec 2023 – Apr 2024",
-      "description": "Video recording and sharing platform with async background job processing, custom payment gateway integration, and Redis-powered queue management for reliable media processing.",
-      "challenge": "The platform needed to handle large video uploads and process them asynchronously without blocking user-facing operations. A custom payment gateway was required for subscription and usage-based billing with significantly improved transaction success rates. API latency needed optimization for fast video metadata retrieval and smooth playback initiation.",
-      "architecture": "Built a video processing pipeline using Laravel with Redis-powered background job queues for async encoding and transcoding. Implemented a custom payment gateway integration handling subscription billing, usage tracking, and automatic retry logic. Optimized database queries through strategic indexing and query caching to reduce video metadata retrieval latency by 20%.",
+    "payyourcell": {
+      "name": "PayYourCell",
+      "slug": "payyourcell",
+      "category": "Payment Platform",
+      "employer": "Hegemonic Inc",
+      "color": "#2563EB",
+      "date": "Sep 2023 – Present",
+      "description": "Enterprise payment platform with CRM-integrated workflows, encrypted middleware architecture, and performance-tuned APIs serving thousands of active users daily.",
+      "challenge": "Hegemonic Inc needed a payment platform that could handle high transaction volumes while integrating seamlessly with their GoHighLevel CRM — with zero manual data entry between systems. The challenge was building a secure, scalable architecture that could process payments without creating bottlenecks in their sales workflow, while maintaining strict PCI compliance.",
+      "architecture": "Built a Laravel backend with a dedicated payment processing layer using encrypted middleware to ensure sensitive data never touches the application layer directly. Implemented async queue processing for transaction handling, allowing payments to be processed without blocking user-facing requests. GoHighLevel webhook integration ensures automatic CRM updates, eliminating manual data entry entirely.",
       "highlights": [
-        "Redis queue system managing thousands of concurrent video processing jobs per hour",
-        "Custom payment gateway achieving 45% improvement in transaction success rates",
-        "20% API latency reduction through query optimization and strategic caching layers",
-        "Async video encoding pipeline supporting multiple output formats and resolutions",
-        "Distributed video storage with AWS S3 and CDN integration for global fast access"
+        "GoHighLevel CRM webhook integration with bi-directional data sync",
+        "Encrypted middleware pipeline achieving full PCI compliance",
+        "MySQL query optimization delivering 25% API response time improvement",
+        "Redis-powered async queue for non-blocking transaction processing",
+        "High-availability backend serving thousands of concurrent users daily"
       ],
-      "outcome": "Successfully deployed video platform with robust async processing infrastructure. Transaction success rates improved by 45% through custom payment gateway optimization and retry logic. API performance improved by 20%, enabling faster video metadata retrieval and seamless streaming initiation. Platform maintains 99.8% uptime across all services.",
+      "outcome": "Successfully deployed payment platform now serving thousands of active users. Client onboarding time reduced by 50% through automated CRM workflows. API response times improved by 25% through strategic database optimization and caching layers. System maintains 99.9% uptime across all production environments.",
       "metrics": [
         {
-          "label": "Transaction Success",
-          "value": "+45%",
+          "label": "Onboarding Speed",
+          "value": "50%",
+          "sub": "Faster"
+        },
+        {
+          "label": "API Response",
+          "value": "25%",
           "sub": "Improvement"
         },
         {
-          "label": "API Latency",
-          "value": "20%",
-          "sub": "Reduction"
-        },
-        {
           "label": "Uptime",
-          "value": "99.8%",
+          "value": "99.9%",
           "sub": "Production"
         }
       ],
       "keyFeatures": {
-        "Video Encoding Pipeline": "Background job queue for transcoding videos into multiple formats and resolutions for adaptive streaming across devices.",
-        "Payment Gateway": "Custom gateway handling subscription billing, per-usage tracking, automatic retries, and comprehensive revenue reporting.",
-        "Async Processing": "Redis-powered queue system reliably processing thousands of concurrent video jobs without blocking user operations.",
-        "CDN Delivery": "Distributed file storage with AWS S3, compression, and CloudFront CDN enabling fast global video access."
+        "Payment Processing": "Secure encrypted payment layer with PCI compliance, handling high-volume transactions with async processing and automatic retry logic.",
+        "CRM Integration": "Real-time GoHighLevel integration through webhooks ensuring zero manual data entry and instant CRM record updates on every transaction.",
+        "Performance Optimization": "MySQL query optimization, Redis caching, and strategic indexing for sub-second response times under peak load.",
+        "Scalability": "High-availability architecture supporting unlimited transaction growth without infrastructure redesign or service interruption."
       },
       "technicalStack": [
         "Laravel Framework",
         "PHP 8.x",
         "MySQL",
-        "Redis Queues",
-        "AWS S3/CloudFront",
-        "FFmpeg",
-        "Custom Payment API",
-        "Background Jobs"
+        "Redis",
+        "AWS EC2/RDS",
+        "GoHighLevel API",
+        "Encrypted Middleware",
+        "REST APIs"
       ],
       "codeSnippet": {
-        "filename": "VideoProcessingJob.php",
+        "filename": "PaymentProcessor.php",
         "language": "php",
-        "code": "<?php\n\nnamespace App\\Jobs;\n\nuse App\\Models\\Video;\nuse App\\Services\\FFmpegService;\nuse App\\Services\\CDNService;\nuse Illuminate\\Bus\\Queueable;\nuse Illuminate\\Queue\\SerializesModels;\n\nclass ProcessVideoJob implements ShouldQueue\n{\n    use Queueable, SerializesModels;\n\n    public int $tries = 3;\n    public int $timeout = 600; // 10 min max\n\n    public function handle(\n        FFmpegService $ffmpeg,\n        CDNService $cdn\n    ): void {\n        // Transcode to multiple resolutions\n        $outputs = $ffmpeg->transcode($this->video->raw_path, [\n            '1080p' => ['bitrate' => '5000k'],\n            '720p'  => ['bitrate' => '2500k'],\n            '480p'  => ['bitrate' => '1000k'],\n        ]);\n\n        // Push to CDN — update manifest\n        $cdn->upload($outputs)\n            ->invalidateCache($this->video->cdn_key);\n\n        $this->video->markAsReady();\n    }\n}"
-      }
-    },
-    "ylaa": {
-      "name": "Ylaa.com",
-      "slug": "ylaa",
-      "category": "E-commerce Platform",
-      "employer": "DevZone Solutions",
-      "color": "#059669",
-      "date": "May 2022 – Jan 2023",
-      "description": "Full-featured e-commerce platform rebuilt from the ground up — achieving 30% faster page loads and doubling user capacity without infrastructure cost increase.",
-      "challenge": "The original platform suffered from severe performance degradation and limited scalability as the user base grew. Page load times were unacceptably slow, leading to high cart abandonment rates. The goal was to rebuild the platform to support 2x user growth without proportional infrastructure cost increases, while delivering a modern mobile-first shopping experience.",
-      "architecture": "Completely rebuilt the platform using Laravel with optimized database query patterns, strategic lazy loading, and multi-layer caching using Redis. Implemented real-time inventory management with instant stock level update notifications. Redesigned the frontend with jQuery-enhanced UX improvements for a seamless mobile shopping experience, reducing cart abandonment by 18%.",
-      "highlights": [
-        "30% faster page load times via CSS/JS minification, lazy loading, and N+1 query elimination",
-        "2x user capacity achieved without infrastructure cost increase through intelligent caching",
-        "18% reduction in cart abandonment through improved mobile-first responsive UI",
-        "Real-time inventory management with instant stock level updates across all sessions",
-        "Faceted product search and filtering system with category-level caching"
-      ],
-      "outcome": "Successfully delivered a rebuilt e-commerce platform achieving 30% faster page loads across all devices. Doubled user capacity without increasing server costs through intelligent resource utilization and query optimization. Cart abandonment dropped by 18% due to the enhanced mobile checkout experience. Platform now handles peak traffic with predictable, stable performance.",
-      "metrics": [
-        {
-          "label": "Page Load Speed",
-          "value": "30%",
-          "sub": "Faster"
-        },
-        {
-          "label": "User Capacity",
-          "value": "2×",
-          "sub": "Growth"
-        },
-        {
-          "label": "Cart Abandonment",
-          "value": "−18%",
-          "sub": "Reduction"
-        }
-      ],
-      "keyFeatures": {
-        "Performance Overhaul": "Eliminated N+1 queries, implemented strategic Redis caching, and added CDN for static assets — 30% faster page loads.",
-        "Shopping Cart": "Persistent cart system with real-time pricing, tax calculation, inventory validation, and seamless session management.",
-        "Mobile-First Checkout": "Redesigned responsive checkout flow with guest/registered user options, reducing cart abandonment by 18%.",
-        "Inventory Management": "Real-time stock level updates with low-stock notifications, preventing overselling and improving fulfillment accuracy."
-      },
-      "technicalStack": [
-        "Laravel Framework",
-        "PHP 8.x",
-        "MySQL",
-        "JavaScript/jQuery",
-        "Bootstrap CSS",
-        "Stripe API",
-        "AWS Hosting",
-        "Redis Caching"
-      ],
-      "liveUrl": "https://ylaa.com",
-      "codeSnippet": {
-        "filename": "ProductCatalogService.php",
-        "language": "php",
-        "code": "<?php\n\nnamespace App\\Services;\n\nuse App\\Models\\Product;\nuse Illuminate\\Support\\Facades\\Cache;\n\nclass ProductCatalogService\n{\n    /**\n     * Faceted product search with category-level caching\n     * Eliminated N+1 queries — 30% faster page loads\n     */\n    public function search(SearchFilters $filters): LengthAwarePaginator\n    {\n        $cacheKey = 'catalog:' . md5(serialize($filters));\n\n        return Cache::remember($cacheKey, 300, function () use ($filters) {\n            return Product::query()\n                ->with(['category', 'images', 'inventory'])\n                ->when($filters->category, fn($q, $cat) =>\n                    $q->whereHas('category', fn($q) =>\n                        $q->where('slug', $cat)\n                    )\n                )\n                ->when($filters->priceMin, fn($q, $min) =>\n                    $q->where('price', '>=', $min)\n                )\n                ->orderBy($filters->sortBy, $filters->sortDir)\n                ->paginate(24);\n        });\n    }\n}"
-      }
-    },
-    "catering-daran": {
-      "name": "Catering d'Aran",
-      "slug": "catering-daran",
-      "category": "School Meal Ordering",
-      "employer": "Catering d'Aran",
-      "color": "#C2410C",
-      "date": "2025 – Present",
-      "description": "Public-facing ordering experience for school catering in Valle de Arán — parents configure child profiles, choose weekly menu days around the school calendar, and pay with immediate digital receipts.",
-      "challenge": "The business needed a straightforward way for families to purchase school menus online while capturing allergy and dietary constraints up front, avoiding manual coordination with the kitchen. Ordering also had to respect non-school days so parents are never charged for holidays, and checkout had to deliver instant proof of payment for school records.",
-      "architecture": "Modeled the domain around child profiles, weekly menu plans, and school-calendar rules so availability is computed server-side before checkout. Integrated payment processing for authorization and receipt generation, with transactional persistence so order state, payment status, and audit-friendly records stay aligned.",
-      "highlights": [
-        "Child profiles with structured allergy and dietary fields to reduce risk before meals are prepared",
-        "Week-based menu selection with school-holiday exclusion so only valid school days are orderable",
-        "End-to-end payment flow with instant receipts for parents and traceable order history",
-        "Bilingual public experience aligned with families and schools across the region",
-        "Contact and policy pages (privacy, refunds, delivery) supporting transparent operations"
-      ],
-      "outcome": "Live platform aligned with the site’s three-step journey: create a child profile, select eligible days, and complete payment with receipts. Parents get a clearer, faster alternative to manual ordering while the catering team receives structured, constraint-aware orders tied to the academic calendar.",
-      "metrics": [
-        {
-          "label": "Parent flow",
-          "value": "3 steps",
-          "sub": "On-site"
-        },
-        {
-          "label": "Service area",
-          "value": "Valle de Arán",
-          "sub": "Spain"
-        },
-        {
-          "label": "Safety",
-          "value": "Allergies",
-          "sub": "Profile-driven"
-        }
-      ],
-      "keyFeatures": {
-        "Child profiles": "Parents define each child’s plan and capture allergy details so menus can be evaluated before preparation and service.",
-        "Calendar-aware ordering": "Weekly selection logic excludes school holidays so ordering mirrors the real academic schedule.",
-        "Payments & receipts": "Streamlined checkout with immediate receipts for record-keeping and fewer administrative follow-ups.",
-        "Trust & compliance": "Published privacy, refund, cancellation, and delivery policies accessible from the public site."
-      },
-      "technicalStack": [
-        "Laravel",
-        "PHP",
-        "MySQL",
-        "REST API",
-        "Payment gateway integration",
-        "Transactional order pipeline"
-      ],
-      "liveUrl": "https://cateringdaran.com",
-      "codeSnippet": {
-        "filename": "SchoolMenuOrderService.php",
-        "language": "php",
-        "code": "<?php\n\nnamespace App\\Services;\n\nuse App\\Models\\ChildProfile;\nuse App\\Models\\SchoolCalendar;\nuse Carbon\\Carbon;\n\nclass SchoolMenuOrderService\n{\n    /**\n     * Orderable days for a child’s weekly plan — excludes holidays\n     * and respects allergy constraints from the parent profile.\n     */\n    public function orderableDays(ChildProfile $child, Carbon $weekStart): array\n    {\n        $holidays = SchoolCalendar::nonSchoolDays(\n            $child->school_id,\n            $weekStart\n        );\n\n        return $child->weeklyMenuPlan()\n            ->forWeekStarting($weekStart)\n            ->excludingDates($holidays)\n            ->matchingDietaryRules($child->allergies)\n            ->toSelectableSlots();\n    }\n}"
-      }
-    },
-    "silent-partners": {
-      "name": "Silent Partners",
-      "slug": "silent-partners",
-      "category": "Real Estate Platform",
-      "employer": "Silent Partners",
-      "color": "#0F766E",
-      "date": "2025 – Present",
-      "description": "Platform for real estate professionals to market and source large-volume properties discreetly — listings are presented from anonymized data so identification is not possible, while connecting offering agents with agents representing qualified buyers.",
-      "challenge": "Premium and special-use properties often need quiet distribution: public portals and broad advertising can work against both seller discretion and serious buyer qualification. The product had to support a minimum deal scale (€5M+), keep sensitive listing detail abstract until trust is established, and still give agents enough signal to pursue the right opportunities across regions.",
-      "architecture": "Structured the domain around verified agent roles, anonymized listing profiles (attributes and ranges without identifying addresses or parties), and guarded discovery workflows so exposure stays controlled. Backend APIs enforce eligibility, segmentation by volume and market, and audit-friendly state as introductions move forward.",
-      "highlights": [
-        "Anonymized presentation of objects so marketing can proceed without exposing identity prematurely",
-        "Focus on high-volume segment (€5M minimum) and difficult or special-property use cases",
-        "Connects listing agents with buyer-side agents for discreet placement and joint go-to-market",
-        "Positioning for Germany-wide and international professional partnerships beyond a single region",
-        "Public narrative aligned with sales support, market expansion, and structured acquisition collaboration"
-      ],
-      "outcome": "Live experience matching the site proposition: Silent Partners as a dedicated channel for discreet, agent-to-agent collaboration on large properties — improving placement options for unusual inventory while preserving the confidentiality buyers and sellers expect at this tier.",
-      "metrics": [
-        {
-          "label": "Listing focus",
-          "value": "€5M+",
-          "sub": "Minimum volume"
-        },
-        {
-          "label": "Exposure model",
-          "value": "Anonymous",
-          "sub": "Anonymized data"
-        },
-        {
-          "label": "Reach",
-          "value": "DE & intl.",
-          "sub": "Agent network"
-        }
-      ],
-      "keyFeatures": {
-        "Discreet marketing": "Supports placement of large and special properties where traditional public listing strategies are a poor fit.",
-        "Agent matching": "Bridges agents who hold mandates with agents who curate qualified buyers, without forcing early identification.",
-        "Anonymized listings": "Property narratives emphasize non-identifying attributes so discovery stays professional and controlled.",
-        "Market expansion": "Messaging highlights cross-regional partnerships to unlock demand outside the agent’s immediate footprint."
-      },
-      "technicalStack": [
-        "Laravel",
-        "PHP",
-        "MySQL",
-        "REST API",
-        "Role-based access control",
-        "AWS hosting"
-      ],
-      "liveUrl": "https://silentpartners.shahab01.com",
-      "codeSnippet": {
-        "filename": "AnonymizedListingQuery.php",
-        "language": "php",
-        "code": "<?php\n\nnamespace App\\Services;\n\nuse App\\Models\\PropertyListing;\nuse Illuminate\\Database\\Eloquent\\Builder;\n\nclass AnonymizedListingQuery\n{\n    /**\n     * Public/agent feed: €5M+ segment, no direct identifiers.\n     * Identification must remain impossible at browse time.\n     */\n    public function discoverable(Builder $query): Builder\n    {\n        return $query\n            ->where('minimum_volume_eur', '>=', 5_000_000)\n            ->where('anonymization_state', 'complete')\n            ->select([\n                'public_ref',\n                'asset_class',\n                'region_band',\n                'approx_sqm_band',\n                'high_level_brief',\n            ])\n            ->whereDoesntHave('exposureBlocks', fn ($q) =>\n                $q->where('active', true));\n    }\n}"
-      }
-    },
-    "waste-pilot": {
-      "name": "Waste Pilot",
-      "slug": "waste-pilot",
-      "category": "Waste Operations Platform",
-      "employer": "Arcann Waste",
-      "color": "#166534",
-      "date": "2025 – Present",
-      "description": "Operator-facing company panel that digitizes dumpster rental for haulage businesses and local contractors — authenticated with JWT, with live visibility into asset locations, analytics for utilization and revenue signals, and customer-type-aware flows that support confidence in invoicing and collections.",
-      "challenge": "Rental businesses often juggle spreadsheets, phone dispatch, and ad hoc updates from the field. The product needed one place for companies and contractors to coordinate roll-offs, see where assets are in near real time, and understand performance — while supporting different customer segments (e.g. commercial vs. residential or contracted partners) with clear rules so operators can trust balances and get paid on time.",
-      "architecture": "Delivered as a Vercel-hosted Next.js application with JWT-based session access to protected dashboard routes. Core domain APIs model rentals, assets, and customer types; location updates feed maps and status views; aggregated statistics power operational dashboards. Separation of roles keeps contractor and company workflows consistent with their trust and billing policies.",
-      "highlights": [
-        "JWT sign-in and route protection aligned with the deployed `/auth/jwt/sign-in` entry and dashboard return flow",
-        "Real-time (or near real-time) location tracking so dispatch and customers see dumpster movement without manual check-ins",
-        "Statistics and reporting surfaces for rental volume, utilization, and business signals operators act on daily",
-        "Multiple customer types with differentiated handling to reduce disputes and support predictable revenue",
-        "Digital end-to-end rental journey replacing phone-and-paper loops for Arcann Waste partners"
-      ],
-      "outcome": "A live company panel brand-aligned with Waste Pilot — giving Arcann Waste’s network a modern control surface for dumpster operations, clearer field visibility, and data-backed decisions that reinforce trust with customers and cash collection.",
-      "metrics": [
-        {
-          "label": "Access",
-          "value": "JWT",
-          "sub": "Secure panel"
-        },
-        {
-          "label": "Field view",
-          "value": "Live",
-          "sub": "Location tracking"
-        },
-        {
-          "label": "Segments",
-          "value": "Multi-type",
-          "sub": "Customers"
-        }
-      ],
-      "keyFeatures": {
-        "Company & contractor panel": "Single product surface for waste companies and local contractors to run rentals without fragmented tools.",
-        "Dumpster lifecycle": "Digital workflows from request through placement, service, and pickup — tuned for roll-off operations.",
-        "Location intelligence": "Map-backed visibility into where units are so teams and stakeholders share one operational picture.",
-        "Trust & money flow": "Customer-type-aware rules and transparent status support billing confidence and fewer collection surprises.",
-        "Operational analytics": "Dashboards and metrics highlight trends operators need to schedule capacity and grow revenue."
-      },
-      "technicalStack": [
-        "Next.js",
-        "TypeScript",
-        "JWT authentication",
-        "REST API integration",
-        "Vercel",
-        "Real-time location updates",
-        "Dashboard analytics"
-      ],
-      "liveUrl": "https://waste-pilot-company-panel-testing.vercel.app",
-      "codeSnippet": {
-        "filename": "middleware.ts",
-        "language": "typescript",
-        "code": "import { NextResponse } from \"next/server\";\nimport type { NextRequest } from \"next/server\";\nimport { verifyAccessToken } from \"@/lib/auth/jwt\";\n\n/**\n * Protect company / contractor dashboard — JWT from cookie or header.\n * Matches Waste Pilot sign-in → returnTo=/dashboard flow.\n */\nexport async function middleware(request: NextRequest) {\n  const token =\n    request.cookies.get(\"access_token\")?.value ??\n    request.headers.get(\"authorization\")?.replace(/^Bearer\\s+/i, \"\");\n\n  if (!token) {\n    const signIn = new URL(\"/auth/jwt/sign-in\", request.url);\n    signIn.searchParams.set(\"returnTo\", request.nextUrl.pathname);\n    return NextResponse.redirect(signIn);\n  }\n\n  const session = await verifyAccessToken(token);\n  if (!session || ![\"company\", \"contractor\"].includes(session.role)) {\n    return NextResponse.redirect(new URL(\"/auth/jwt/sign-in\", request.url));\n  }\n\n  return NextResponse.next();\n}"
-      }
-    },
-    "paymentcellular": {
-      "name": "PaymentCellular",
-      "slug": "paymentcellular",
-      "category": "Payments & Cellular Services",
-      "employer": "PaymentCellular",
-      "color": "#4338CA",
-      "date": "2025 – Present",
-      "description": "Customer-facing property at paymentcellular.com for payment flows associated with cellular and wireless-service use cases — engineered for a trustworthy checkout path, resilient callbacks, and operational visibility when money moves.",
-      "challenge": "Consumer payment sites in the telecom and refill space attract automated traffic and fraud probes before real users arrive. The product needed a front door that could throttle bots without frustrating legitimate customers, while keeping card or wallet flows, idempotent webhooks, and ledger-style persistence consistent so finance teams can reconcile confidently.",
-      "architecture": "Laravel-centered backend with explicit payment service boundaries: initiate authorization on the server, persist intent and provider references in MySQL, and process asynchronous webhooks on dedicated queue workers with signature verification and replay protection. Edge or WAF-style verification (observed on the live host) sits in front of the marketing and app surfaces to reduce scrapers and credential stuffing noise.",
-      "highlights": [
-        "Public hostname paymentcellular.com with automated visitor verification observed in production — reducing noise before application logic runs",
-        "Server-side payment initiation so secrets and provider credentials never ship to the browser",
-        "Webhook ingestion path built for retries, duplicate delivery, and out-of-order events",
-        "Transactional records that tie customer session, provider charge, and internal order state",
-        "Deployment profile consistent with AWS-backed Laravel APIs used across similar payment products"
-      ],
-      "outcome": "Live home experience under the PaymentCellular brand with defenses appropriate for a money-moving surface: verified humans reach the app, payments are orchestrated safely on the server, and operators have a clear trail from click-through to settled funds.",
-      "metrics": [
-        {
-          "label": "Surface",
-          "value": "Live",
-          "sub": "paymentcellular.com"
-        },
-        {
-          "label": "Edge",
-          "value": "Verified",
-          "sub": "Bot challenge"
-        },
-        {
-          "label": "Money path",
-          "value": "Server",
-          "sub": "Orchestrated"
-        }
-      ],
-      "keyFeatures": {
-        "Cellular-focused payments": "Brand and domain center on wireless and cellular-adjacent payment journeys rather than generic retail checkout.",
-        "Hardened entry": "Automated request verification on the public site limits abusive traffic before it hits core checkout APIs.",
-        "Provider integration": "Gateway-agnostic service layer maps internal orders to processor tokens, captures, and refunds.",
-        "Reconciliation support": "Structured events and IDs so finance can match gateway reports to application state."
-      },
-      "technicalStack": [
-        "Laravel",
-        "PHP",
-        "MySQL",
-        "Payment gateway APIs",
-        "REST API",
-        "Queue workers & webhooks",
-        "AWS"
-      ],
-      "liveUrl": "https://paymentcellular.com",
-      "codeSnippet": {
-        "filename": "PaymentWebhookController.php",
-        "language": "php",
-        "code": "<?php\n\nnamespace App\\Http\\Controllers\\Webhooks;\n\nuse App\\Jobs\\FinalizeCellularPaymentJob;\nuse App\\Models\\PaymentIntent;\nuse Illuminate\\Http\\Request;\nuse Illuminate\\Http\\Response;\n\nclass PaymentWebhookController extends Controller\n{\n    /**\n     * Idempotent provider callback — verify signature, enqueue settle work.\n     * Duplicate or out-of-order events must not double-capture.\n     */\n    public function __invoke(Request $request): Response\n    {\n        if (! $this->gateway->verifySignature($request)) {\n            return response('invalid signature', 400);\n        }\n\n        $intent = PaymentIntent::where('provider_ref', $request->input('id'))->first();\n        if (! $intent || $intent->isTerminal()) {\n            return response('ok', 200); // idempotent noop\n        }\n\n        FinalizeCellularPaymentJob::dispatch($intent, $request->all())\n            ->onQueue('payments-webhooks');\n\n        return response('ok', 200);\n    }\n}"
-      }
-    },
-    "pay-cellular-plan": {
-      "name": "Pay Cellular Plan",
-      "slug": "pay-cellular-plan",
-      "category": "Wireless Top-Up & Bill Pay",
-      "employer": "Pay Cellular Plan",
-      "color": "#0D9488",
-      "date": "2025 – Present",
-      "description": "Public refill and wireless bill-pay experience at paycellularplan.com — customers choose a carrier, walk through a short phone-number-first flow, pay through a secure gateway, and can track or look up transactions when something does not post as expected.",
-      "challenge": "Prepaid and pay-in-advance wireless is high-chargeback and high-support: users mistype MSISDNs, carriers post asynchronously, and trust breaks if status is unclear. The product had to make carrier selection obvious, keep personally identifiable data scoped, route every successful payment to the right fulfillment integration, and expose transaction search plus a clear refund path (including human support via email).",
-      "architecture": "Modeled orders around normalized phone identity, selected carrier SKU, and amount — then handed card data only to a PCI-scoped payment gateway while preserving server-side intent and settlement state. Background jobs reconcile provider callbacks with carrier fulfillment APIs where applicable; customer service tools reuse the same order keys users see in “Find Transactions” so disputes are debuggable without exposing full PAN data.",
-      "highlights": [
-        "Marketing copy positions multi-carrier coverage including Boost Mobile, MetroPCS, and Cricket Wireless (as named on the public site)",
-        "Four-step journey described in FAQ: enter phone, confirm number, choose recharge amount, complete secure payment",
-        "“Track your transaction” and search-oriented UX for users who need proof or status after paying",
-        "Published refund guidance: contact support@paycellularplan.com within 7 days with order number and phone if payment does not appear on the carrier account",
-        "Site FAQ cites 12M+ completed top-ups as a scale signal for the service (marketing claim on-page)"
-      ],
-      "outcome": "A live consumer surface focused on speed and trust for wireless refills: encrypted checkout, carrier-specific paths, and operational transparency when a recharge fails to post — aligned with the brand’s positioning as a high-volume top-up channel.",
-      "metrics": [
-        {
-          "label": "Scale (site)",
-          "value": "12M+",
-          "sub": "Top-ups cited"
-        },
-        {
-          "label": "Flow",
-          "value": "4 steps",
-          "sub": "FAQ"
-        },
-        {
-          "label": "Support",
-          "value": "24×7",
-          "sub": "Positioning"
-        }
-      ],
-      "keyFeatures": {
-        "Carrier choice": "Homepage-led “Choose Your Carrier” pattern so users start in the right prepaid or bill-pay rail.",
-        "Transaction tools": "Track and search flows for customers chasing confirmation or reconciliation after payment.",
-        "Secure payments": "Site emphasizes encrypted checkout and privacy policy alignment for card and personal data.",
-        "Trust operations": "Money-back framing for canceled orders and structured refund requests when carrier posting lags."
-      },
-      "technicalStack": [
-        "Laravel",
-        "PHP",
-        "MySQL",
-        "Payment gateway integration",
-        "REST API",
-        "Queue & reconciliation jobs",
-        "AWS"
-      ],
-      "liveUrl": "https://paycellularplan.com",
-      "codeSnippet": {
-        "filename": "TopUpIntentService.php",
-        "language": "php",
-        "code": "<?php\n\nnamespace App\\Services;\n\nuse App\\Data\\TopUpDraft;\nuse App\\Models\\Carrier;\nuse App\\Models\\TopUpIntent;\nuse Illuminate\\Support\\Str;\n\nclass TopUpIntentService\n{\n    /**\n     * Four-step flow: capture MSISDN + carrier + amount, persist intent\n     * before redirecting to PCI-scoped payment gateway.\n     */\n    public function start(TopUpDraft $draft): TopUpIntent\n    {\n        $carrier = Carrier::where('slug', $draft->carrierSlug)->firstOrFail();\n\n        return TopUpIntent::create([\n            'public_ref'       => (string) Str::ulid(),\n            'e164'             => $draft->normalizedE164(),\n            'carrier_id'       => $carrier->id,\n            'amount_cents'     => $draft->amountCents,\n            'status'           => 'awaiting_payment',\n            'idempotency_key'  => $draft->clientIdempotencyKey(),\n        ]);\n    }\n}"
-      }
-    },
-    "haywork": {
-      "name": "HayWork",
-      "slug": "haywork",
-      "category": "Freelance Marketplace",
-      "employer": "HayWork",
-      "color": "#BE185D",
-      "date": "2025 – Present",
-      "description": "HayWork (Հայկական Ֆրիլանս Հարթակ) is a live marketplace at haywork.am where businesses post project needs and hire vetted specialists online — organized by verticals from programming and design to marketing, AI, languages, and video, with listings priced in Armenian dram and public review signals.",
-      "challenge": "A national freelance economy needs trust at scale: discoverability across dozens of categories, transparent pricing, freelancer credibility (ratings, portfolios, company vs. individual), and money movement that respects platform fees and payout expectations — all while staying fast in Armenian and friendly to the diaspora audience highlighted on the site.",
-      "architecture": "Structured the product as a multi-sided marketplace: searchable service catalog and job-style postings, profile and review entities, and commission-aware order or escrow-style flows aligned with on-page promises (e.g. 10% platform fee, hourly gigs, workspace, withdrawal). APIs back category navigation, featured and “most searched” surfaces, and recommendation-style blocks for services and professionals.",
-      "highlights": [
-        "Broad category taxonomy on the public home experience — consulting, business, web design, programming & IT, AI, graphic design, video, digital marketing, and more",
-        "AMD-denominated listings and hourly rates visible on cards, matching local payment reality",
-        "Social proof: review carousel and sitewide rating callout (4.8/5 from 100+ reviews, as stated on the site)",
-        "Scale messaging: 1000+ specialists, 500+ services, 250+ applications (figures presented on haywork.am)",
-        "Productized platform features called out publicly — hourly services, 10% commission, workspace, direct withdrawal, unlimited free applications"
-      ],
-      "outcome": "An operational Armenian freelance hub that packages talent discovery, structured offers, and marketplace operations in one domain — positioning HayWork as the place where clients brief work clearly and specialists across Armenia and the diaspora can be found in a single flow.",
-      "metrics": [
-        {
-          "label": "Specialists",
-          "value": "1000+",
-          "sub": "On-site stat"
-        },
-        {
-          "label": "Services",
-          "value": "500+",
-          "sub": "On-site stat"
-        },
-        {
-          "label": "Reviews",
-          "value": "4.8★",
-          "sub": "100+ cited"
-        }
-      ],
-      "keyFeatures": {
-        "Discovery & search": "Homepage paths into popular categories and search so clients narrow thousands of skills to a shortlist quickly.",
-        "Listings & jobs": "Mixed model of fixed-price style services and one-off job postings with visible budgets in AMD.",
-        "Freelancer identity": "Profiles for individuals and studios with rates, ratings, and engagement hooks for new talent.",
-        "Monetization & ops": "Published fee and payout mechanics reduce ambiguity for both sides before work starts.",
-        "Trust layer": "Reviews and featured testimonials reinforce quality for a marketplace that competes on reputation."
-      },
-      "technicalStack": [
-        "Laravel",
-        "PHP",
-        "MySQL",
-        "REST API",
-        "Payments & commissions",
-        "Search & catalog indexing",
-        "AWS or cloud hosting"
-      ],
-      "liveUrl": "https://haywork.am",
-      "codeSnippet": {
-        "filename": "FeaturedServiceQuery.php",
-        "language": "php",
-        "code": "<?php\n\nnamespace App\\Services\\Marketplace;\n\nuse App\\Models\\ServiceListing;\nuse Illuminate\\Database\\Eloquent\\Builder;\n\nclass FeaturedServiceQuery\n{\n    /**\n     * Home “recommended services” — active listings, category filter,\n     * stable ordering for carousel slots.\n     */\n    public function forHome(array $categoryIds): Builder\n    {\n        return ServiceListing::query()\n            ->where('status', 'published')\n            ->whereIn('category_id', $categoryIds)\n            ->with(['seller.profile', 'category'])\n            ->withAvg('reviews as rating_avg', 'score')\n            ->withCount('reviews')\n            ->orderByDesc('is_featured')\n            ->orderByDesc('rating_avg')\n            ->limit(24);\n    }\n}"
+        "code": "<?php\n\nnamespace App\\Services;\n\nuse App\\Jobs\\ProcessPaymentJob;\nuse App\\Integrations\\GoHighLevel;\n\nclass PaymentProcessor\n{\n    public function processTransaction(Payment $payment): Payment\n    {\n        // Encrypted middleware layer — sensitive data\n        // never touches the application layer directly\n        $encrypted = $this->encryptPayload($payment->data);\n\n        // Dispatch to Redis queue — non-blocking\n        ProcessPaymentJob::dispatch(\n            $encrypted,\n            $payment->gateway_id\n        )->onQueue('payments');\n\n        return $payment->markAsPending();\n    }\n\n    public function syncWithCRM(PaymentResult $result): void\n    {\n        // Bi-directional GoHighLevel webhook sync\n        GoHighLevel::contact($result->customer_id)\n            ->updateOpportunity([\n                'stage'  => 'Won',\n                'amount' => $result->amount,\n            ]);\n    }\n}"
       }
     }
   }

@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ArrowRight, Download, Zap, Shield, Database, Briefcase, Layers } from "lucide-react";
 import {
   staggerContainer,
@@ -20,35 +20,80 @@ const BackgroundScene = dynamic(
 );
 
 /* ============================================
-   CODE WINDOW COMPONENT
+   CODE WINDOW COMPONENT — rotating tabs across a
+   few real backend patterns, not one payment file
    ============================================ */
-const CodeWindow = () => (
-  <div className="code-terminal shadow-2xl">
-    {/* Terminal header */}
-    <div className="code-terminal-header">
-      <span className="code-dot bg-[#FF5F57]" />
-      <span className="code-dot bg-[#FEBC2E]" />
-      <span className="code-dot bg-[#28C840]" />
-      <span className="ml-3 text-xs text-white/40 font-mono">
-        PaymentProcessor.php
-      </span>
-    </div>
+const CODE_TABS = heroData.codeSnippets;
+const TAB_INTERVAL_MS = 5000;
 
-    {/* Code content */}
-    <div className="p-5 overflow-x-auto">
-      <pre className="text-xs sm:text-sm leading-relaxed font-mono text-[#CBD5E1]">{heroData.codeSnippet}</pre>
-    </div>
+const CodeWindow = () => {
+  const reduceMotion = useReducedMotion();
+  const [activeTab, setActiveTab] = useState(0);
 
-    {/* Status bar */}
-    <div className="px-5 py-3 border-t border-white/5 flex items-center justify-between">
-      <div className="flex items-center gap-2">
-        <span className="w-2 h-2 rounded-full bg-[#28C840]" />
-        <span className="text-xs text-white/30 font-mono">{heroData.statusBar.uptime}</span>
+  useEffect(() => {
+    if (reduceMotion || CODE_TABS.length < 2) return;
+    const id = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % CODE_TABS.length);
+    }, TAB_INTERVAL_MS);
+    return () => clearInterval(id);
+  }, [reduceMotion]);
+
+  const current = CODE_TABS[activeTab];
+
+  return (
+    <div className="code-terminal shadow-2xl relative overflow-hidden">
+      {/* Subtle glow accent along the top edge */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#3B82F6]/60 to-transparent" />
+
+      {/* Terminal header with clickable file tabs */}
+      <div className="code-terminal-header flex-wrap gap-y-2">
+        <span className="code-dot bg-[#FF5F57]" />
+        <span className="code-dot bg-[#FEBC2E]" />
+        <span className="code-dot bg-[#28C840]" />
+        <div className="ml-3 flex flex-wrap items-center gap-1">
+          {CODE_TABS.map((tab, i) => (
+            <button
+              key={tab.filename}
+              onClick={() => setActiveTab(i)}
+              className={`px-2.5 py-1 rounded-md text-xs font-mono transition-colors duration-200 ${
+                i === activeTab
+                  ? "bg-white/10 text-white/80"
+                  : "text-white/30 hover:text-white/55"
+              }`}
+            >
+              {tab.filename}
+            </button>
+          ))}
+        </div>
       </div>
-      <span className="text-xs text-white/20 font-mono">{heroData.statusBar.tech}</span>
+
+      {/* Code content */}
+      <div className="p-5 overflow-x-auto min-h-[280px] sm:min-h-[300px]">
+        <AnimatePresence mode="wait">
+          <motion.pre
+            key={current.filename}
+            initial={reduceMotion ? undefined : { opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduceMotion ? undefined : { opacity: 0, y: -6 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="text-xs sm:text-sm leading-relaxed font-mono text-[#CBD5E1]"
+          >
+            {current.code}
+          </motion.pre>
+        </AnimatePresence>
+      </div>
+
+      {/* Status bar */}
+      <div className="px-5 py-3 border-t border-white/5 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#28C840]" />
+          <span className="text-xs text-white/30 font-mono">{heroData.statusBar.uptime}</span>
+        </div>
+        <span className="text-xs text-white/20 font-mono">{heroData.statusBar.tech}</span>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 /* ============================================
    METRIC PILL COMPONENT
@@ -83,6 +128,7 @@ const MetricPill = ({
    ============================================ */
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     setMounted(true);
@@ -120,8 +166,9 @@ export default function Hero() {
         }}
       />
 
-      {/* 3D Background Scene */}
-      {mounted && (
+      {/* 3D Background Scene — skipped for prefers-reduced-motion since it's a
+          continuously-drifting ambient animation with no user control */}
+      {mounted && !reduceMotion && (
         <div className="hidden md:block absolute inset-0 opacity-40 pointer-events-none">
           <BackgroundScene />
         </div>
@@ -222,8 +269,8 @@ export default function Hero() {
             >
               {/* Floating code window */}
               <motion.div
-                variants={floatAnimation}
-                animate="animate"
+                variants={reduceMotion ? undefined : floatAnimation}
+                animate={reduceMotion ? undefined : "animate"}
                 initial="rest"
               >
                 <CodeWindow />
@@ -267,8 +314,8 @@ export default function Hero() {
           Scroll
         </span>
         <motion.div
-          animate={{ y: [0, 5, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          animate={reduceMotion ? undefined : { y: [0, 5, 0] }}
+          transition={reduceMotion ? undefined : { duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           className="w-5 h-8 border-2 border-[#CBD5E1] rounded-full flex items-start justify-center pt-1.5"
         >
           <div className="w-1 h-2 bg-[#94A3B8] rounded-full" />

@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
-import { Environment, OrbitControls, Text, Billboard } from "@react-three/drei";
+import { OrbitControls, Text, Billboard, Line, Sparkles } from "@react-three/drei";
+import { useReducedMotion } from "framer-motion";
 import * as THREE from "three";
 
 type SkillCategoryId = "backend" | "database" | "payments" | "cloud" | "realtime";
@@ -15,7 +16,7 @@ interface SkillNodeData {
   radius: number;
 }
 
-/** Positions tuned for a cloud layout; skillKey matches skills page exactly */
+/** Positions tuned for a network layout; skillKey matches skills page exactly */
 const NODES: SkillNodeData[] = [
   { name: "Laravel", skillKey: "Laravel", position: [-2.1, 1.5, 0.2], category: "backend", radius: 0.5 },
   { name: "PHP", skillKey: "PHP (OOP)", position: [-1.0, -0.7, 1.1], category: "backend", radius: 0.4 },
@@ -48,22 +49,59 @@ const NODES: SkillNodeData[] = [
 ];
 
 const CATEGORY_COLOR: Record<SkillCategoryId, THREE.Color> = {
-  backend: new THREE.Color("#2563EB"),
-  database: new THREE.Color("#0D9488"),
-  payments: new THREE.Color("#EA580C"),
-  cloud: new THREE.Color("#7C3AED"),
-  realtime: new THREE.Color("#DB2777"),
+  backend: new THREE.Color("#3B82F6"),
+  database: new THREE.Color("#2DD4BF"),
+  payments: new THREE.Color("#FB923C"),
+  cloud: new THREE.Color("#A78BFA"),
+  realtime: new THREE.Color("#F472B6"),
 };
+
+const BG_COLOR = "#0F172A";
+const NODE_SCALE = 1.18;
 
 function SoftFog() {
   const { scene } = useThree();
   useEffect(() => {
-    scene.fog = new THREE.FogExp2("#E8EEF7", 0.042);
+    scene.fog = new THREE.FogExp2(BG_COLOR, 0.032);
     return () => {
       scene.fog = null;
     };
   }, [scene]);
   return null;
+}
+
+/** Glowing core at the center — the "hub" every skill connects back to */
+function CoreHub({ reduceMotion }: { reduceMotion: boolean }) {
+  const meshRef = useRef<THREE.Mesh>(null);
+  const haloRef = useRef<THREE.Mesh>(null);
+
+  useFrame((state) => {
+    const t = state.clock.elapsedTime;
+    const pulse = reduceMotion ? 1 : 1 + Math.sin(t * 1.4) * 0.06;
+    if (meshRef.current) meshRef.current.scale.setScalar(0.5 * pulse);
+    if (haloRef.current) haloRef.current.scale.setScalar(0.82 * (reduceMotion ? 1 : 1 + Math.sin(t * 1.4) * 0.1));
+  });
+
+  return (
+    <group>
+      <mesh ref={meshRef}>
+        <icosahedronGeometry args={[1, 2]} />
+        <meshPhysicalMaterial
+          color="#DBEAFE"
+          emissive="#60A5FA"
+          emissiveIntensity={0.9}
+          metalness={0.2}
+          roughness={0.25}
+          clearcoat={1}
+          clearcoatRoughness={0.15}
+        />
+      </mesh>
+      <mesh ref={haloRef}>
+        <sphereGeometry args={[1, 24, 24]} />
+        <meshBasicMaterial color="#60A5FA" transparent opacity={0.14} depthWrite={false} />
+      </mesh>
+    </group>
+  );
 }
 
 interface SkillSphereProps {
@@ -88,19 +126,22 @@ function SkillSphere({ node, activeSkill, activeCategory, onPick }: SkillSphereP
   useFrame((state) => {
     const t = state.clock.elapsedTime;
     if (groupRef.current) {
-      groupRef.current.position.y = base.y + Math.sin(t * 0.85 + base.phase) * 0.11;
+      groupRef.current.position.y = base.y + Math.sin(t * 0.6 + base.phase) * 0.055;
     }
     if (meshRef.current) {
-      const pulse = isActive ? 1 + Math.sin(t * 2.6) * 0.055 : 1;
-      const hoverBoost = hovered ? 1.1 : 1;
-      const s = node.radius * pulse * hoverBoost;
+      const pulse = isActive ? 1 + Math.sin(t * 2.6) * 0.06 : 1;
+      const hoverBoost = hovered ? 1.12 : 1;
+      const s = node.radius * NODE_SCALE * pulse * hoverBoost;
       meshRef.current.scale.setScalar(s);
+      meshRef.current.rotation.y = t * 0.15 + base.phase;
+      meshRef.current.rotation.x = t * 0.08;
     }
   });
 
   const color = CATEGORY_COLOR[node.category];
-  const emissiveStr = isActive ? 0.5 : hovered ? 0.32 : dimOthers ? 0.07 : 0.2;
-  const opacity = dimOthers ? 0.4 : isActive ? 1 : hovered ? 0.94 : 0.8;
+  const emissiveStr = isActive ? 0.95 : hovered ? 0.65 : dimOthers ? 0.32 : 0.5;
+  const opacity = dimOthers ? 0.62 : isActive ? 1 : hovered ? 0.97 : 0.92;
+  const lineOpacity = dimOthers ? 0.18 : isActive ? 0.85 : hovered ? 0.55 : 0.26;
 
   const handleClick = useCallback(
     (e: ThreeEvent<MouseEvent>) => {
@@ -110,8 +151,19 @@ function SkillSphere({ node, activeSkill, activeCategory, onPick }: SkillSphereP
     [node.skillKey, onPick]
   );
 
+  const tetherEnd: [number, number, number] = [-node.position[0], -node.position[1], -node.position[2]];
+
   return (
     <group ref={groupRef} position={node.position}>
+      {/* Tether line back to the core hub */}
+      <Line
+        points={[[0, 0, 0], tetherEnd]}
+        color={color}
+        lineWidth={isActive ? 1.8 : 1}
+        transparent
+        opacity={lineOpacity}
+      />
+
       <mesh
         ref={meshRef}
         onClick={handleClick}
@@ -124,15 +176,16 @@ function SkillSphere({ node, activeSkill, activeCategory, onPick }: SkillSphereP
           document.body.style.cursor = "auto";
         }}
       >
-        <sphereGeometry args={[1, 40, 40]} />
+        <icosahedronGeometry args={[1, 1]} />
         <meshPhysicalMaterial
           color={color}
           emissive={color}
           emissiveIntensity={emissiveStr}
-          metalness={0.32}
-          roughness={0.16}
-          clearcoat={1}
-          clearcoatRoughness={0.1}
+          metalness={0.35}
+          roughness={0.25}
+          clearcoat={0.6}
+          clearcoatRoughness={0.2}
+          flatShading
           transparent
           opacity={opacity}
           toneMapped
@@ -140,27 +193,31 @@ function SkillSphere({ node, activeSkill, activeCategory, onPick }: SkillSphereP
       </mesh>
 
       {isActive && (
-        <mesh scale={node.radius * 1.6}>
+        <mesh scale={node.radius * NODE_SCALE * 1.7}>
           <sphereGeometry args={[1, 28, 28]} />
-          <meshBasicMaterial color={color} transparent opacity={0.11} depthWrite={false} />
+          <meshBasicMaterial color={color} transparent opacity={0.16} depthWrite={false} />
         </mesh>
       )}
 
-      <Billboard position={[0, node.radius + 0.44, 0]}>
-        <Text
-          fontSize={0.2}
-          color={dimOthers ? "#94A3B8" : "#64748B"}
-          fillOpacity={dimOthers ? 0.5 : 0.9}
-          anchorX="center"
-          anchorY="middle"
-          outlineWidth={0.018}
-          outlineColor="#ffffff"
-          outlineOpacity={0.9}
-          maxWidth={2.4}
-        >
-          {node.name}
-        </Text>
-      </Billboard>
+      {/* Isolated Suspense so a slow/unavailable font-glyph fetch only ever
+          hides this one label — never the hub, gems, or connector lines. */}
+      <Suspense fallback={null}>
+        <Billboard position={[0, node.radius * NODE_SCALE + 0.44, 0]}>
+          <Text
+            fontSize={0.2}
+            color={dimOthers ? "#93A3B8" : "#F1F5F9"}
+            fillOpacity={dimOthers ? 0.75 : 0.98}
+            anchorX="center"
+            anchorY="middle"
+            outlineWidth={0.014}
+            outlineColor="#0B1220"
+            outlineOpacity={0.9}
+            maxWidth={2.4}
+          >
+            {node.name}
+          </Text>
+        </Billboard>
+      </Suspense>
     </group>
   );
 }
@@ -173,19 +230,28 @@ interface SceneInnerProps {
 
 function SceneContent({ activeSkill, activeCategory, onPick }: SceneInnerProps) {
   const [dragging, setDragging] = useState(false);
+  const reduceMotion = !!useReducedMotion();
 
   return (
     <>
       <SoftFog />
-      <color attach="background" args={["#EEF2F7"]} />
 
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[8, 11, 6]} intensity={1.05} color="#FFFBF5" />
-      <directionalLight position={[-5, -3, -4]} intensity={0.32} color="#C4B5FD" />
-      <pointLight position={[0, 5, 4]} intensity={0.45} color="#BFDBFE" distance={22} />
-      <pointLight position={[-3, -2, 5]} intensity={0.22} color="#5EEAD4" distance={18} />
+      <ambientLight intensity={0.55} color="#CBD5F5" />
+      <directionalLight position={[6, 9, 6]} intensity={1.3} color="#F8FAFC" />
+      <pointLight position={[-4, 2, 4]} intensity={11} color="#3B82F6" distance={15} decay={2} />
+      <pointLight position={[4, -2, -3]} intensity={9} color="#A78BFA" distance={15} decay={2} />
+      <pointLight position={[0, -4, 3]} intensity={5.5} color="#2DD4BF" distance={13} decay={2} />
 
-      <Environment preset="city" environmentIntensity={0.75} />
+      <Sparkles
+        count={70}
+        scale={8}
+        size={1.6}
+        speed={reduceMotion ? 0 : 0.18}
+        opacity={0.35}
+        color="#93C5FD"
+      />
+
+      <CoreHub reduceMotion={reduceMotion} />
 
       <group>
         {NODES.map((node) => (
@@ -206,7 +272,7 @@ function SceneContent({ activeSkill, activeCategory, onPick }: SceneInnerProps) 
         maxDistance={13.5}
         rotateSpeed={0.62}
         zoomSpeed={0.65}
-        autoRotate={!dragging}
+        autoRotate={!dragging && !reduceMotion}
         autoRotateSpeed={0.28}
         onStart={() => setDragging(true)}
         onEnd={() => setDragging(false)}
@@ -240,7 +306,7 @@ export default function SkillsScene({
       dpr={[1, Math.min(2, typeof window !== "undefined" ? window.devicePixelRatio : 1)]}
       gl={{
         antialias: true,
-        alpha: false,
+        alpha: true,
         powerPreference: "high-performance",
       }}
       camera={{ position: [0, 1.1, 8.2], fov: 50, near: 0.1, far: 55 }}

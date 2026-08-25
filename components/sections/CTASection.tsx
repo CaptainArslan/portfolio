@@ -77,18 +77,37 @@ export function CTASection() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
             variants={fadeInUp}
           >
-            {/* Primary Button */}
-            <Link href={ctaSectionData.primaryButton.link} className="w-full sm:w-auto">
-              <motion.div
-                variants={buttonPrimary}
-                initial="rest"
-                whileHover="hover"
-                whileTap="tap"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#2563EB] font-semibold rounded-lg transition-all duration-200 shadow-lg w-full sm:w-auto"
+            {/* Primary Button — external (e.g. WhatsApp) links open in a new tab */}
+            {ctaSectionData.primaryButton.link.startsWith("http") ? (
+              <a
+                href={ctaSectionData.primaryButton.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
               >
-                {ctaSectionData.primaryButton.text}
-              </motion.div>
-            </Link>
+                <motion.div
+                  variants={buttonPrimary}
+                  initial="rest"
+                  whileHover="hover"
+                  whileTap="tap"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#2563EB] font-semibold rounded-lg transition-all duration-200 shadow-lg w-full sm:w-auto"
+                >
+                  {ctaSectionData.primaryButton.text}
+                </motion.div>
+              </a>
+            ) : (
+              <Link href={ctaSectionData.primaryButton.link} className="w-full sm:w-auto">
+                <motion.div
+                  variants={buttonPrimary}
+                  initial="rest"
+                  whileHover="hover"
+                  whileTap="tap"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#2563EB] font-semibold rounded-lg transition-all duration-200 shadow-lg w-full sm:w-auto"
+                >
+                  {ctaSectionData.primaryButton.text}
+                </motion.div>
+              </Link>
+            )}
 
             {/* Secondary Button */}
             <Link href={ctaSectionData.secondaryButton.link} className="w-full sm:w-auto">

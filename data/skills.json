@@ -1,0 +1,78 @@
+{
+  "categories": [
+    {
+      "id": "backend",
+      "name": "Backend Systems & API Architecture",
+      "headline": "Scalable Laravel APIs",
+      "description": "RESTful architecture serving thousands of requests daily with clean middleware layers.",
+      "accentColor": "#2563EB",
+      "skills": [
+        { "name": "Laravel", "level": "Expert", "description": "Modern PHP framework powering production systems at scale", "impactMetric": "Built APIs handling 10K+ daily requests" },
+        { "name": "PHP (OOP)", "level": "Expert", "description": "Core backend language with deep architectural knowledge", "impactMetric": "Design patterns across all production projects" },
+        { "name": "REST API Design", "level": "Expert", "description": "Industry-standard API design and versioned documentation", "impactMetric": "200+ endpoints designed & maintained" },
+        { "name": "Middleware Development", "level": "Advanced", "description": "Custom request/response handling and security layers", "impactMetric": "Secured PCI-compliant payment flows" },
+        { "name": "JWT Authentication", "level": "Advanced", "description": "Token-based security and session management", "impactMetric": "Auth layer for production payment platforms" }
+      ],
+      "impact": "Built APIs serving thousands of daily requests with sub-200ms response times"
+    },
+    {
+      "id": "database",
+      "name": "Database & Performance Optimization",
+      "headline": "Optimized Data Architecture",
+      "description": "Strategic indexing and Redis caching for peak database performance.",
+      "accentColor": "#10B981",
+      "skills": [
+        { "name": "MySQL", "level": "Expert", "description": "Relational database design and advanced query optimization", "impactMetric": "60% query time reduction achieved" },
+        { "name": "Redis", "level": "Advanced", "description": "In-memory caching, distributed sessions, and pub/sub", "impactMetric": "45% database load reduction" },
+        { "name": "Query Optimization", "level": "Expert", "description": "EXPLAIN analysis, index tuning, query restructuring", "impactMetric": "From 800ms to sub-100ms response times" },
+        { "name": "Database Indexing", "level": "Advanced", "description": "Strategic composite and covering index implementation", "impactMetric": "Sub-100ms response guarantees" },
+        { "name": "Caching Strategies", "level": "Advanced", "description": "Cache-aside, write-through, and stampede prevention", "impactMetric": "85%+ cache hit rate maintained" }
+      ],
+      "impact": "60% query performance improvement through strategic indexing and Redis caching"
+    },
+    {
+      "id": "payments",
+      "name": "Payments & CRM Integrations",
+      "headline": "Transaction & Integration Flow",
+      "description": "Payment processing and CRM automation at enterprise scale.",
+      "accentColor": "#F59E0B",
+      "skills": [
+        { "name": "Payment Gateway Integration", "level": "Expert", "description": "Custom and standard processor integrations with retry logic", "impactMetric": "10K+ monthly transactions processed" },
+        { "name": "GoHighLevel CRM", "level": "Expert", "description": "Webhook-driven CRM automations and bidirectional sync", "impactMetric": "50% manual workflow reduction" },
+        { "name": "Webhook Management", "level": "Advanced", "description": "Real-time event handling and HMAC signature verification", "impactMetric": "Signature-verified, idempotent event handling" },
+        { "name": "PCI DSS Compliance", "level": "Advanced", "description": "Secure payment data handling and encrypted middleware", "impactMetric": "PCI-aligned middleware in production" },
+        { "name": "Transaction Processing", "level": "Advanced", "description": "Payment handling with error recovery and audit logging", "impactMetric": "45% transaction success rate boost" }
+      ],
+      "impact": "45% transaction success rate boost through custom payment middleware"
+    },
+    {
+      "id": "cloud",
+      "name": "Cloud & Deployment Workflows",
+      "headline": "Infrastructure & Deployment",
+      "description": "Zero-downtime deployments and cloud infrastructure management on AWS.",
+      "accentColor": "#A855F7",
+      "skills": [
+        { "name": "AWS (EC2, RDS, S3)", "level": "Advanced", "description": "Full lifecycle cloud infrastructure management", "impactMetric": "High-availability multi-service architecture" },
+        { "name": "CI/CD Pipelines", "level": "Advanced", "description": "Automated deployment with GitHub Actions and testing", "impactMetric": "30% faster feature delivery turnaround" },
+        { "name": "Git & Version Control", "level": "Expert", "description": "Git flow, branching strategies, and code reviews", "impactMetric": "Standard workflow across all production projects" },
+        { "name": "Linux Server Management", "level": "Intermediate", "description": "Server administration and Nginx configuration", "impactMetric": "99.9% uptime maintained" },
+        { "name": "Docker", "level": "Intermediate", "description": "Containerization for consistent environments", "impactMetric": "Environment parity across stages" }
+      ],
+      "impact": "Zero-downtime deployments with automated CI/CD pipelines on AWS"
+    },
+    {
+      "id": "realtime",
+      "name": "Real-Time & Background Processing",
+      "headline": "Queue & Event Systems",
+      "description": "Background job processing and event-driven architecture at scale.",
+      "accentColor": "#EC4899",
+      "skills": [
+        { "name": "Laravel Queues (Redis)", "level": "Advanced", "description": "Job queueing, prioritization, and retry management", "impactMetric": "10K+ background jobs processed daily" },
+        { "name": "Background Jobs", "level": "Advanced", "description": "Async processing with failure handling and exponential backoff", "impactMetric": "20% API latency reduction" },
+        { "name": "Async Processing", "level": "Advanced", "description": "Non-blocking operations for long-running video/file tasks", "impactMetric": "Video processing pipeline built" },
+        { "name": "Push Notifications", "level": "Intermediate", "description": "Firebase real-time notifications and user updates", "impactMetric": "100K+ daily notifications at 95% delivery rate" }
+      ],
+      "impact": "Async video processing system with Redis-powered job queues"
+    }
+  ]
+}

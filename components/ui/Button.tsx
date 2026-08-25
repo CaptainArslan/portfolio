@@ -5,7 +5,18 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { buttonPrimary } from "@/lib/animations";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps
+  extends Omit<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    // Framer Motion's <motion.button> redefines these event handlers with its
+    // own (compatible, but differently-typed) signatures.
+    | "onDrag"
+    | "onDragStart"
+    | "onDragEnd"
+    | "onAnimationStart"
+    | "onAnimationEnd"
+    | "onAnimationIteration"
+  > {
   variant?: "primary" | "secondary" | "ghost";
   size?: "sm" | "md" | "lg";
   href?: string;
@@ -37,7 +48,7 @@ const Button: React.FC<ButtonProps> = ({
   useAnimations = true,
   ...props
 }) => {
-  const baseClasses = `${variants[variant]} ${sizes[size]} ${className} transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed`;
+  const baseClasses = `${variants[variant]} ${sizes[size]} ${className} transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed`;
 
   // External link
   if (href && isExternal) {
@@ -76,8 +87,6 @@ const Button: React.FC<ButtonProps> = ({
 
   // Button
   return (
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore - Framer Motion type conflicts with React button props
     <motion.button
       className={baseClasses}
       variants={useAnimations ? buttonPrimary : undefined}

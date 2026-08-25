@@ -55,13 +55,21 @@ LinkedIn: https://www.linkedin.com/in/muhammad-arslan-390448213
 - CI/CD Pipelines
 - Real-Time & Background Processing
 
-**Real Projects (ONLY these, no invented projects):**
-| Project | Employer | Stack |
+**Real Projects — current source of truth is `data/projects.json` / `data/featured-projects.json` (10 case studies as of this update; do not invent additional ones — new projects are added there directly from the owner or from a GitHub/live link, never guessed):**
+| Project | Employer / Client | Stack |
 |---|---|---|
 | PayYourCell | Hegemonic Inc | Laravel, GoHighLevel, AWS, MySQL |
 | Noomerik.com | Hegemonic Inc | Laravel, PHP, MySQL, REST API |
 | loom.dreamhoster.com | HexaTech Solution | Laravel, Redis, AWS, PHP |
 | Ylaa.com | DevZone Solutions | Laravel, PHP, MySQL, jQuery |
+| Catering d'Aran | Catering d'Aran | Laravel, PHP, MySQL, REST API, Payment APIs |
+| Silent Partners | Silent Partners | Laravel, PHP, MySQL, REST API, AWS |
+| Waste Pilot | Arcann Waste | Next.js, TypeScript, JWT, REST API, Vercel |
+| PaymentCellular | PaymentCellular | Laravel, PHP, MySQL, Payment APIs, REST API, AWS |
+| Pay Cellular Plan | Pay Cellular Plan | Laravel, PHP, MySQL, Payment APIs, REST API, AWS |
+| HayWork | HayWork | Laravel, PHP, MySQL, REST API, Payment integration, AWS |
+
+Note: for the last six, "Employer / Client" names the business the project was built for (not a line on the resume) — worth confirming with the owner exactly how each relates to the resume's employer history before treating that mapping as final.
 
 ---
 
@@ -117,14 +125,20 @@ Claude must ONLY use the following technologies. Do NOT introduce additional lib
   /sections             Large page sections (Hero, TrustMetrics, etc.)
   /three                Three.js / R3F scenes
 
+/data                   All portfolio content (single source of truth — JSON, one file per page/section)
+  about.json            Experience timeline, philosophy, tech stack, credentials
+  skills.json            Skill categories for /skills (exact 5 categories below)
+  projects.json          Full case studies for /projects and /projects/[slug]
+  featured-projects.json Home page featured-project cards
+  hero.json, capabilities.json, cta-section.json, trust-metrics.json
+
 /lib
-  data.ts               All portfolio content (single source of truth)
   utils.ts              Utility functions (cn, formatDate, slugify, etc.)
   animations.ts         Shared Framer Motion variants
 
 /public
   /images               Optimized images
-  resume.pdf            Muhammad Arslan's resume (must be placed here)
+  Muhammad_Arslan_Resume.pdf   Muhammad Arslan's resume (linked from About/Hero — keep this exact filename in sync with any links to it)
 
 CLAUDE.md               This file
 package.json
@@ -269,7 +283,7 @@ slideInLeft    // x -20→0, opacity 0→1
 |---|---|---|
 | Home | `/` | Hero, metrics, featured projects, capabilities, CTA |
 | About | `/about` | Engineering philosophy, experience timeline, stack |
-| Projects | `/projects` | All 4 real projects with case study previews |
+| Projects | `/projects` | All real projects (currently 10) with case study previews |
 | Project Detail | `/projects/[slug]` | Full case study: problem, architecture, outcomes |
 | Skills | `/skills` | Interactive skill categories + visual system map |
 | Blog | `/blog` | Technical insights (MDX, frontend-only initially) |
@@ -293,13 +307,7 @@ slideInLeft    // x -20→0, opacity 0→1
 4. Cloud & Deployment Workflows
 5. Real-Time & Background Processing
 
-### Projects (use EXACT names and employers)
-```
-PayYourCell         → Hegemonic Inc
-Noomerik.com        → Hegemonic Inc
-loom.dreamhoster.com → HexaTech Solution
-Ylaa.com            → DevZone Solutions
-```
+### Projects (use EXACT names and employers/clients — see the Real Projects table above for the current full list of 10)
 
 ---
 
@@ -365,8 +373,8 @@ Response: { score, matchedSkills, projects, summary }
 | Phase 1 | Project scaffold, config, design system | ✅ Complete |
 | Phase 2 | All page layouts and sections (frontend-only) | 🔄 In Progress |
 | Phase 3 | Animations, interactions, premium polish | 🔄 In Progress |
-| Phase 4 | Blog with MDX | ⬜ Pending |
-| Phase 5 | Contact form backend (Resend API) | ⬜ Pending |
+| Phase 4 | Blog (currently hardcoded posts, not MDX yet) | 🔄 In Progress |
+| Phase 5 | Contact form backend (Resend API) | ✅ Complete |
 | Phase 6 | Fit Check backend (AI scoring) | ⬜ Pending |
 | Phase 7 | Performance optimization + Lighthouse pass | ⬜ Pending |
 | Phase 8 | Production deployment on Vercel | ⬜ Pending |
@@ -385,7 +393,7 @@ During all development sessions, Claude must:
 6. **Build incrementally** — complete one section fully before moving to the next
 7. **Check this file first** before making any architectural decision
 8. **Keep components small** — one responsibility per component
-9. **Keep the data layer separate** — content lives in `/lib/data.ts`, not inside components
+9. **Keep the data layer separate** — content lives in `/data/*.json`, not inside components (this superseded the earlier `/lib/data.ts` plan, which was never wired up and has been removed)
 10. **Flag backend dependencies** clearly when they arise in frontend work
 
 ---
@@ -409,7 +417,7 @@ vercel --prod        # Deploy to production
 
 ## Notes
 
-- Resume PDF must be placed at `/public/resume.pdf` for the download button to work
+- Resume PDF lives at `/public/Muhammad_Arslan_Resume.pdf` — the About/Hero download buttons link to that exact filename, so keep them in sync if the file is ever renamed
 - All 3D scenes must use `dynamic(() => import(...), { ssr: false })` to prevent SSR errors
 - The `cn()` utility (clsx + tailwind-merge) must be used for all conditional classNames
 - This file should be updated whenever the project scope changes significantly

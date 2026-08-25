@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 import { Download, MapPin, ArrowRight } from 'lucide-react';
 import {
@@ -125,6 +125,7 @@ function SectionHeader({
    PAGE COMPONENT
    ============================================ */
 export default function About() {
+  const reduceMotion = useReducedMotion();
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
 
@@ -136,8 +137,8 @@ export default function About() {
           style={{
             background: 'radial-gradient(ellipse at center, rgba(37,99,235,0.06) 0%, transparent 70%)',
           }}
-          animate={{ y: [0, 20, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+          animate={reduceMotion ? undefined : { y: [0, 20, 0] }}
+          transition={reduceMotion ? undefined : { duration: 10, repeat: Infinity, ease: 'easeInOut' }}
         />
 
         <div className="max-w-7xl mx-auto">
@@ -167,7 +168,7 @@ export default function About() {
                 className="text-lg text-[#475569] mb-8 leading-relaxed max-w-2xl"
                 variants={fadeInUp}
               >
-                I&apos;m Muhammad Arslan — a Back-End Engineer with 3+ years designing secure,
+                I&apos;m Muhammad Arslan — a Back-End Engineer with 5+ years designing secure,
                 high-performance systems for international tech companies. I specialize in
                 Laravel, PHP, MySQL, and AWS — systems that handle real traffic, real
                 payments, and real data.
@@ -217,8 +218,8 @@ export default function About() {
               variants={staggerContainer}
             >
               {[
-                { number: '3+', label: 'Years Experience', sub: 'Backend engineering' },
-                { number: '6', label: 'Employers', sub: 'International & local (resume)' },
+                { number: '5+', label: 'Years Experience', sub: 'Backend engineering' },
+                { number: '7', label: 'Employers', sub: 'International & local (resume)' },
                 { number: '10', label: 'Portfolio Systems', sub: 'Case studies & live platforms' },
                 { number: '99.9%', label: 'Uptime Maintained', sub: 'Production APIs' },
               ].map((stat, idx) => (
@@ -285,7 +286,7 @@ export default function About() {
           <SectionHeader
             eyebrow="Work History"
             title="Companies I've Built Systems For"
-            subtitle="Nine roles across 3+ years — each with measurable backend engineering impact."
+            subtitle="Nine roles across 5+ years — each with measurable backend engineering impact."
           />
 
           <div className="relative">
@@ -458,8 +459,8 @@ export default function About() {
         <motion.div
           className="absolute top-0 right-0 w-80 h-80 pointer-events-none"
           style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%)' }}
-          animate={{ y: [0, 30, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          animate={reduceMotion ? undefined : { y: [0, 30, 0] }}
+          transition={reduceMotion ? undefined : { duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         />
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <motion.h2
@@ -488,7 +489,11 @@ export default function About() {
             viewport={viewportOnce}
           >
             <motion.div variants={fadeInUp}>
-              <Link href="/contact">
+              <a
+                href="https://wa.me/923177638978?text=Hi%20Muhammad%2C%20I%27d%20like%20to%20talk%20about%20a%20project."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <motion.div
                   whileHover={{ scale: 1.04, boxShadow: '0 16px 40px rgba(0,0,0,0.2)' }}
                   whileTap={{ scale: 0.96 }}
@@ -497,7 +502,7 @@ export default function About() {
                   Start a Conversation
                   <ArrowRight size={15} />
                 </motion.div>
-              </Link>
+              </a>
             </motion.div>
             <motion.div variants={fadeInUp}>
               <Link href="/projects">

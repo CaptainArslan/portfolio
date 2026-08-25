@@ -6,94 +6,156 @@
   },
   "projects": [
     {
-      "title": "PayYourCell",
-      "category": "Payment Platform",
-      "description": "Enterprise payment platform with GoHighLevel CRM automation, encrypted middleware for PCI compliance, and performance-tuned APIs serving thousands of active users.",
-      "technologies": ["Laravel", "GoHighLevel", "AWS", "Redis", "MySQL"],
-      "impact": "50% faster client onboarding · 25% API response improvement · 99.9% uptime",
-      "caseStudySlug": "payyourcell",
-      "accentColor": "#2563EB"
-    },
-    {
-      "title": "Noomerik.com",
-      "category": "Service Platform",
-      "description": "Scalable service marketplace powered by a modular REST API ecosystem with CRM-driven automation workflows and high-availability backend.",
-      "technologies": ["Laravel", "PHP", "MySQL", "REST API", "AWS"],
-      "impact": "50K+ daily active users · 99.9% API availability · Sub-500ms response",
-      "caseStudySlug": "noomerik",
-      "accentColor": "#7C3AED"
-    },
-    {
-      "title": "loom.dreamhoster.com",
-      "category": "Video Platform",
-      "description": "Video recording platform with async background job processing, custom payment gateway integration, and Redis-powered queue management.",
-      "technologies": ["Laravel", "Redis", "AWS S3", "PHP", "MySQL"],
-      "impact": "45% transaction success boost · 20% API latency reduction · 99.8% uptime",
-      "caseStudySlug": "loom-dreamhoster",
-      "accentColor": "#0891B2"
-    },
-    {
-      "title": "Ylaa.com",
-      "category": "E-commerce",
-      "description": "Full-featured e-commerce platform rebuilt for performance — achieving 30% faster page loads and doubling user capacity without any infrastructure cost increase.",
-      "technologies": ["Laravel", "PHP", "MySQL", "jQuery", "JavaScript"],
-      "impact": "30% faster page loads · 2× user capacity · 18% lower cart abandonment",
-      "caseStudySlug": "ylaa",
-      "accentColor": "#059669"
-    },
-    {
-      "title": "Catering d'Aran",
-      "category": "School Meal Ordering",
-      "description": "School meal ordering for Valle de Arán — child profiles with allergy data, calendar-aware weekly selection, and payments with instant receipts.",
-      "technologies": ["Laravel", "PHP", "MySQL", "REST API", "Payment APIs"],
-      "impact": "3-step parent flow · allergy-aware profiles · holiday-aware scheduling · instant receipts",
-      "caseStudySlug": "catering-daran",
-      "accentColor": "#C2410C"
-    },
-    {
-      "title": "Silent Partners",
-      "category": "Real Estate Platform",
-      "description": "Discreet B2B network for €5M+ properties — anonymized listings, agent-to-agent matching, and cross-regional placement without early identification.",
-      "technologies": ["Laravel", "PHP", "MySQL", "REST API", "AWS"],
-      "impact": "Anonymized exposure · high-volume segment · seller & buyer agent workflows · discreet reach",
-      "caseStudySlug": "silent-partners",
-      "accentColor": "#0F766E"
-    },
-    {
       "title": "Waste Pilot",
       "category": "Waste Operations",
-      "description": "Arcann Waste company panel — JWT-secured dumpster rental operations for companies and contractors, with live location tracking, statistics, and multi–customer-type workflows for trustworthy billing.",
-      "technologies": ["Next.js", "TypeScript", "JWT", "REST API", "Vercel"],
-      "impact": "Digital rentals · live tracking · analytics · multi-segment customers · collections-ready trust",
+      "description": "Multi-tenant Laravel platform for Arcann Waste that digitizes dumpster rental operations for waste companies and independent contractors — JWT-secured company panel with real-time chat, automated job dispatching, and payment processing built for trustworthy billing and collections.",
+      "technologies": [
+        "Laravel",
+        "MySQL",
+        "JWT",
+        "Multi-tenant",
+        "Redis",
+        "AWS S3"
+      ],
+      "impact": "Multi-tenant platform · JWT auth · real-time dispatch chat · cron-automated scheduling · integrated payments",
       "caseStudySlug": "waste-pilot",
       "accentColor": "#166534"
-    },
-    {
-      "title": "PaymentCellular",
-      "category": "Payments & Cellular",
-      "description": "paymentcellular.com — consumer payment flows for cellular/wireless use cases, with production bot verification, server-side orchestration, and webhook-safe settlement.",
-      "technologies": ["Laravel", "PHP", "MySQL", "Payment APIs", "REST API", "AWS"],
-      "impact": "Hardened public surface · server-led checkout · idempotent webhooks · reconciliation-ready records",
-      "caseStudySlug": "paymentcellular",
-      "accentColor": "#4338CA"
-    },
-    {
-      "title": "Pay Cellular Plan",
-      "category": "Wireless Top-Up",
-      "description": "paycellularplan.com — multi-carrier prepaid top-up and bill pay with a phone-first flow, transaction search, secure checkout, and published refund paths (support@paycellularplan.com).",
-      "technologies": ["Laravel", "PHP", "MySQL", "Payment APIs", "REST API", "AWS"],
-      "impact": "Carrier-led refills · transaction lookup · encrypted payments · support & refund clarity",
-      "caseStudySlug": "pay-cellular-plan",
-      "accentColor": "#0D9488"
     },
     {
       "title": "HayWork",
       "category": "Freelance Marketplace",
       "description": "haywork.am — Armenian freelance platform: multi-category services and jobs in AMD, freelancer profiles, ratings, and marketplace tooling (fees, hourly work, payouts).",
-      "technologies": ["Laravel", "PHP", "MySQL", "REST API", "Payment integration", "AWS"],
+      "technologies": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "REST API",
+        "Payment integration",
+        "cPanel Hosting"
+      ],
       "impact": "1000+ specialists · 500+ services · reviews & discovery · commission-aware marketplace",
       "caseStudySlug": "haywork",
       "accentColor": "#BE185D"
+    },
+    {
+      "title": "Pay Cellular Plan",
+      "category": "Wireless Top-Up",
+      "description": "paycellularplan.com — multi-carrier prepaid top-up and bill pay with a phone-first flow, transaction search, secure checkout, and published refund paths (support@paycellularplan.com).",
+      "technologies": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "Payment APIs",
+        "Cloudways"
+      ],
+      "impact": "Carrier-led refills · transaction lookup · encrypted payments · support & refund clarity",
+      "caseStudySlug": "pay-cellular-plan",
+      "accentColor": "#0D9488"
+    },
+    {
+      "title": "PaymentCellular",
+      "category": "Payments & Cellular",
+      "description": "paymentcellular.com — consumer payment flows for cellular/wireless use cases, with production bot verification, server-side orchestration, and webhook-safe settlement.",
+      "technologies": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "Payment APIs",
+        "Cloudways"
+      ],
+      "impact": "Hardened public surface · server-led checkout · idempotent webhooks · reconciliation-ready records",
+      "caseStudySlug": "paymentcellular",
+      "accentColor": "#4338CA"
+    },
+    {
+      "title": "Silent Partners",
+      "category": "Real Estate Platform",
+      "description": "Discreet B2B network for €5M+ properties — anonymized listings, agent-to-agent matching, and cross-regional placement without early identification.",
+      "technologies": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "Hostinger"
+      ],
+      "impact": "Anonymized exposure · high-volume segment · seller & buyer agent workflows · discreet reach",
+      "caseStudySlug": "silent-partners",
+      "accentColor": "#0F766E"
+    },
+    {
+      "title": "Catering d'Aran",
+      "category": "School Meal Ordering",
+      "description": "School meal ordering for Valle de Arán — child profiles with allergy data, calendar-aware weekly selection, and payments with instant receipts.",
+      "technologies": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "REST API",
+        "Payment APIs",
+        "Cron Jobs",
+        "Shared Hosting"
+      ],
+      "impact": "3-step parent flow · allergy-aware profiles · holiday-aware scheduling · instant receipts",
+      "caseStudySlug": "catering-daran",
+      "accentColor": "#C2410C"
+    },
+    {
+      "title": "Ylaa.com",
+      "category": "E-commerce",
+      "description": "Full-featured e-commerce platform rebuilt for performance — achieving 30% faster page loads and doubling user capacity without any infrastructure cost increase.",
+      "technologies": [
+        "Core PHP",
+        "MySQL",
+        "jQuery",
+        "JavaScript",
+        "Bootstrap"
+      ],
+      "impact": "30% faster page loads · 2× user capacity · 18% lower cart abandonment",
+      "caseStudySlug": "ylaa",
+      "accentColor": "#059669"
+    },
+    {
+      "title": "loom.dreamhoster.com",
+      "category": "Video Platform",
+      "description": "Video recording platform with async background job processing and custom payment gateway integration for reliable media handling.",
+      "technologies": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "cPanel Hosting"
+      ],
+      "impact": "45% transaction success boost · 20% API latency reduction · 99.8% uptime",
+      "caseStudySlug": "loom-dreamhoster",
+      "accentColor": "#0891B2"
+    },
+    {
+      "title": "Noomerik.com",
+      "category": "Service Platform",
+      "description": "Scalable service marketplace powered by a modular REST API ecosystem with CRM-driven automation workflows and high-availability backend.",
+      "technologies": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "REST API",
+        "AWS"
+      ],
+      "impact": "50K+ daily active users · 99.9% API availability · Sub-500ms response",
+      "caseStudySlug": "noomerik",
+      "accentColor": "#7C3AED"
+    },
+    {
+      "title": "PayYourCell",
+      "category": "Payment Platform",
+      "description": "Enterprise payment platform with GoHighLevel CRM automation, encrypted middleware for PCI compliance, and performance-tuned APIs serving thousands of active users.",
+      "technologies": [
+        "Laravel",
+        "GoHighLevel",
+        "AWS",
+        "Redis",
+        "MySQL"
+      ],
+      "impact": "50% faster client onboarding · 25% API response improvement · 99.9% uptime",
+      "caseStudySlug": "payyourcell",
+      "accentColor": "#2563EB"
     }
   ]
 }

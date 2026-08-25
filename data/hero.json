@@ -4,7 +4,7 @@
   "headline": "I Build Backend Systems That Scale Under Pressure",
   "description": "Specialized in Laravel, PHP, MySQL, Redis, and AWS — building payment pipelines, CRM automations, and high-availability APIs that handle real traffic and real money.",
   "metrics": [
-    { "icon": "Briefcase", "label": "6 Employers" },
+    { "icon": "Briefcase", "label": "7 Employers" },
     { "icon": "Layers", "label": "10 Portfolio Systems" },
     { "icon": "Shield", "label": "99.9% Uptime" }
   ],
@@ -16,9 +16,18 @@
     "text": "Download Resume",
     "link": "/Muhammad_Arslan_Resume.pdf"
   },
-  "codeSnippet": "// Secure async payment pipeline\npublic function processPayment(\n    PaymentRequest $req\n): JsonResponse {\n    // Encrypted middleware layer\n    $encrypted = encrypt($req->sensitive);\n\n    // Queue async — non-blocking\n    ProcessPaymentJob::dispatch(\n        $encrypted, $req->gateway\n    )->onQueue('payments');\n\n    // GoHighLevel CRM sync\n    GoHighLevel::sync($req->contact);\n\n    return response()->json([\n        'status' => 'queued',\n        'id'     => $req->id,\n    ], 201);\n}",
+  "codeSnippets": [
+    {
+      "filename": "RateLimiter.php",
+      "code": "<?php\n\nnamespace App\\Http\\Middleware;\n\nuse Closure;\nuse Illuminate\\Http\\Request;\nuse Illuminate\\Support\\Facades\\RateLimiter as Limiter;\n\nclass RateLimiter\n{\n    /**\n     * Sliding-window rate limit per API key — protects\n     * shared endpoints from abuse without blocking normal use.\n     */\n    public function handle(Request $request, Closure $next)\n    {\n        $key = 'api:' . $request->header('X-Api-Key', $request->ip());\n\n        if (Limiter::tooManyAttempts($key, 60)) {\n            return response()->json([\n                'message' => 'Too many requests.',\n            ], 429);\n        }\n\n        Limiter::hit($key, 60);\n\n        return $next($request);\n    }\n}"
+    },
+    {
+      "filename": "ReportJob.php",
+      "code": "<?php\n\nnamespace App\\Jobs;\n\nuse Illuminate\\Bus\\Queueable;\nuse Illuminate\\Queue\\SerializesModels;\nuse Illuminate\\Contracts\\Queue\\ShouldQueue;\n\nclass ReportJob implements ShouldQueue\n{\n    use Queueable, SerializesModels;\n\n    public int $tries = 3;\n    public int $backoff = 30;\n\n    public function __construct(private int $tenantId) {}\n\n    /**\n     * Runs off the request cycle — keeps heavy report\n     * generation from ever blocking the user-facing app.\n     */\n    public function handle(): void\n    {\n        $report = Report::forTenant($this->tenantId)->build();\n\n        $report->store()->notifyOwners();\n    }\n}"
+    }
+  ],
   "statusBar": {
     "uptime": "99.9% uptime",
-    "tech": "Laravel + Redis + AWS"
+    "tech": "Laravel + MySQL + Redis"
   }
 }

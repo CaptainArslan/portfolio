@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { cardHover } from "@/lib/animations";
@@ -75,6 +75,7 @@ function CapabilityCard({ icon: iconName, title, description, metric, index }: C
     CloudIcon: CloudIcon,
   };
   const Icon = icons[iconName as keyof typeof icons];
+  const reduceMotion = useReducedMotion();
 
   const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: true });
 
@@ -118,8 +119,8 @@ function CapabilityCard({ icon: iconName, title, description, metric, index }: C
         >
           <motion.span
             className="w-1 h-1 rounded-full bg-[#2563EB]"
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
+            animate={reduceMotion ? undefined : { scale: [1, 1.2, 1] }}
+            transition={reduceMotion ? undefined : { duration: 2, repeat: Infinity }}
           />
           {metric}
         </motion.div>

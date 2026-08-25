@@ -16,21 +16,40 @@ const contactSchema = z.object({
   subject: z.string().trim().max(300).optional(),
   type: z.string().trim().min(1).max(200),
   message: z.string().trim().min(1, "Message is required").max(10000),
+  // Honeypot: real visitors never see or fill this field (see app/contact/page.tsx).
+  // Bots that autofill every input populate it, which we treat as spam below.
+  company: z.string().trim().max(200).optional(),
 });
 
-export async function POST(request: NextRequest) {
-  const env = resolveContactEmailEnv();
-  if (!env.ok) {
-    return NextResponse.json(
-      { error: contactEmailConfigErrorMessage(env.missing) },
-      { status: 500 }
-    );
-  }
-  const { apiKey, from, to } = env;
+// Lightweight in-memory rate limit: 5 submissions per IP per 10 minutes.
+// This resets whenever the serverless instance recycles, so it's a mitigation
+// layer against casual/scripted abuse, not a hard guarantee — add a durable
+// store (Upstash Redis, etc.) if stronger protection is ever needed.
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const RATE_LIMIT_MAX = 5;
+const submissionsByIp = new Map<string, number[]>();
 
-  const fromConfigError = getResendFromConfigError(from);
-  if (fromConfigError) {
-    return NextResponse.json({ error: fromConfigError }, { status: 500 });
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const recent = (submissionsByIp.get(ip) ?? []).filter(
+    (t) => now - t < RATE_LIMIT_WINDOW_MS
+  );
+  recent.push(now);
+  submissionsByIp.set(ip, recent);
+  return recent.length > RATE_LIMIT_MAX;
+}
+
+export async function POST(request: NextRequest) {
+  const ip =
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    request.headers.get("x-real-ip") ||
+    "unknown";
+
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { error: "Too many messages sent. Please try again in a few minutes." },
+      { status: 429 }
+    );
   }
 
   let body: unknown;
@@ -46,6 +65,26 @@ export async function POST(request: NextRequest) {
     const msg =
       Object.values(first).flat()[0] ?? "Please check your form and try again.";
     return NextResponse.json({ error: msg, details: parsed.error.flatten() }, { status: 400 });
+  }
+
+  // Honeypot tripped — pretend success so bots don't learn to avoid the field,
+  // but never actually send the email.
+  if (parsed.data.company) {
+    return NextResponse.json({ ok: true });
+  }
+
+  const env = resolveContactEmailEnv();
+  if (!env.ok) {
+    return NextResponse.json(
+      { error: contactEmailConfigErrorMessage(env.missing) },
+      { status: 500 }
+    );
+  }
+  const { apiKey, from, to } = env;
+
+  const fromConfigError = getResendFromConfigError(from);
+  if (fromConfigError) {
+    return NextResponse.json({ error: fromConfigError }, { status: 500 });
   }
 
   const { name, email, subject, type, message } = parsed.data;

@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
+import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { SiteShell } from "@/components/layout/SiteShell";
 
 /* ============================================
@@ -26,7 +27,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Muhammad Arslan — Back-End Engineer | Laravel & PHP",
   description:
-    "Results-driven Back-End Engineer with 3+ years building scalable Laravel systems, REST APIs, payment integrations, and CRM automations.",
+    "Results-driven Back-End Engineer with 5+ years building scalable Laravel systems, REST APIs, payment integrations, and CRM automations.",
   keywords: [
     "Laravel",
     "PHP",
@@ -34,7 +35,6 @@ export const metadata: Metadata = {
     "Full-Stack Developer",
     "REST API",
     "MySQL",
-    "PostgreSQL",
     "Backend Development",
     "Web Development",
   ],
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     siteName: "Muhammad Arslan Portfolio",
     title: "Muhammad Arslan — Back-End Engineer | Laravel & PHP",
     description:
-      "Results-driven Back-End Engineer with 3+ years building scalable Laravel systems, REST APIs, payment integrations, and CRM automations.",
+      "Results-driven Back-End Engineer with 5+ years building scalable Laravel systems, REST APIs, payment integrations, and CRM automations.",
     images: [
       {
         url: "/og-image.png",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Muhammad Arslan — Back-End Engineer | Laravel & PHP",
     description:
-      "Results-driven Back-End Engineer with 3+ years building scalable Laravel systems, REST APIs, payment integrations, and CRM automations.",
+      "Results-driven Back-End Engineer with 5+ years building scalable Laravel systems, REST APIs, payment integrations, and CRM automations.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -136,6 +136,8 @@ export default function RootLayout({
             <rect width="100%" height="100%" fill="url(#grid)" />
           </svg>
         </div>
+
+        <ScrollProgress />
 
         {/* Main Content — nav outside overflow-x clip; mobile nav is fixed + spacer below */}
         <SiteShell>
