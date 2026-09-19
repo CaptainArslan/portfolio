@@ -26,6 +26,18 @@ interface BlogPost {
 
 const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "nginx-https-production",
+    title: "Deploying a Python App to Production: Nginx, Gunicorn/Uvicorn & HTTPS on Ubuntu",
+    excerpt:
+      "Part 2 of the Python deployment guide — the full path from a GitHub repository to a real, secured website. Covers Git deploy keys, cloning the Python app onto the server, running it under Gunicorn + Uvicorn workers via systemd, configuring Nginx as a reverse proxy, locking down the firewall, and enabling HTTPS with Certbot.",
+    tags: ["Python", "Nginx", "HTTPS", "DevOps"],
+    readTime: 13,
+    date: "2026-09-19",
+    url: "https://captainarslan.github.io/python-systemd-guide/production-deployment.html",
+    githubUrl: "https://github.com/CaptainArslan/python-systemd-guide",
+    image: "/blog/nginx-https-production.jpg",
+  },
+  {
     slug: "deploy-laravel-vps",
     title: "Deploying Laravel to a Bare Ubuntu VPS: A Complete, Copy-Paste Guide",
     excerpt:
